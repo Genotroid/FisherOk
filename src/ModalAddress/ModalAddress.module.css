@@ -1,0 +1,293 @@
+.Modal {
+    display: none;
+}
+
+.ModalActive {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    border: 1px solid #5d7cb8;
+    z-index: 99999;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #848DAF;
+
+}
+
+.ModalContent {
+    transition: 0.5s all;
+
+}
+
+.ModalContentActive {
+    margin-top: -336px;
+    width: 643px;
+    height: 397px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.ModalOff {
+    width: 10px;
+    height: 10px;
+}
+
+.ModalOffLink {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+}
+
+.ModalOffLink:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.ModalOffLink:hover:after, .ModalOffLink:hover:before {
+    background: #ED3135;
+
+}
+
+.ModalOffLink:before, .ModalOffLink:after {
+    position: absolute;
+    top: 18px;
+    left: 616px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background: #6C78B0;
+
+}
+
+.ModalOffLink:before {
+    transform: rotate(45deg);
+}
+
+.ModalOffLink:after {
+    transform: rotate(-45deg);
+}
+
+.ModalLink {
+    border: none;
+    background: #243DA1;
+    border-radius: 3px;
+    color: white;
+    width: 205px;
+    height: 40px;
+    margin: 19px 0 0 0;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.ModalLink:hover {
+    cursor: pointer;
+    background: #657EE2;
+}
+
+.ModalContent {
+    margin: 0 auto;
+    width: 543px;
+}
+
+.ModalContentName {
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    margin-top: 30px;
+}
+
+.ModalContentData {
+    margin: 28px 0 0 0;
+}
+
+.ModalContentItem span {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.ModalContentSity {
+    display: flex;
+}
+
+.SelectCss {
+    color: #00145C;
+    display: block;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    border: 1px solid #ADB6D8;
+    width: 174px;
+    height: 40px;
+    border-radius: 3px;
+    appearance: none;
+    background-color: white;
+    background-repeat: no-repeat, repeat;
+    background-position: right 10px top 50%, 0 0;
+    background-size: 10px auto, 100%;
+    outline: none;
+    padding: 0 0 0 10px;
+    margin: 0 0 14px 0;
+    cursor: pointer;
+}
+
+.SelectCss:hover {
+    border: 1px solid #657EE2;
+    color: #657EE2;
+}
+
+.SelectCss:focus {
+    color: #00145C;
+}
+
+.ModalContentItem input {
+    border: 1px solid #ADB6D8;
+    outline: none;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    border-radius: 3px;
+}
+
+.ModalContentItem:hover input {
+    border: 1px solid #657EE2;
+}
+
+
+.ModalContentItem:nth-child(2) input {
+    width: 186px;
+    height: 36px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.ModalContentItem:nth-child(3) input {
+    width: 49px;
+    height: 36px;
+    text-align: center;
+}
+
+.ModalContentItem:nth-child(4) input {
+    width: 49px;
+    height: 36px;
+    text-align: center;
+}
+
+.ModalContentItem:nth-child(2) {
+    margin: 0 10px 0 20px;
+}
+
+.ModalContentItem:nth-child(3) {
+    margin-right: 10px;
+}
+
+.ModalContentComent span {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.ModalContentComent textarea {
+    resize: none;
+    border: 1px solid #ADB6D8;
+    width: 536px;
+    height: 75px;
+    outline: none;
+    text-align: start;
+    border-radius:3px;
+}
+
+.ModalContentComent:hover textarea {
+    border: 1px solid #657EE2;
+
+}
+
+.ModalContentComent {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 720px) {
+    .ModalContentActive {
+        margin-top: -246px;
+        width: 300px;
+        height: 447px;
+        background: #FFFFFF;
+        border-radius: 6px;
+    }
+
+    .ModalOffLink:before, .ModalOffLink:after {
+        position: absolute;
+        top: 10px;
+        left: 282px;
+        content: ' ';
+        height: 15px;
+        width: 2px;
+        background: #6C78B0;
+    }
+
+    .ModalContentName {
+        font-size: 15px;
+        line-height: 27px;
+        color: #000000;
+        margin-top: 2px;
+    }
+
+    .ModalContent {
+        margin: 0 auto;
+        width: 254px;
+    }
+
+    .ModalContentData {
+        margin: 10px 0 0 0;
+        font-size: 9px;
+    }
+
+    .ModalContentSity {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .ModalContentItem span {
+        margin-bottom: 2px;
+    }
+
+    .SelectCss {
+        width: 254px;
+        height: 40px;
+        margin: 0;
+    }
+
+    .ModalContentItem:nth-child(2) {
+        margin: 5px 0;
+    }
+
+    .ModalContentItem:nth-child(2) input {
+        width: 222px;
+        height: 36px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .ModalContentComent textarea {
+        width: 248px;
+        height: 104px;
+    }
+
+    .ModalContentComent {
+        margin: 0;
+    }
+
+    .ModalLink {
+        width: 100%;
+        margin: 15px 0 0 0;
+    }
+}

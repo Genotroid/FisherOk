@@ -1,0 +1,117 @@
+.custom-product-wrapper {
+    position: relative;
+    user-select: none;
+    width: 85%;
+
+}
+
+.custom-product-wrapper {
+    display: inline-block;
+}
+
+.custom-product-select {
+    width: 183px;
+}
+
+.custom-product__trigger {
+    color: #00145C;
+    display: flex;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #ADB6D8;
+    height: 30px;
+    border-radius: 3px;
+    appearance: none;
+    background-color: white;
+    background-repeat: no-repeat, repeat;
+    background-image: url("./../../img/Vector5.png");
+    background-position: right 10px top 50%, 0 0;
+    background-size: 10px auto, 100%;
+    outline: none;
+    padding: 0 0 0 10px;
+    margin: 0 0 26px 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    align-items: center;
+    z-index: 999999999;
+}
+
+.custom-product__trigger:hover {
+    border: 1px solid #657EE2;
+    color: #657EE2;
+}
+
+.custom-product-options {
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 99999999;
+    display: block;
+    min-height: 30px;
+    position: absolute;
+    overflow: hidden;
+    width: 250px;
+    cursor: pointer;
+    top: 0;
+    background: #FFFFFF;
+    border: 1px solid #00145C;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0, 20, 92, 0.15);
+    border-radius: 3px;
+}
+
+.custom-product-select.open .custom-product-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.custom-product-option {
+    position: relative;
+    display: block;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    background: white;
+    color: #00145C;
+    padding: 7px 10px;
+    opacity: 0.5;
+}
+
+.custom-product-options > span:first-child {
+    background-color: white;
+    background-repeat: no-repeat, repeat;
+    background-image: url("./../../img/Vector7.png");
+    background-position: right 10px top 50%, 0 0;
+    background-size: 10px auto, 100%;
+}
+
+.custom-product-option:hover, .custom-product-options > span:first-child:hover {
+    cursor: pointer;
+    opacity: 1;
+    background-color: #EBF0F3;;
+}
+
+.custom-product-option.selected {
+    opacity: 1;
+    color: #00145C;
+}
+
+@media screen and (max-width: 720px) {
+
+    .custom-product-wrapper {
+        position: absolute;
+        bottom: 25px;
+        height: 30px;
+        left: 0;
+        width: 100%;
+    }
+
+    .custom-product-select {
+        width: 100%;
+    }
+}

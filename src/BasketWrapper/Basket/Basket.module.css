@@ -1,0 +1,249 @@
+
+.Basket {
+    width: 876px;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    margin-bottom: 36px;
+}
+
+.BasketSticky {
+    height: 80px;
+    position: sticky;
+    top: -16px;
+    z-index: 6;
+    -webkit-backface-visibility: hidden;
+}
+
+.BasketSticky::before, .BasketSticky::after {
+    content: '';
+    display: block;
+    height: 12px;
+    /* make pseudo elements sticky as well */
+    position: sticky;
+    -webkit-position: sticky;
+}
+
+.BasketSticky::before {
+    top: 48px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
+    box-shadow: 0px 3px 7px -4px rgb(0 0 0 / 50%);
+}
+
+.BasketSticky::after {
+    /* linear gradient from background color to transparent acts as
+       a transition effect so the shadow appears gradually */
+    background: linear-gradient(white 10%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 70%, transparent);
+    top: 0;
+    /* cover should fall over shadow */
+    z-index: 2;
+}
+
+.BasketDelivery {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 44px 18px 29px;
+    margin: 0 0 -14px 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 15;
+    -webkit-backface-visibility: hidden;
+    z-index: 9999;
+}
+
+.BasketDeliveryInfo {
+    position: relative;
+    padding: 3px 11px 0 0;
+    border-bottom: 1px dashed black;
+    position: relative;
+
+}
+
+.BasketDeliveryInfo:hover {
+    color: #657EE2;
+    cursor: pointer;
+    border-bottom: 1px dashed #657EE2;
+}
+
+.BasketDeliveryInfo::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    width: 12px;
+    height: 12px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('./../img/Vector2.png');
+}
+
+.BasketDeliveryInfo:hover::after {
+    content: "";
+    position: absolute;
+    background-image: url('./../img/Vector3.png');
+}
+
+.BasketDeliveryInfo:hover img {
+    opacity: 0.5;
+}
+
+.BasketDeliveryCity {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.BasketDeliveryDate {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    padding-right: 10px;
+}
+
+.BasketDeliveryLogo {
+    padding-right: 9px;
+    width: 39px;
+    height: 11px;
+    display: inline-block;
+}
+
+.MeinInfo {
+    width: 268px;
+}
+
+.Delivery {
+    height: 324px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 26px;
+}
+
+.FullPrice {
+    background-color: #ffffff;
+    border-radius: 6px;
+    height: 511px;
+}
+
+.DeliveryType {
+    padding: 22px 0 0 30px;
+}
+
+.DeliveryTypeData {
+    padding: 14px 0 0 31px;
+}
+
+.DeliveryTypeItem {
+    margin-bottom: 7px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #848DAF;
+}
+
+@media screen and (max-width: 1280px) {
+    .Basket {
+        width: 686px;
+    }
+
+    .BasketDeliveryInfo {
+        padding: 3px 2px 0 0;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    .Basket {
+        width: 290px;
+        margin: 10px auto 36px auto;
+    }
+
+    .BasketDelivery {
+        display: block;
+        padding: 7px 0 8px 19px;
+    }
+
+    .BasketContent {
+        margin: 0 auto;
+    }
+
+    .BasketDeliveryCity {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .BasketDeliveryInfo {
+        margin: 12px 0 0 0;
+        padding: 0;
+        border: 1px solid #D7D7D7;
+        box-sizing: border-box;
+        border-radius: 3px;
+        width: 250px;
+        display: flex;
+    }
+
+    .BasketDeliveryDate {
+        margin: 6px 0 6px 14px;
+        width: 118px;
+        font-size: 12px;
+        line-height: 13px;
+        word-wrap: break-word;
+    }
+
+    .BasketDeliveryLogo {
+        width: 52px;
+        height: 23px;
+        padding: 0;
+        margin: 10px 0 0 25px;
+
+    }
+
+    .BasketDeliveryLogo img {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .BasketDeliveryInfo::after {
+        top: 13px;
+        left: 225px;
+    }
+
+    .BasketDeliveryInfo:hover {
+        border: 1px solid #657EE2;
+    }
+    BasketSticky {
+        height: 80px; /* 64 + 16 */
+        position: sticky;
+        top: -16px;
+       z-index: 2;
+    }
+
+    .BasketSticky::before, .BasketSticky::after {
+        content: '';
+        display: block;
+        height: 12px;
+        /* make pseudo elements sticky as well */
+        position: sticky;
+        -webkit-position: sticky;
+    }
+
+    .BasketSticky::before {
+        top: 70px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
+        box-shadow: 0px 13px 7px -4px rgb(0 0 0 / 50%);
+        margin: 0 0 -14px 0;
+
+    }
+
+    .BasketSticky::after {
+        /* linear gradient from background color to transparent acts as
+           a transition effect so the shadow appears gradually */
+        background: linear-gradient(white 10%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 70%, transparent);
+        top: 0;
+        /* cover should fall over shadow */
+        z-index: 2;
+
+    }
+
+
+}

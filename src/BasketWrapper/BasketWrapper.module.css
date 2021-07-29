@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+.BasketWrapper {
+    margin: 0 auto;
+    width: 1406px;
+    min-height: 100vh;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    background: #EFF5F8;
+
+}
+
+.CheckboxMein {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.CheckboxMein + label {
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.CheckboxMein + label:hover {
+    color: #243DA1;
+    cursor: pointer;
+}
+
+.CheckboxMein + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #ADB6D8;
+    border-radius: 3px;
+    margin-right: 11px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    background-color: white;
+}
+
+.CheckboxMein:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #243DA1;
+
+}
+
+.CheckboxMein:checked + label::before {
+    background-color: #243DA1;
+    background-image: url('./img/Vector4.png');
+    background-size: 80%;
+}
+
+.CheckboxMein:checked + label:hover::before {
+    background-color: #657EE2;
+
+}
+
+.cCheckboxMein:disabled + label::before {
+    background-color: #e9ecef;
+}
+
+.BasketWrapperPath {
+    font-size: 12px;
+    line-height: 16px;
+    color: #768790;
+    width: 200px;
+    height: 20px;
+    margin: 16px 0 0 0;
+}
+
+.BasketWrapperName {
+    font-size: 30px;
+    line-height: 41px;
+    margin: 4px 0 13px 0;
+}
+
+.BasketWrapperInput {
+    font-size: 14px;
+    line-height: 19px;
+    color: #768790;
+    margin: 10px 0 0 0;
+    display: flex;
+}
+
+.BasketWrapperItem {
+    width: 1236px;
+    margin: 0 auto;
+}
+
+.BasketWrapperInputItem {
+    padding: 7px 0 0 11px;
+}
+
+.BasketContent {
+    margin: 19px auto 0 auto;
+    width: 1236px;
+    display: grid;
+    grid-template-areas:"B DP";
+}
+
+.BasketContentData {
+    background-color: #EFF5F8;
+    grid-area: B;
+    margin-right: 36px;
+}
+
+.BasketEW {
+    display: flex;
+    flex-direction: column;
+}
+
+.MobileGoods {
+    display: none;
+}
+
+.MobileBasketWrapperInput {
+    display: none;
+}
+
+@media screen and (max-width: 1420px) {
+    .BasketWrapper {
+        width: 1300px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .BasketWrapper {
+        width: 990px;
+    }
+
+    .BasketContent {
+        width: 980px;
+    }
+
+    .BasketWrapperItem {
+        width: 980px;
+    }
+
+    .BasketContentData {
+        margin-right: 27px;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .BasketWrapper {
+        width: 990px;
+    }
+
+    .BasketContent {
+        width: 980px;
+    }
+
+    .BasketWrapperItem {
+        width: 980px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .BasketWrapper {
+        width: 320px;
+    }
+
+    .BasketContent {
+        display: flex;
+        flex-direction: column;
+        width: 320px;
+        margin: 0 auto;
+    }
+
+    .BasketWrapperItem {
+        width: 290px;
+    }
+
+    .BasketContentData {
+        order: 2;
+        width: 320px;
+    }
+
+    .BasketWrapperInput {
+        display: none;
+    }
+
+    .BasketWrapperPath {
+        display: none;
+    }
+
+    .BasketWrapperName {
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .MobileGoods {
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: 600;
+        margin: 0;
+        display: block;
+        opacity: 1;
+        color: black;
+    }
+
+    .MobileBasketWrapperInput {
+        display: block;
+        margin-left: 15px;
+    }
+}
+
