@@ -6,6 +6,7 @@ import MapImage from '../../BasketWrapper/img/map.png';
 
 const PostDelivery = ({active, setActive}) => {
     const [mobileModalState, setMobileModalState] = useState(window.innerWidth < 768 ? 1 : 0);
+    const [activeDeliveryKey, setActiveDeliveryKey] = useState(0);
     const modalRef = useRef();
 
     const addressList = [
@@ -80,9 +81,12 @@ const PostDelivery = ({active, setActive}) => {
                         <div className={mobileModalState ? s.ModalDeliveryItem : s.ModalPostDeliveryItem}>
                             <div className={mobileModalState ? s.ModalDeliveryOne : s.ModalPostDeliveryOne}>
                                 <div className={s.OneInput}>
-                                    <input className={s.ModalDeliveryRadio} name="delivery" value="sdek"
-                                           id={`delivery-radio-${key}`} type="radio"
-                                           onChange={() => changeCkBoxHandler(2)}/>
+                                    <input className={s.ModalDeliveryRadio} name={"delivery"} value={key}
+                                           id={`delivery-radio-${key}`} type={"radio"}
+                                           onChange={() => {
+                                               setActiveDeliveryKey(key);
+                                               changeCkBoxHandler(2);
+                                           }}/>
                                     <label htmlFor={`delivery-radio-${key}`}>
                                         {mobileModalState
                                             ? <>

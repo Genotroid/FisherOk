@@ -201,9 +201,15 @@
     width: 205px;
     height: 40px;
     color: #ED3135;
-    font-size: 11px;
     padding-top: 4px;
     cursor: default;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
 }
 
 .PromoCodeFormOk {
