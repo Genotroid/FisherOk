@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/FisherOk/static/css/main.1f7329bb.chunk.css",
-    "main.js": "/FisherOk/static/js/main.8d668112.chunk.js",
-    "main.js.map": "/FisherOk/static/js/main.8d668112.chunk.js.map",
-    "runtime-main.js": "/FisherOk/static/js/runtime-main.0696a077.js",
-    "runtime-main.js.map": "/FisherOk/static/js/runtime-main.0696a077.js.map",
-    "static/js/2.dc0dfd9d.chunk.js": "/FisherOk/static/js/2.dc0dfd9d.chunk.js",
-    "static/js/2.dc0dfd9d.chunk.js.map": "/FisherOk/static/js/2.dc0dfd9d.chunk.js.map",
-    "static/js/3.7b08b519.chunk.js": "/FisherOk/static/js/3.7b08b519.chunk.js",
-    "static/js/3.7b08b519.chunk.js.map": "/FisherOk/static/js/3.7b08b519.chunk.js.map",
+    "main.css": "/FisherOk/static/css/main.46ea3252.chunk.css",
+    "main.js": "/FisherOk/static/js/main.a3e54e5f.chunk.js",
+    "main.js.map": "/FisherOk/static/js/main.a3e54e5f.chunk.js.map",
+    "runtime-main.js": "/FisherOk/static/js/runtime-main.fc098410.js",
+    "runtime-main.js.map": "/FisherOk/static/js/runtime-main.fc098410.js.map",
+    "static/js/2.e3088a51.chunk.js": "/FisherOk/static/js/2.e3088a51.chunk.js",
+    "static/js/2.e3088a51.chunk.js.map": "/FisherOk/static/js/2.e3088a51.chunk.js.map",
+    "static/js/3.e3bacc28.chunk.js": "/FisherOk/static/js/3.e3bacc28.chunk.js",
+    "static/js/3.e3bacc28.chunk.js.map": "/FisherOk/static/js/3.e3bacc28.chunk.js.map",
     "index.html": "/FisherOk/index.html",
-    "static/css/main.1f7329bb.chunk.css.map": "/FisherOk/static/css/main.1f7329bb.chunk.css.map",
-    "static/js/2.dc0dfd9d.chunk.js.LICENSE.txt": "/FisherOk/static/js/2.dc0dfd9d.chunk.js.LICENSE.txt",
-    "static/media/karasy1.6b308087.jpg": "/FisherOk/static/media/karasy1.6b308087.jpg"
+    "static/css/main.46ea3252.chunk.css.map": "/FisherOk/static/css/main.46ea3252.chunk.css.map",
+    "static/js/2.e3088a51.chunk.js.LICENSE.txt": "/FisherOk/static/js/2.e3088a51.chunk.js.LICENSE.txt",
+    "static/media/karasy1.6b308087.jpg": "/FisherOk/static/media/karasy1.6b308087.jpg",
+    "static/media/map.9fed3cc8.png": "/FisherOk/static/media/map.9fed3cc8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.0696a077.js",
-    "static/js/2.dc0dfd9d.chunk.js",
-    "static/css/main.1f7329bb.chunk.css",
-    "static/js/main.8d668112.chunk.js"
+    "static/js/runtime-main.fc098410.js",
+    "static/js/2.e3088a51.chunk.js",
+    "static/css/main.46ea3252.chunk.css",
+    "static/js/main.a3e54e5f.chunk.js"
   ]
 }
