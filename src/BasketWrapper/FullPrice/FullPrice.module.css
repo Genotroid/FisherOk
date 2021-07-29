@@ -5,7 +5,7 @@
 }
 
 .FullPrice {
-    width: 322px;
+    width: 266px;
     min-height: 511px;
     background: #FFFFFF;
     border: 1px solid #CED2E1;
@@ -13,7 +13,7 @@
 }
 
 .FullPriceWrapper {
-    width: 263px;
+    width: 205px;
     margin: 0 auto;
     font-size: 14px;
     line-height: 19px;
@@ -92,7 +92,7 @@
     background: #243DA1;
     border-radius: 3px;
     color: white;
-    width: 253px;
+    width: 205px;
     height: 40px;
     margin: 19px 0 0 0;
     font-weight: bold;
@@ -128,14 +128,14 @@
 .PromoCodeFormInput {
     outline: none;
     border: 1px solid #CED2E1;
-    width: 119px;
-    height: 32px;
     background: #FFFFFF;
     border-radius: 3px;
-    padding: 0 72px 0 15px;
     color: #00145C;
     opacity: 0.5;
     font-size: 12px;
+    width: 121px;
+    height: 34px;
+    padding: 2px 69px 4px 15px;
 }
 
 .PromoCodeFormInput::placeholder {
@@ -152,8 +152,6 @@
 
 .PromoCodeFormButton {
     position: absolute;
-    top: 5px;
-    right: 16px;
     width: 47px;
     height: 28px;
     z-index: 9;
@@ -164,6 +162,8 @@
     background: #5CBE00;
     border-radius: 3px;
     cursor: pointer;
+    right: 6px;
+    top: 6px;
 }
 
 .PromoCodeFormButton:hover {
@@ -198,7 +198,7 @@
 }
 
 .PromoCodeFormError {
-    width: 253px;
+    width: 205px;
     height: 40px;
     color: #ED3135;
     font-size: 11px;
@@ -207,46 +207,19 @@
 }
 
 .PromoCodeFormOk {
-    width: 253px;
+    width: 205px;
     height: 40px;
     color: #00145C;
     font-size: 11px;
     opacity: 0.5;
     padding: 4px 0 35px 0;
     cursor: default;
-}
-
-@media screen and (max-width: 1280px) {
-    .FullPrice {
-        width: 266px;
-    }
-
-    .FullPriceWrapper {
-        width: 205px;
-    }
-
-    .FullPriceButton {
-        width: 205px;
-    }
-
-    .PromoCodeFormInput {
-        width: 121px;
-        height: 34px;
-        padding: 2px 69px 4px 15px;
-    }
-
-    .PromoCodeFormOk {
-        width: 205px;
-    }
-
-    .PromoCodeFormButton {
-        right: 6px;
-        top: 6px;
-    }
-
-    .PromoCodeFormError {
-        width: 205px;
-    }
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
 }
 
 @media screen and (max-width: 720px) {

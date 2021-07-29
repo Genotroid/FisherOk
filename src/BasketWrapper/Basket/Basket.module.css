@@ -26,7 +26,7 @@
 
 .BasketSticky::before {
     top: 48px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
-    box-shadow: 0px 3px 7px -4px rgb(0 0 0 / 50%);
+    box-shadow: 0px 2px 20px rgb(0 20 92 / 15%);
 }
 
 .BasketSticky::after {
@@ -54,7 +54,13 @@
 .BasketDeliveryInfo {
     position: relative;
     padding: 3px 11px 0 0;
-    border-bottom: 1px dashed black;
+    background-image: repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
+        repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
+        repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%),
+        repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
+    background-position: left bottom, left bottom, left bottom, right bottom;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 9px 1px, 20px 0px, 0px 20px, 0px 20px;
     position: relative;
 
 }
@@ -62,7 +68,10 @@
 .BasketDeliveryInfo:hover {
     color: #657EE2;
     cursor: pointer;
-    border-bottom: 1px dashed #657EE2;
+    background-image: repeating-linear-gradient(to right, #657EE2 0%, #657EE2 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to right, #657EE2 0%, #657EE2 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
 }
 
 .BasketDeliveryInfo::after {
@@ -181,6 +190,7 @@
         border-radius: 3px;
         width: 250px;
         display: flex;
+        background: none;
     }
 
     .BasketDeliveryDate {
@@ -230,7 +240,7 @@
 
     .BasketSticky::before {
         top: 70px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
-        box-shadow: 0px 13px 7px -4px rgb(0 0 0 / 50%);
+        box-shadow: 0px 2px 20px rgb(0 20 92 / 15%);
         margin: 0 0 -14px 0;
 
     }

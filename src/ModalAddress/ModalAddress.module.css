@@ -125,7 +125,6 @@
     display: block;
     font-size: 14px;
     line-height: 19px;
-    color: #000000;
     border: 1px solid #ADB6D8;
     width: 174px;
     height: 40px;
@@ -133,6 +132,7 @@
     appearance: none;
     background-color: white;
     background-repeat: no-repeat, repeat;
+    background-image: url("../BasketWrapper/img/Vector5.png");
     background-position: right 10px top 50%, 0 0;
     background-size: 10px auto, 100%;
     outline: none;

@@ -133,16 +133,18 @@
     padding-top: 24px;
     cursor: pointer;
 }
-.ModalDeliveryItem:hover div{
-   color: #657EE2;
+
+.ModalDeliveryItem:hover div {
+    color: #657EE2;
     opacity: 1;
 }
+
 .ModalDeliveryItem:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
     border-color: #657EE2;
 }
 
 .ModalDeliveryItem:hover {
-    border: 1px solid #7072f3;
+    border: 1px solid #243DA1;
 }
 
 .ModalDeliveryOne {
@@ -156,9 +158,11 @@
 .ModalPostDeliveryOne {
     display: flex;
 }
-.ModalPostDeliveryOne:hover div{
+
+.ModalPostDeliveryOne:hover div {
     color: #657EE2;
 }
+
 .ModalPostDeliveryOne:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
     border-color: #657EE2;
 }
@@ -174,25 +178,25 @@
     align-items: center;
     user-select: none;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 .ModalDeliveryRadio + label::before {
     content: '';
     display: inline-block;
-    width: 23px;
-    height: 23px;
     flex-shrink: 0;
     flex-grow: 0;
-    border: 1px solid #ADB6D8;
-    border-radius: 50%;
     margin-right: 9px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50% 50%;
+    margin-bottom: -5px;
+    position: relative;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #243DA1;
 }
 
 .ModalDeliveryRadio:not(:disabled):not(:checked) + label:hover::before {
-    border-color: #657EE2;
+    border-color: #243DA1;
 }
 
 .ModalDeliveryRadio:not(:disabled):active + label::before {
@@ -205,9 +209,9 @@
 }
 
 .ModalDeliveryRadio:checked + label::before {
-    color: #6739ff;
-    background-color: #243DA1;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    width: 8px;
+    height: 8px;
+    border: 9px solid #243DA1;
 }
 
 .ModalDeliveryRadio:checked + label {
@@ -216,6 +220,7 @@
     font-size: 14px;
     line-height: 19px;
     color: #000000;
+    opacity: 1;
 }
 
 .OneImg {
@@ -230,11 +235,9 @@
     height: auto;
 }
 
-
 .OneName {
     width: 120px;
     height: 23px;
-    opacity: 0.5;
     font-size: 14px;
     line-height: 19px;
     color: #000000;
@@ -246,7 +249,7 @@
     font-size: 14px;
     line-height: 19px;
     color: #000000;
-    margin: 0px 0px 0px 50px;
+    margin: 0 0 0 50px;
 }
 
 .OnePrice {
@@ -265,6 +268,7 @@
     display: flex;
     flex-direction: row;
     margin: 20px 50px 50px 50px;
+    height: 543px;
 }
 
 .MapBox {
@@ -294,7 +298,8 @@
     font-size: 13px;
     line-height: 40px;
     color: #808AAE;
-    margin-top: 15px
+    margin-top: 15px;
+    height: 438px;
 }
 
 .AddressBook::-webkit-scrollbar {
@@ -497,7 +502,7 @@
         font-size: 12px;
         line-height: 16px;
         text-align: center;
-        background-image: url("../BasketWrapper/img/Vector7.png");
+        background-image: url("../../BasketWrapper/img/Vector7.png");
         background-color: white;
         background-repeat: no-repeat, repeat;
         background-position: left 50% top 10%, 0 0;
@@ -517,7 +522,7 @@
         color: #00145C;
         border: none;
         margin-bottom: 15px;
-        background-image: url("../BasketWrapper/img/Vector9.png");
+        background-image: url("../../BasketWrapper/img/Vector9.png");
         background-color: white;
         background-repeat: no-repeat, repeat;
         background-position: center top 0, 0 0;
@@ -561,7 +566,7 @@
         line-height: 16px;
         text-align: center;
         color: #00145C;
-        background-image: url("../BasketWrapper/img/Vector8.png");
+        background-image: url("../../BasketWrapper/img/Vector8.png");
         background-color: white;
         background-repeat: no-repeat, repeat;
         background-position: left 10px top 50%, 0 0;

@@ -31,7 +31,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/BasketWrapper/CustomSelect" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ModalDelivery/CourierDelivery" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -44,8 +44,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\fisherok\src\BasketWrapper\CustomSelect" />
       <recent name="C:\laragon\www\fisherok\src\ModalDelivery\CourierDelivery" />
+      <recent name="C:\laragon\www\fisherok\src\ModalDelivery\PostDelivery" />
+      <recent name="C:\laragon\www\fisherok\src\BasketWrapper\CustomSelect" />
       <recent name="C:\laragon\www\fisherok\public" />
     </key>
   </component>
@@ -62,7 +63,7 @@
       <workItem from="1627449386928" duration="1283000" />
       <workItem from="1627450680893" duration="37867000" />
       <workItem from="1627524408269" duration="6732000" />
-      <workItem from="1627547399115" duration="14227000" />
+      <workItem from="1627547399115" duration="24605000" />
     </task>
     <servers />
   </component>

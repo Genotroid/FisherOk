@@ -1,25 +1,30 @@
 
-.MeinInfo{
+.MeinInfo {
     font-style: normal;
     font-weight: normal;
     width: 324px;
     grid-area: DP;
 }
-.Delivery{
+
+.Delivery {
     height: 288px;
     background-color: #ffffff;
     border-radius: 6px;
     border: 1px solid #CED2E1;
+    width: 266px;
 }
-.DeliveryType{
+
+.DeliveryType {
     padding: 22px 0 0 30px;
     font-size: 20px;
     line-height: 27px;
 }
-.DeliveryTypeData{
+
+.DeliveryTypeData {
     padding: 12px 0 0 29px;
 }
-.DeliveryTypeItem{
+
+.DeliveryTypeItem {
     margin-bottom: 1px;
     font-style: normal;
     font-weight: normal;
@@ -34,17 +39,18 @@
     opacity: 0;
 }
 
-.DeliveryRadio+label {
+.DeliveryRadio + label {
     display: inline-flex;
     align-items: center;
     user-select: none;
     cursor: pointer;
 }
-.DeliveryRadio+label:hover {
+
+.DeliveryRadio + label:hover {
     color: #657EE2;
 }
 
-.DeliveryRadio+label::before {
+.DeliveryRadio + label::before {
     content: '';
     display: inline-block;
     width: 23px;
@@ -59,145 +65,163 @@
     background-size: 50% 50%;
 }
 
-.DeliveryRadio:not(:disabled):not(:checked)+label:hover::before {
-    border-color:#657EE2;
+.DeliveryRadio:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #657EE2;
 }
 
-.DeliveryRadio:not(:disabled):active+label::before {
+.DeliveryRadio:not(:disabled):active + label::before {
     background-color: #b3d7ff;
     border-color: #b3d7ff;
 }
 
-.DeliveryRadio:focus:not(:checked)+label::before {
+.DeliveryRadio:focus:not(:checked) + label::before {
     border-color: #80bdff;
 }
 
-.DeliveryRadio:checked+label::before {
+.DeliveryRadio:checked + label::before {
     border: 1px solid #243DA1;
     color: #6739ff;
     background-color: #243DA1;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
 
 }
-.DeliveryRadio:checked+label {
+
+.DeliveryRadio:checked + label {
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;
     color: #000000;
 }
-.DeliveryAddress{
+
+.DeliveryAddress {
     width: 269px;
     margin: 12px 0 0 30px;
 }
-.DeliveryAddressTitle{
+
+.DeliveryAddressTitle {
     font-size: 12px;
     line-height: 16px;
     color: #848DAF;
 }
 
-.DeliveryAddressLoca{
+.DeliveryAddressLoca {
+    width: 197px;
     padding: 3px 0 9px 0;
     font-size: 14px;
     line-height: 19px;
 }
-.DeliveryAddressButtonItem{
+
+.DeliveryAddressButtonItem {
     width: 89px;
     height: 30px;
     border: 1px solid #ADB6D8;
     border-radius: 3px;
     cursor: pointer;
-    color:  #00145C;
+    color: #00145C;
 }
-.DeliveryAddressButtonItem:hover{
+
+.DeliveryAddressButtonItem:hover {
     border: 1px solid #657EE2;
     color: #657EE2;
 }
-@media screen and (max-width: 1280px) {
-    .Delivery{
-        width: 266px;
-    }
-    .DeliveryAddressLoca{
-        width: 197px;
-    }
-}
+
 @media screen and (max-width: 720px) {
-    .MeinInfo{
+    .MeinInfo {
         order: 1;
     }
-    .Delivery{
+
+    .Delivery {
         width: 290px;
         margin: 0 auto 30px auto;
         border: none;
-       height: auto;
+        height: auto;
     }
-    .DeliveryType{
-        background:  #EFF5F8;
+
+    .DeliveryType {
+        background: #EFF5F8;
     }
-    .DeliveryMedia{
+
+    .DeliveryMedia {
         border-radius: 6px;
         border: 1px solid #CED2E1;
 
     }
-    .DeliveryTypeData{
+
+    .DeliveryTypeData {
         display: flex;
         padding: 16px 0 0 0;
 
     }
-    .DeliveryTypeItem{
+
+    .DeliveryTypeItem {
 
         font-size: 12px;
     }
-    .DeliveryTypeItem label{
+
+    .DeliveryTypeItem label {
         display: inline-block;
     }
-    .DeliveryRadio+label::before {
+
+    .DeliveryRadio + label::before {
         display: block;
         margin: 0 auto;
         width: 16px;
         height: 16px;
     }
-    .DeliveryRadio:checked+label {
+
+    .DeliveryRadio:checked + label {
         font-size: 12px;
     }
-    .DeliveryRadio{
+
+    .DeliveryRadio {
         margin: 0 auto;
     }
-    .DeliveryAddress{
+
+    .DeliveryAddress {
         width: 269px;
         margin: 0;
-        padding:16px 0 0 18px;
+        padding: 16px 0 0 18px;
     }
+
     .DeliveryTypeItem {
         text-align: center;
     }
-    .DeliveryTypeItem:nth-child(1){
+
+    .DeliveryTypeItem:nth-child(1) {
         width: 80px;
         padding-left: 9px;
-        
+
     }
-    .DeliveryTypeItem:nth-child(2){
+
+    .DeliveryTypeItem:nth-child(2) {
         width: 100px;
     }
-    .DeliveryTypeItem:nth-child(3){
+
+    .DeliveryTypeItem:nth-child(3) {
         padding-left: 7px;
         width: 70px;
     }
-    .DeliveryAddressTitle{
+
+    .DeliveryAddressTitle {
         font-size: 9px;
     }
-    .DeliveryAddressLoca{
+
+    .DeliveryAddressLoca {
         font-size: 12px;
     }
-    .DeliveryAddressLoca{
+
+    .DeliveryAddressLoca {
         margin-top: -4px;
         width: 244px;
         padding: 0;
     }
-    .DeliveryAddressButtonItem{
+
+    .DeliveryAddressButtonItem {
         margin: 6px 0 18px 0;
     }
-    .DeliveryType{
+
+    .DeliveryType {
         padding: 8px 0 8px 0px;
         font-weight: 600;
         font-size: 16px;

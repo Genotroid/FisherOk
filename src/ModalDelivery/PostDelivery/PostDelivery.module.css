@@ -1,0 +1,601 @@
+.Modal {
+    display: none;
+}
+
+.ModalActive {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    border: 1px solid #5d7cb8;
+    z-index: 99999;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #848DAF;
+
+}
+
+.ModalContent {
+    transition: 0.5s all;
+
+}
+
+.ModalContentActive {
+    margin-top: -264px;
+    width: 643px;
+    height: 507px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.ModalPostContentActive {
+    margin-top: 50px;
+    width: 983px;
+    height: 802px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.ModalOff {
+    width: 10px;
+    height: 10px;
+}
+
+.ModalPostOff {
+    height: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.ModalOffLink {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+}
+
+.ModalPostOffLink {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    right: 5px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.ModalOffLink:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.ModalOffLink:hover:after, .ModalOffLink:hover:before, .ModalPostOffLink:hover:after, .ModalPostOffLink:hover:before {
+    background: #ED3135;
+}
+
+.ModalOffLink:before, .ModalOffLink:after {
+    position: absolute;
+    top: 18px;
+    left: 616px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background: #6C78B0;
+}
+
+.ModalPostOffLink:after, .ModalPostOffLink:before {
+    position: absolute;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background: #6C78B0;
+}
+
+.ModalOffLink:before, .ModalPostOffLink:before {
+    transform: rotate(45deg);
+}
+
+.ModalOffLink:after, .ModalPostOffLink:after {
+    transform: rotate(-45deg);
+}
+
+.ModalDeliveryName {
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    margin: 28px auto 0 auto;
+    width: 543px;
+    height: 50px;
+    border-bottom: 1px solid rgb(174, 182, 211, 0.3);
+}
+
+.ModalPostDeliveryName {
+    font-size: 20px;
+    line-height: 27px;
+    color: #000000;
+    margin: 28px auto 0 50px;
+    height: 50px;
+}
+
+.ModalDeliveryItem {
+    margin: 0 auto;
+    width: 583px;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+    padding-top: 24px;
+    cursor: pointer;
+}
+.ModalDeliveryItem:hover div{
+   color: #657EE2;
+    opacity: 1;
+}
+.ModalDeliveryItem:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
+    border-color: #657EE2;
+}
+
+.ModalDeliveryItem:hover {
+    border: 1px solid #7072f3;
+}
+
+.ModalDeliveryOne {
+    margin: 0 0 0 20px;
+    width: 513px;
+    height: 46px;
+    border-bottom: 1px solid rgba(174, 182, 211, 0.3);
+    display: flex;
+}
+
+.ModalPostDeliveryOne {
+    display: flex;
+}
+.ModalPostDeliveryOne:hover div{
+    color: #657EE2;
+}
+.ModalPostDeliveryOne:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
+    border-color: #657EE2;
+}
+
+.ModalDeliveryRadio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.ModalDeliveryRadio + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.ModalDeliveryRadio + label::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 9px;
+    margin-bottom: 60px;
+    position: relative;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #243DA1;
+}
+
+.ModalDeliveryRadio:not(:disabled):not(:checked) + label:hover::before {
+    border-color: #657EE2;
+}
+
+.ModalDeliveryRadio:not(:disabled):active + label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+
+.ModalDeliveryRadio:focus:not(:checked) + label::before {
+    border-color: #80bdff;
+}
+
+.ModalDeliveryRadio:checked + label::before {
+    width: 8px;
+    height: 8px;
+    border: 9px solid #243DA1;
+}
+
+.ModalDeliveryRadio:checked + label {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    opacity: 1;
+}
+
+.OneImg {
+    width: 63px;
+    height: 23px;
+    margin: 0 16px 0 6px;
+}
+
+.OneImg img {
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+}
+
+
+.OneName {
+    width: 120px;
+    height: 23px;
+    opacity: 0.5;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.OneData {
+    width: 170px;
+    height: 23px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+    margin: 0px 0px 0px 50px;
+}
+
+.OnePrice {
+    width: 52px;
+    height: 23px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.MainBox {
+    border: 1px solid rgba(173, 182, 216, 0.3);
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 50px 50px 50px;
+    height: 543px;
+}
+
+.MapBox {
+    width: 65%;
+    height: 100%;
+    max-width: 65%;
+}
+
+.MapImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.AddressBox {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px 15px 15px;
+}
+
+.AddressBook {
+    overflow-y: scroll;
+    max-height: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 40px;
+    color: #808AAE;
+    margin-top: 15px;
+    height: 438px;
+}
+
+.AddressBook::-webkit-scrollbar {
+    width: 5px;
+}
+
+.AddressBook::-webkit-scrollbar-track {
+    background: none;
+}
+
+.AddressBook::-webkit-scrollbar-thumb {
+    background: #243DA1;
+    border-radius: 3px;
+    height: 130px;
+}
+
+.SearchAddress {
+    align-self: center;
+    position: relative;
+}
+
+.SearchAddress input {
+    border: 1px solid #ADB6D8;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #808AAE;
+    padding: 10px 30px 10px 10px;
+    margin: 0 0px 0 -30px;
+    width: 250px;
+}
+
+.SearchAddress input:focus {
+    outline: none !important;
+    border: 1px solid #243DA1;
+}
+
+.SearchAddress svg {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: silver;
+}
+
+.SearchAddress input::placeholder {
+    font-family: Open Sans;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #00145C;
+    opacity: 0.5;
+}
+
+.AddressBook ul {
+    padding: 0;
+    padding-inline-start: 0;
+    margin-inline-start: 0;
+    margin-block-start: 0;
+    padding-inline-end: 0;
+    margin-inline-end: 0;
+    margin-block-end: 0;
+}
+
+.AddressBook ul > li {
+    line-height: normal;
+    list-style-type: none;
+    padding: 5px 15px;
+    opacity: 0.75;
+}
+
+.AddressBook ul > li:hover {
+    background: #EBF0F3;
+    color: #243DA1;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.ModalDeliveryData {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.ModalPostDeliveryData {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 15px 50px;
+}
+
+.ModalPostDelivery {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #000000;
+}
+
+@media screen and (max-width: 720px) {
+    .ModalOffLink:before, .ModalOffLink:after {
+        top: 9px;
+        left: 282px;
+    }
+
+    .ModalContentActive {
+        margin-top: 20px;
+        width: 300px;
+        height: 396px;
+    }
+
+    .ModalPostContentActive {
+        margin-top: 20px;
+        width: 90%;
+        height: 90%;
+    }
+
+    .ModalPostDeliveryData {
+        flex-direction: column;
+    }
+
+    .ModalDeliveryOne {
+        margin: 0 auto 0 auto;
+        width: 250px;
+        height: 46px;
+        flex-wrap: wrap;
+    }
+
+    .ModalDeliveryName {
+        margin: 6px auto 0px auto;
+        padding: 0px 0 12px 0;
+        width: 253px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .ModalDeliveryRadio + label::before {
+        width: 21px;
+        height: 21px;
+        margin-left: -2px;
+    }
+
+    .OneImg {
+        width: 45px;
+        margin: 0 25px 0 -5px;
+        order: 2;
+
+    }
+
+    .OneName {
+        padding-left: 22px;
+        width: 96px;
+        height: 19px;
+        font-size: 12px;
+        line-height: 16px;
+
+        order: 4;
+    }
+
+    .OneData {
+        text-align: right;
+        width: 144px;
+        height: 19px;
+        font-size: 12px;
+        line-height: 16px;
+        margin: 0;
+        order: 3;
+    }
+
+    .OnePrice {
+        width: 52px;
+        height: 19px;
+        font-size: 14px;
+        line-height: 19px;
+        margin-top: -8px;
+        order: 5;
+    }
+
+    .ModalDeliveryItem {
+        width: 253px;
+        border: 1px solid #FFFFFF;
+        padding: 7px 0 0px 0;
+
+    }
+
+    .ModalPostShowList {
+        width: 100%;
+        height: 62px;
+        background: #EBF0F3;
+        color: #00145C;
+        box-shadow: 0px 0px 20px rgb(0 9 57 / 20%);
+        border-radius: 3px;
+        border: none;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        background-image: url("../../BasketWrapper/img/Vector7.png");
+        background-color: white;
+        background-repeat: no-repeat, repeat;
+        background-position: left 50% top 10%, 0 0;
+        background-size: 33px 9px, 100%;
+    }
+
+    .ModalPostHideList {
+        height: 30px;
+        width: 300px;
+        background: none;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        color: #00145C;
+        border: none;
+        margin-bottom: 15px;
+        background-image: url("../../BasketWrapper/img/Vector9.png");
+        background-color: white;
+        background-repeat: no-repeat, repeat;
+        background-position: center top 0, 0 0;
+        background-size: 10px auto, 100%;
+        padding-top: 15px;
+        background-size: 33px 9px, 100%;
+    }
+
+    .MainBox {
+        margin: 0;
+        height: inherit;
+        position: relative;
+    }
+
+    .MapBox {
+        width: 100%;
+        max-width: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
+        display: flex;
+        position: absolute;
+    }
+
+    .ModalPostDeliveryName {
+        text-align: center;
+        margin: 28px 0 0 0;
+    }
+
+    .ModalPostChooseTKButton {
+        height: 30px;
+        width: 250px;
+        border: 1px solid #ADB6D8;
+        box-sizing: border-box;
+        border-radius: 3px;
+        background: none;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        color: #00145C;
+        background-image: url("../../BasketWrapper/img/Vector8.png");
+        background-color: white;
+        background-repeat: no-repeat, repeat;
+        background-position: left 10px top 50%, 0 0;
+        background-size: 10px auto, 100%;
+    }
+
+    .AddressBook {
+        overflow-y: scroll;
+        height: 348px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 40px;
+        color: #808AAE;
+        margin-top: 15px
+    }
+
+    .AddressBox {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 0 0 0;
+        z-index: 3;
+        background: white;
+        bottom: 0;
+        margin-top: 60%;
+    }
+
+    .SearchAddress input {
+        width: 251px;
+        height: 30px;
+    }
+}

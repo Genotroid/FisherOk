@@ -106,7 +106,6 @@
 
 .CheckboxMein:checked + label:hover::before {
     background-color: #657EE2;
-
 }
 
 .cCheckboxMein:disabled + label::before {
@@ -468,6 +467,10 @@ SelectSelect:not(:checked) ~ .SelectItems {
 @media screen and (max-width: 1280px) {
     .Product {
         margin: 0px 0 0 29px;
+    }
+
+    .CheckboxMein:checked + label:hover::before {
+        background-color: #243DA1;
     }
 
     .ProductPrice {
