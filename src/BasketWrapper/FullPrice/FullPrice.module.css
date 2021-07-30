@@ -228,15 +228,42 @@
     align-items: center;
 }
 
+.MobilePromoCodeInput {
+    display: none;
+}
+
 @media screen and (max-width: 720px) {
     .FullPriceContainer {
+        display: none;
         order: 3;
         margin-top: 0;
     }
 
     .FullPrice {
+        display: block;
         width: 290px;
-        margin: 32px auto 0 auto;
+        margin: 0px auto 0px auto;
+    }
+
+    .MobilePromoCodeInput {
+        display: block;
+        order: 3;
+        width: 290px;
+        margin: 0 15px 20px 15px
+    }
+
+    .MobilePromoCodeInput .PromoCodeFormInput {
+        width: 204px;
+    }
+
+    .PromoCodeFormError {
+        padding-top: 0;
+        width: 280px;
+    }
+
+    .PromoCodeFormOk {
+        padding-top: 0;
+        width: 280px;
     }
 }
 

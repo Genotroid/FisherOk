@@ -37,7 +37,6 @@
 }
 
 .ModalPostContentActive {
-    margin-top: 50px;
     width: 983px;
     height: 802px;
     background: #FFFFFF;
@@ -133,16 +132,23 @@
     padding-top: 24px;
     cursor: pointer;
 }
-.ModalDeliveryItem:hover div{
-   color: #657EE2;
-    opacity: 1;
-}
-.ModalDeliveryItem:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
-    border-color: #657EE2;
+
+.ModalDeliveryItem div.OneName {
+    opacity: 0.5;
 }
 
-.ModalDeliveryItem:hover {
-    border: 1px solid #7072f3;
+.ModalDeliveryRadio:checked + label > div.OneName {
+    color: #00145C;
+    opacity: 1;
+}
+
+.ModalDeliveryItem:hover div {
+    color: black;
+    opacity: 1;
+}
+
+.ModalDeliveryItem:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
+    border-color: #657EE2;
 }
 
 .ModalDeliveryOne {
@@ -156,9 +162,11 @@
 .ModalPostDeliveryOne {
     display: flex;
 }
-.ModalPostDeliveryOne:hover div{
+
+.ModalPostDeliveryOne:hover div {
     color: #657EE2;
 }
+
 .ModalPostDeliveryOne:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
     border-color: #657EE2;
 }
@@ -174,7 +182,6 @@
     align-items: center;
     user-select: none;
     cursor: pointer;
-    opacity: 0.5;
 }
 
 .ModalDeliveryRadio + label::before {
@@ -208,6 +215,11 @@
     width: 8px;
     height: 8px;
     border: 9px solid #243DA1;
+}
+
+.ModalDeliveryRadio:checked div.OneName {
+    color: #00145C;
+    opacity: 1;
 }
 
 .ModalDeliveryRadio:checked + label {
@@ -317,6 +329,7 @@
 .SearchAddress {
     align-self: center;
     position: relative;
+    margin-bottom: 12px;
 }
 
 .SearchAddress input {
@@ -400,6 +413,65 @@
     color: #000000;
 }
 
+.OpenSelector {
+    position: absolute;
+    right: 135px;
+    top: 15px;
+    width: 32px;
+    height: 9px;
+}
+
+.OpenSelector:before, .OpenSelector:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 18px;
+    width: 1px;
+    background-color: #00145C;
+}
+
+.OpenSelector:before {
+    transform: rotate(-65deg);
+    left: 25px;
+    top: -4px;
+}
+
+.OpenSelector:after {
+    transform: rotate(  65deg);
+    left: 8px;
+    top: -4px;
+}
+
+.CloseSelector {
+    position: absolute;
+    right: 135px;
+    top: 15px;
+    width: 32px;
+    height: 9px;
+}
+
+.CloseSelector:before, .CloseSelector:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 18px;
+    width: 1px;
+    background-color: #00145C;
+}
+
+.CloseSelector:before {
+    transform: rotate(65deg);
+    left: 25px;
+    top: -4px;
+}
+
+.CloseSelector:after {
+    transform: rotate(-65deg);
+    left: 8px;
+    top: -4px;
+}
+
+
 @media screen and (max-width: 720px) {
     .ModalOffLink:before, .ModalOffLink:after {
         top: 9px;
@@ -413,9 +485,8 @@
     }
 
     .ModalPostContentActive {
-        margin-top: 20px;
-        width: 90%;
-        height: 90%;
+        width: 300px;
+        height: 465px;
     }
 
     .ModalPostDeliveryData {
@@ -424,14 +495,14 @@
 
     .ModalDeliveryOne {
         margin: 0 auto 0 auto;
-        width: 250px;
+        width: 270px;
         height: 46px;
         flex-wrap: wrap;
     }
 
     .ModalDeliveryName {
-        margin: 6px auto 0px auto;
-        padding: 0px 0 12px 0;
+        margin: 6px auto 10px auto;
+        padding: 0 0 12px 0;
         width: 253px;
         font-size: 15px;
         line-height: 20px;
@@ -441,34 +512,44 @@
         width: 21px;
         height: 21px;
         margin-left: -2px;
-        margin-bottom: 7px;
+        margin-bottom: 0;
+    }
+
+    .ModalDeliveryRadio + label {
+        max-width: 270px;
+        display: grid;
+        grid-template-columns: 30px 100px 140px;
+        grid-template-rows: 30px;
+        flex-wrap: wrap;
     }
 
     .OneImg {
         width: 45px;
         margin: 0 25px 0 -5px;
         order: 2;
-
     }
 
     .OneName {
-        padding-left: 22px;
-        width: 96px;
+        width: auto;
         height: 19px;
         font-size: 12px;
         line-height: 16px;
-
+        white-space: nowrap;
+        grid-column-start: 2;
+        grid-column-end: 2;
         order: 4;
+        margin-right: 10px;
     }
 
     .OneData {
-        text-align: right;
-        width: 144px;
+        text-align: left;
+        width: auto;
         height: 19px;
         font-size: 12px;
         line-height: 16px;
         margin: 0;
         order: 3;
+        white-space: nowrap;
     }
 
     .OnePrice {
@@ -478,34 +559,37 @@
         line-height: 19px;
         margin-top: -8px;
         order: 5;
+        grid-column-start: 3;
+        grid-column-end: 3;
     }
 
     .ModalDeliveryItem {
-        width: 253px;
+        width: 270px;
         border: 1px solid #FFFFFF;
-        padding: 7px 0 0px 0;
-
+        padding: 0;
+        height: 61px;
     }
 
     .ModalPostShowList {
-        width: 100%;
+        width: 300px;
         height: 62px;
         background: #EBF0F3;
         color: #00145C;
         box-shadow: 0px 0px 20px rgb(0 9 57 / 20%);
         border-radius: 3px;
         border: none;
+        position: relative;
+    }
+
+    .ModalPostShowList > span:first-child {
+        position: absolute;
+        left: 32%;
+        top: 28px;
         font-family: Open Sans;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
         line-height: 16px;
-        text-align: center;
-        background-image: url("../../BasketWrapper/img/Vector7.png");
-        background-color: white;
-        background-repeat: no-repeat, repeat;
-        background-position: left 50% top 10%, 0 0;
-        background-size: 33px 9px, 100%;
     }
 
     .ModalPostHideList {
@@ -521,24 +605,28 @@
         color: #00145C;
         border: none;
         margin-bottom: 15px;
-        background-image: url("../../BasketWrapper/img/Vector9.png");
-        background-color: white;
-        background-repeat: no-repeat, repeat;
-        background-position: center top 0, 0 0;
-        background-size: 10px auto, 100%;
         padding-top: 15px;
-        background-size: 33px 9px, 100%;
+    }
+
+    .ModalPostHideList > span:first-child {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        position: absolute;
+        left: 32%;
+        top: 28px;
     }
 
     .MainBox {
         margin: 0;
-        height: inherit;
+        height: 390px;
         position: relative;
     }
 
     .MapBox {
-        width: 100%;
-        max-width: 100%;
+        width: 298px;
+        max-width: 300px;
         justify-content: space-between;
         flex-direction: column;
         height: 100%;
@@ -548,7 +636,7 @@
 
     .ModalPostDeliveryName {
         text-align: center;
-        margin: 28px 0 0 0;
+        margin: 15px 0 0 0;
     }
 
     .ModalPostChooseTKButton {
@@ -569,7 +657,7 @@
         background-color: white;
         background-repeat: no-repeat, repeat;
         background-position: left 10px top 50%, 0 0;
-        background-size: 10px auto, 100%;
+        background-size: 5px auto, 100%;
     }
 
     .AddressBook {
@@ -580,7 +668,7 @@
         font-size: 13px;
         line-height: 40px;
         color: #808AAE;
-        margin-top: 15px
+        margin-top: 0;
     }
 
     .AddressBox {
@@ -592,7 +680,7 @@
         z-index: 3;
         background: white;
         bottom: 0;
-        margin-top: 60%;
+        margin-top: 65px;
     }
 
     .SearchAddress input {

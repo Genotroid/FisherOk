@@ -19,7 +19,6 @@
 }
 
 .custom-options > span:first-child {
-    background-color: white;
     background-repeat: no-repeat, repeat;
     background-image: url("./../img/Vector7.png");
     background-position: right 10px top 50%, 0 0;
@@ -66,11 +65,11 @@
 .custom-option {
     position: relative;
     display: block;
-    font-family: Open Sans, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 16px;
+    font-family: Open Sans;
+    /*font-style: normal;*/
+    /*font-weight: 600;*/
+    /*font-size: 12px;*/
+    /*line-height: 16px;*/
     background: white;
     color: #243DA1;
     padding: 7px 10px;

@@ -23,10 +23,10 @@ const ModalAddress = ({active, setActive}) => {
                             <div className={s.ModalContentItem}>
                                 <span>{'Ваш город'}</span>
                                 <select className={s.SelectCss}>
-                                    <option className={s.SelectCssOption}>{'из Москвы'}</option>
-                                    <option>{'из Воронежа'}</option>
-                                    <option>{'из Ярославля'}</option>
-                                    <option>{'из Ростова-на-Дону'}</option>
+                                    <option className={s.SelectCssOption}>{'Москва'}</option>
+                                    <option>{'Воронеж'}</option>
+                                    <option>{'Ярославль'}</option>
+                                    <option>{'Ростов-на-Дону'}</option>
                                 </select>
                             </div>
                             {/*<CustomProductSelect items={cityList}/>*/}

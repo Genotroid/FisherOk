@@ -12,12 +12,8 @@ const  BasketWrapper = (props) => {
             id: 1,
             img: 'karasy.jpg',
             deliverFrom: [
-                {name: 'из Москвы', max: 400},
-                // {name: 'из Воронежа', max: 32},
-                // {name: 'из Ярославля', max: 12},
-                // {name: 'из Ростова-на-Дону', max: 11},
+                {name: 'Москве', max: 400},
             ],
-            // salePrice: 4290,
             article: 62275,
             count: 1,
             maxCount: 4
@@ -26,6 +22,22 @@ const  BasketWrapper = (props) => {
             title: 'Карабин с верт. и подш. Owner 5159-071 №8',
             price: 5390,
             id: 2,
+            img: 'karasy1.jpg',
+            deliverFrom: [
+                {name: 'из Москвы', max: 100},
+                {name: 'из Воронежа', max: 2},
+                {name: 'из Ярославля', max: 5},
+                {name: 'из Ростова-на-Дону', max: 2},
+            ],
+            salePrice: 4190,
+            article: 62276,
+            count: 1,
+            maxCount: 6
+        },
+        {
+            title: 'Карабин с верт. и подш. Owner 5159-071 №8',
+            price: 5390,
+            id: 3,
             img: 'karasy1.jpg',
             deliverFrom: [
                 {name: 'из Москвы', max: 100},
@@ -48,6 +60,31 @@ const  BasketWrapper = (props) => {
         {
             id: 2,
             name: 'из Волгограда',
+            products: [{
+                title: 'Карабин с верт. и подш. Owner 5159-071 №8',
+                price: 5390,
+                id: 2,
+                img: 'karasy1.jpg',
+                deliverFrom: [
+                    {name: 'из Москвы', max: 100},
+                    {name: 'из Воронежа', max: 2},
+                    {name: 'из Ярославля', max: 5},
+                    {name: 'из Ростова-на-Дону', max: 2},
+                ],
+                salePrice: 4190,
+                article: 62276,
+                count: 1,
+                maxCount: 6
+            }]
+        },
+        {
+            id: 3,
+            name: 'из Санкт-Петербурга',
+            products: products
+        },
+        {
+            id: 4,
+            name: 'из Санкт-Петербурга',
             products: products
         }
     ];

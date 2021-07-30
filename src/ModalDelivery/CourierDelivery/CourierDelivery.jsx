@@ -10,7 +10,6 @@ const CourierDelivery = ({active, setActive}) => {
         {name: 'CДЭК'},
         {name: 'CДЭК'},
         {name: 'CДЭК'},
-        {name: 'CДЭК'}
     ];
     const cityList = [
         'Москва, Авиамоторная улица 6с4',

@@ -134,8 +134,17 @@
     cursor: pointer;
 }
 
+.ModalDeliveryItem div.OneName {
+    opacity: 0.5;
+}
+
+.ModalDeliveryItem:hover div.OneName {
+    color: #00145C;
+    opacity: 1;
+}
+
 .ModalDeliveryItem:hover div {
-    color: #657EE2;
+    color: black;
     opacity: 1;
 }
 
@@ -159,9 +168,9 @@
     display: flex;
 }
 
-.ModalPostDeliveryOne:hover div {
-    color: #657EE2;
-}
+/*.ModalPostDeliveryOne:hover div {*/
+/*    color: #657EE2;*/
+/*}*/
 
 .ModalPostDeliveryOne:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
     border-color: #657EE2;
@@ -178,7 +187,6 @@
     align-items: center;
     user-select: none;
     cursor: pointer;
-    opacity: 0.5;
 }
 
 .ModalDeliveryRadio + label::before {
@@ -411,65 +419,72 @@
     .ModalContentActive {
         margin-top: 20px;
         width: 300px;
-        height: 396px;
+        height: 360px;
     }
 
-    .ModalPostContentActive {
-        margin-top: 20px;
-        width: 90%;
-        height: 90%;
-    }
-
-    .ModalPostDeliveryData {
+    .ModalDeliveryData {
         flex-direction: column;
     }
 
     .ModalDeliveryOne {
-        margin: 0 auto 0 auto;
+        margin: 10px;
         width: 250px;
         height: 46px;
         flex-wrap: wrap;
+        padding-bottom: 5px;
     }
 
     .ModalDeliveryName {
-        margin: 6px auto 0px auto;
-        padding: 0px 0 12px 0;
+        margin: 6px auto 10px auto;
+        padding: 0 0 12px 0;
         width: 253px;
         font-size: 15px;
         line-height: 20px;
+        text-align: center;
     }
 
     .ModalDeliveryRadio + label::before {
         width: 21px;
         height: 21px;
         margin-left: -2px;
+        margin-bottom: 0;
+    }
+
+    .ModalDeliveryRadio + label {
+        max-width: 250px;
+        display: grid;
+        grid-template-columns: 30px 90px 140px;
+        grid-template-rows: 30px;
+        flex-wrap: wrap;
     }
 
     .OneImg {
         width: 45px;
-        margin: 0 25px 0 -5px;
+        margin: 0;
         order: 2;
-
     }
 
     .OneName {
-        padding-left: 22px;
-        width: 96px;
+        width: auto;
         height: 19px;
         font-size: 12px;
         line-height: 16px;
-
+        white-space: nowrap;
+        grid-column-start: 2;
+        grid-column-end: 2;
         order: 4;
+        margin-right: 10px;
     }
 
     .OneData {
-        text-align: right;
-        width: 144px;
+        text-align: left;
+        width: auto;
         height: 19px;
         font-size: 12px;
         line-height: 16px;
         margin: 0;
         order: 3;
+        white-space: nowrap;
     }
 
     .OnePrice {
@@ -479,16 +494,18 @@
         line-height: 19px;
         margin-top: -8px;
         order: 5;
+        grid-column-start: 3;
+        grid-column-end: 3;
     }
 
     .ModalDeliveryItem {
-        width: 253px;
+        width: 270px;
         border: 1px solid #FFFFFF;
-        padding: 7px 0 0px 0;
-
+        padding: 0;
+        height: 61px;
     }
 
-    .ModalPostShowList {
+    .ModalShowList {
         width: 100%;
         height: 62px;
         background: #EBF0F3;
@@ -509,7 +526,7 @@
         background-size: 33px 9px, 100%;
     }
 
-    .ModalPostHideList {
+    .ModalHideList {
         height: 30px;
         width: 300px;
         background: none;
@@ -547,14 +564,9 @@
         position: absolute;
     }
 
-    .ModalPostDeliveryName {
-        text-align: center;
-        margin: 28px 0 0 0;
-    }
-
-    .ModalPostChooseTKButton {
+    .ModalChooseTKButton {
         height: 30px;
-        width: 250px;
+        width: 270px;
         border: 1px solid #ADB6D8;
         box-sizing: border-box;
         border-radius: 3px;
@@ -580,7 +592,7 @@
         font-weight: normal;
         font-size: 13px;
         line-height: 40px;
-        color: #808AAE;
+        color: #808aae;
         margin-top: 15px
     }
 

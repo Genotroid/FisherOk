@@ -22,7 +22,7 @@ export const Product = ({product, cityId}) => {
             <label htmlFor={`checkbox-${cityId}-item-${product.id}`}></label>
         </div>
         <div className={s.ProductImg}>
-            {product.salePrice && <div className={s.SaleLabel}><span>- 15%</span></div>}
+            {product.salePrice && <div className={s.SaleLabel}><span>{'-15 %'}</span></div>}
             <img src={image} /*src={`/img/${product.img}`}*//>
         </div>
         <div className={s.ProductName}>
@@ -50,10 +50,10 @@ export const Product = ({product, cityId}) => {
                     <div className={s.ProductPriceDiscount}>
                         {product.salePrice &&
                         <div className={s.ProductPriceNew}>
-                            {(product.price * itemCount).toLocaleString()} ₽
+                            {(product.price * itemCount).toLocaleString()} &#8381;
                         </div>}
                         <div className={product.salePrice ? s.ProductPriceOld : ''}>
-                            {(product.price * itemCount).toLocaleString()} ₽
+                            {(product.price * itemCount).toLocaleString()} &#8381;
                         </div>
                     </div>
                 </div>

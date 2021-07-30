@@ -53,8 +53,8 @@
 .DeliveryRadio + label::before {
     content: '';
     display: inline-block;
-    width: 23px;
-    height: 23px;
+    width: 24px;
+    height: 24px;
     flex-shrink: 0;
     flex-grow: 0;
     border: 1px solid #ADB6D8;

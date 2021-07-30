@@ -26,13 +26,13 @@
 
 .BasketSticky::before {
     top: 48px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
-    box-shadow: 0px 2px 20px rgb(0 20 92 / 15%);
+    box-shadow: 0 4px 20px -2px rgb(0 20 92 / 15%);
 }
 
 .BasketSticky::after {
     /* linear gradient from background color to transparent acts as
        a transition effect so the shadow appears gradually */
-    background: linear-gradient(white 10%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 70%, transparent);
+    background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);
     top: 0;
     /* cover should fall over shadow */
     z-index: 2;
@@ -55,9 +55,9 @@
     position: relative;
     padding: 3px 11px 0 0;
     background-image: repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
-        repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
-        repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%),
-        repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
+    repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
     background-position: left bottom, left bottom, left bottom, right bottom;
     background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
     background-size: 9px 1px, 20px 0px, 0px 20px, 0px 20px;
@@ -168,9 +168,15 @@
         margin: 10px auto 36px auto;
     }
 
+    .Basket:last-child {
+        width: 290px;
+        margin: 10px auto 10px auto;
+    }
+
     .BasketDelivery {
         display: block;
         padding: 7px 0 8px 19px;
+        
     }
 
     .BasketContent {
@@ -219,41 +225,41 @@
         left: 225px;
     }
 
-    .BasketDeliveryInfo:hover {
-        border: 1px solid #657EE2;
-    }
+    /*.BasketDeliveryInfo:hover {*/
+    /*    border: 1px solid #657EE2;*/
+    /*}*/
     BasketSticky {
         height: 80px; /* 64 + 16 */
         position: sticky;
         top: -16px;
-       z-index: 2;
+        z-index: 2;
     }
 
     .BasketSticky::before, .BasketSticky::after {
         content: '';
         display: block;
         height: 12px;
-        /* make pseudo elements sticky as well */
         position: sticky;
         -webkit-position: sticky;
     }
 
     .BasketSticky::before {
-        top: 70px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
-        box-shadow: 0px 2px 20px rgb(0 20 92 / 15%);
+        top: 70px;
+        box-shadow: 0px 4px 20px -2px rgb(0 20 92 / 15%);
         margin: 0 0 -14px 0;
 
     }
 
     .BasketSticky::after {
-        /* linear gradient from background color to transparent acts as
-           a transition effect so the shadow appears gradually */
-        background: linear-gradient(white 10%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.4) 70%, transparent);
+        background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);
         top: 0;
-        /* cover should fall over shadow */
         z-index: 2;
 
     }
 
+    .BasketDeliveryInfo:hover {
+        color: black;
+        background-image: none;
+    }
 
 }
