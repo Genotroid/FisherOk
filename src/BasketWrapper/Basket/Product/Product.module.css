@@ -102,6 +102,9 @@
     background-color: #243DA1;
     background-image: url('../../img/Vector4.png');
     background-size: 80%;
+    border: none;
+    width: 22px;
+    height: 22px    ;
 }
 
 .CheckboxMein:checked + label:hover::before {

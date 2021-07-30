@@ -217,7 +217,7 @@
 
 @media screen and (max-width: 720px) {
     .ModalContentActive {
-        margin-top: -246px;
+        margin-top: 0px;
         width: 300px;
         height: 447px;
         background: #FFFFFF;
@@ -283,7 +283,7 @@
     }
 
     .ModalContentComent {
-        margin: 0;
+        margin: 5px 0;
     }
 
     .ModalLink {

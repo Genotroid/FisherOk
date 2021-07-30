@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './BasketWrapper.module.css'
 import Basket from './Basket/Basket';
 import Delivery from './Delivery/Delivery';
 import FullPrice from './FullPrice/FullPrice';
 
 const  BasketWrapper = (props) => {
+    const [choosenProduct, setChoosenProduct] = useState([]);
+
     const products = [
         {
             title: 'Костюм Onerus Фишер-45 (Таслан, Зел/жел) 52-54, рост 182-188',
@@ -94,6 +96,18 @@ const  BasketWrapper = (props) => {
         {title: 'Постамат', id: 3, modalType: 2}
     ];
     const deliveryaddress = 'г.Москва, ул. Генерала Белобородова, д. 46 кв. 67';
+
+    const addChoosenProduct = (product) => {
+        let tempCart = choosenProduct;
+
+        if(tempCart.find(product)) {
+            tempCart.filter(item => item.id !== product.id);
+        } else {
+            tempCart.push(product);
+        }
+
+        setChoosenProduct(tempCart);
+    }
 
     return <div className={s.BasketWrapper}>
         <div className={s.BasketWrapperItem}>
