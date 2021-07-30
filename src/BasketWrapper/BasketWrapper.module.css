@@ -4,7 +4,7 @@
     margin: 0 auto;
     width: 1406px;
     min-height: 100vh;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: normal;
     font-weight: normal;
     background: #EFF5F8;
@@ -22,6 +22,7 @@
     display: inline-flex;
     align-items: center;
     user-select: none;
+    color: #768790;
 }
 
 .CheckboxMein + label:hover {
@@ -54,6 +55,9 @@
     background-color: #243DA1;
     background-image: url('./img/Vector4.png');
     background-size: 80%;
+    border: none;
+    width: 22px;
+    height: 22px;
 }
 
 .CheckboxMein:checked + label:hover::before {
@@ -165,6 +169,7 @@
 @media screen and (max-width: 720px) {
     .BasketWrapper {
         width: 320px;
+        overflow-x: hidden;
     }
 
     .BasketContent {
@@ -199,13 +204,14 @@
     }
 
     .MobileGoods {
-        font-size: 20px;
-        line-height: 27px;
-        font-weight: 600;
         margin: 0;
         display: block;
         opacity: 1;
         color: black;
+        padding: 8px 0 8px 0px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
     }
 
     .MobileBasketWrapperInput {

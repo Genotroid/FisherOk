@@ -130,8 +130,8 @@
     border: 1px solid #CED2E1;
     background: #FFFFFF;
     border-radius: 3px;
-    color: #00145C;
-    opacity: 0.5;
+    color: black;
+    /*opacity: 0.5;*/
     font-size: 12px;
     width: 121px;
     height: 34px;
@@ -140,13 +140,14 @@
 
 .PromoCodeFormInput::placeholder {
     color: #00145C;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 13px;
     line-height: 18px;
     display: flex;
     align-items: center;
+    opacity: 0.5;
     /*opacity: 0.5;*/
 }
 
@@ -203,7 +204,7 @@
     color: #ED3135;
     padding-top: 4px;
     cursor: default;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 11px;
@@ -220,7 +221,7 @@
     opacity: 0.5;
     padding: 4px 0 35px 0;
     cursor: default;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: normal;
     font-weight: normal;
     line-height: 13px;
@@ -229,6 +230,10 @@
 }
 
 .MobilePromoCodeInput {
+    display: none;
+}
+
+.MobileTotal {
     display: none;
 }
 
@@ -261,9 +266,71 @@
         width: 280px;
     }
 
+    .PromoCode {
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .PromoCodeItem {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+    }
+
     .PromoCodeFormOk {
         padding-top: 0;
         width: 280px;
+    }
+
+    .MobileTotal {
+        height: 45px;
+        position: fixed;
+        bottom: 0;
+        color: white;
+        width: 100%;
+        background: #243DA1;
+        box-shadow: 0 4px 20px rgba(0, 20, 92, 0.15);
+        z-index: 90;
+        margin: 0;
+        display: flex;
+        min-height:45px;
+        overflow-y:scroll;
+        overflow-x:hidden;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        align-items: center;
+        text-align: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .MobileTotalPrice {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .MobileTotalButton {
+        display: flex;
+        justify-content: flex-end;
+        background: #243DA1;
+        color: white;
+        border: 1px solid white;
+        height: 30px;
+        align-items: center;
+        border-radius: 3px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
     }
 }
 

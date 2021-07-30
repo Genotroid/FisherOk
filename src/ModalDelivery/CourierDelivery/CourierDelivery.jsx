@@ -11,26 +11,12 @@ const CourierDelivery = ({active, setActive}) => {
         {name: 'CДЭК'},
         {name: 'CДЭК'},
     ];
-    const cityList = [
-        'Москва, Авиамоторная улица 6с4',
-        'Москва, Красноказарменная улица 10',
-        'Москва, Авиамоторная',
-        'улица, д. 5',
-        'Москва, Ухтомская улица, д. 13',
-        'Москва, м Семёновская, Большая Семёновская улица, д. 45',
-        'Москва, Песочный переулок, д. 3',
-        'Москва, Авиамоторная улица 6с4',
-        'Москва, Ухтомская улица, д. 13',
-        'Москва, м Семёновская, Большая Семёновская улица, д. 45',
-        'Мсква, Ухтомская улица, д. 13',
-        'Москва, м Семёновская, Большая Семёновская улица, д. 45'
-    ];
-    const courierCityList = [
-        {name: 'Санкт-Петербурга'},
-        {name: 'Москвы'},
-        {name: 'Волгограда'},
-        {name: 'Ярославля'},
-    ];
+    // const courierCityList = [
+    //     {name: 'Санкт-Петербурга'},
+    //     {name: 'Москвы'},
+    //     {name: 'Волгограда'},
+    //     {name: 'Ярославля'},
+    // ];
 
     return (
         <div className={(active ? s.ModalActive : s.Modal) + ' modal-active'} ref={modalRef}
@@ -40,7 +26,8 @@ const CourierDelivery = ({active, setActive}) => {
                     <a className={s.ModalOffLink} onClick={() => setActive(false)}></a>
                 </div>
                 <div className={s.ModalDeliveryName}>
-                    {'Выбор транспортной компании из '}<CustomSelect items={courierCityList} modalForm={modalRef}/>
+                    {'Выбор транспортной компании из Санкт-Петербурга'}
+                    {/*<CustomSelect items={courierCityList} modalForm={modalRef}/>*/}
                 </div>
                 <div className={s.ModalDeliveryData}>
                     {deliveryList && deliveryList.map((delivery, key) =>

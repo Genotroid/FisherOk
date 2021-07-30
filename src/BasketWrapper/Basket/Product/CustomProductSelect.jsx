@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import customProduct from './customProductSelect.css';
 
-const CustomProductSelect = ({items, selectType}) => {
+const CustomProductSelect = ({items, selectType, height = undefined}) => {
     const buttonRef = useRef();
     const [isOpenSelect, setIsOpenSelect] = useState(false);
     const [selectedKey, setSelectedKey] = useState(0);
@@ -23,8 +23,10 @@ const CustomProductSelect = ({items, selectType}) => {
     }, []);
 
     return <div className='custom-product-wrapper' onClick={() => setIsOpenSelect(!isOpenSelect)}>
-        <div className={`custom-product-select ${isOpenSelect ? 'open' : ''}`}>
-            <div className={'custom-product__trigger'} ref={buttonRef}>
+        <div className={`custom-product-select ${isOpenSelect ? 'open' : ''}`}
+             style={height ? {width: '174px'} : {}}>
+            <div className={'custom-product__trigger'} style={height ? {height: height, margin: '0'} : {}}
+                 ref={buttonRef}>
                 <span>{selectedItem.name}</span>
             </div>
             <div className={'custom-product-options'}>

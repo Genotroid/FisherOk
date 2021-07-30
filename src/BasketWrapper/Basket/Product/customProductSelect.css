@@ -71,7 +71,7 @@
 .custom-product-option {
     position: relative;
     display: block;
-    font-family: Open Sans, sans-serif;
+    font-family: Open Sans, sans-serif, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 12px;

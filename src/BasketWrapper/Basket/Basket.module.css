@@ -2,7 +2,7 @@
 .Basket {
     width: 876px;
     border-radius: 6px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans, sans-serif', sans-serif;
     background-color: white;
     margin-bottom: 36px;
 }
@@ -246,7 +246,7 @@
     .BasketSticky::before {
         top: 70px;
         box-shadow: 0px 4px 20px -2px rgb(0 20 92 / 15%);
-        margin: 0 0 -14px 0;
+        width: 99%;
 
     }
 

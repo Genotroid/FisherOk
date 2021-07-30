@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import s from './BasketWrapper.module.css'
 import Basket from './Basket/Basket';
 import Delivery from './Delivery/Delivery';
@@ -96,18 +96,6 @@ const  BasketWrapper = (props) => {
         {title: 'Постамат', id: 3, modalType: 2}
     ];
     const deliveryaddress = 'г.Москва, ул. Генерала Белобородова, д. 46 кв. 67';
-
-    const addChoosenProduct = (product) => {
-        let tempCart = choosenProduct;
-
-        if(tempCart.find(product)) {
-            tempCart.filter(item => item.id !== product.id);
-        } else {
-            tempCart.push(product);
-        }
-
-        setChoosenProduct(tempCart);
-    }
 
     return <div className={s.BasketWrapper}>
         <div className={s.BasketWrapperItem}>

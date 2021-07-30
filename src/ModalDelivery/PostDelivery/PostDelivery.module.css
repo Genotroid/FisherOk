@@ -217,14 +217,15 @@
     border: 9px solid #243DA1;
 }
 
-.ModalDeliveryRadio:checked div.OneName {
-    color: #00145C;
+.ModalDeliveryRadio:checked + label div.OneName,
+.ModalDeliveryRadio:checked + label div.OneData,
+.ModalDeliveryRadio:checked + label div.OnePrice {
+    color: black;
     opacity: 1;
 }
 
 .ModalDeliveryRadio:checked + label {
     font-style: normal;
-    font-weight: bold;
     font-size: 14px;
     line-height: 19px;
     color: #000000;
@@ -246,7 +247,6 @@
 
 .OneName {
     width: 120px;
-    height: 23px;
     opacity: 0.5;
     font-size: 14px;
     line-height: 19px;
@@ -255,16 +255,15 @@
 
 .OneData {
     width: 170px;
-    height: 23px;
+    opacity: 0.5;
     font-size: 14px;
     line-height: 19px;
     color: #000000;
-    margin: 0px 0px 0px 50px;
 }
 
 .OnePrice {
     width: 52px;
-    height: 23px;
+    opacity: 0.5;
     font-weight: bold;
     font-size: 16px;
     line-height: 22px;
@@ -294,7 +293,7 @@
 }
 
 .AddressBox {
-    width: 35%;
+    width: 300px;
     display: flex;
     flex-direction: column;
     padding: 20px 15px 15px 15px;
@@ -356,7 +355,7 @@
 }
 
 .SearchAddress input::placeholder {
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: italic;
     font-weight: normal;
     font-size: 14px;
@@ -389,6 +388,11 @@
     cursor: pointer;
 }
 
+/*TODO rework*/
+.AddressBook li.active {
+    opacity: 1;
+}
+
 .ModalDeliveryData {
     display: flex;
     flex-wrap: nowrap;
@@ -405,7 +409,7 @@
 }
 
 .ModalPostDelivery {
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -498,6 +502,7 @@
         width: 270px;
         height: 46px;
         flex-wrap: wrap;
+        padding-bottom: 12px;
     }
 
     .ModalDeliveryName {
@@ -550,6 +555,7 @@
         margin: 0;
         order: 3;
         white-space: nowrap;
+        opacity: 1;
     }
 
     .OnePrice {
@@ -558,9 +564,11 @@
         font-size: 14px;
         line-height: 19px;
         margin-top: -8px;
+        font-weight: bold;
         order: 5;
         grid-column-start: 3;
         grid-column-end: 3;
+        opacity: 1;
     }
 
     .ModalDeliveryItem {
@@ -568,6 +576,7 @@
         border: 1px solid #FFFFFF;
         padding: 0;
         height: 61px;
+        margin-top: 12px;
     }
 
     .ModalPostShowList {
@@ -585,7 +594,7 @@
         position: absolute;
         left: 32%;
         top: 28px;
-        font-family: Open Sans;
+        font-family: Open Sans, sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
@@ -596,7 +605,7 @@
         height: 30px;
         width: 300px;
         background: none;
-        font-family: Open Sans;
+        font-family: Open Sans, sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
@@ -609,7 +618,7 @@
     }
 
     .ModalPostHideList > span:first-child {
-        font-family: Open Sans;
+        font-family: Open Sans, sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 12px;
@@ -646,7 +655,7 @@
         box-sizing: border-box;
         border-radius: 3px;
         background: none;
-        font-family: Open Sans;
+        font-family: Open Sans, sans-serif;
         font-style: normal;
         font-weight: 600;
         font-size: 12px;

@@ -115,7 +115,11 @@ const FullPrice = (props) => {
             </div>
         </div>
         <div className={s.MobilePromoCodeInput}>
-            <div className={s.PromoCodeForm}>
+            {!editMod
+            ? <div className={s.PromoCode}>
+                <a onClick={() => activEditMod()} className={s.PromoCodeItem}>{'Ввести промокод'}</a>
+            </div>
+            : <div className={s.PromoCodeForm}>
                 <input className={s.PromoCodeFormInput} autoFocus={true}
                        placeholder={'Введите промокод'}/>
                 <button className={s.PromoCodeFormButton} type="submit">{'ОК'}</button>
@@ -125,7 +129,14 @@ const FullPrice = (props) => {
                 <div className={s.PromoCodeFormOk}>
                     {'Код применен. Скидка не распространяется на акционные товары'}
                 </div>
+            </div>}
+        </div>
+        <div className={s.MobileTotal}>
+            <div className={s.MobileTotalPrice}>
+                <div>{`Итого 15 778 ₽`}</div>
+                <div>{'Промокод: - 1800 ₽ (20%)'}</div>
             </div>
+            <button className={s.MobileTotalButton}>{'Оформить покупку'}</button>
         </div>
     </>
 }

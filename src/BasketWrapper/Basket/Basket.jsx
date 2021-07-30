@@ -15,7 +15,7 @@ const Basket = ({city, tempKey}) => {
                     <div className={s.BasketDeliveryCity}>{city.name}</div>
                     <div className={s.BasketDeliveryInfo} onClick={() => setModalActive(true)}>
                         <span className={s.BasketDeliveryDate}>{'Поступление 27-29 июля за 350 ₽'}</span>
-                        <div className={s.BasketDeliveryLogo}><img src={image1}/></div>
+                        <div className={s.BasketDeliveryLogo}><img src={image1} alt={'item image'}/></div>
                     </div>
                 </div>
             </div>

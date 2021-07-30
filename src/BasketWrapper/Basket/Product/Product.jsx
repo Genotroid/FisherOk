@@ -47,14 +47,12 @@ export const Product = ({product, cityId}) => {
                     <div className={s.ProductMaxCount}>{`макс: ${maxCount} шт.`}</div>
                 </div>
                 <div className={s.ProductPrice}>
-                    <div className={s.ProductPriceDiscount}>
-                        {product.salePrice &&
-                        <div className={s.ProductPriceNew}>
-                            {(product.price * itemCount).toLocaleString()} &#8381;
-                        </div>}
-                        <div className={product.salePrice ? s.ProductPriceOld : ''}>
-                            {(product.price * itemCount).toLocaleString()} &#8381;
-                        </div>
+                    {product.salePrice &&
+                    <div className={s.ProductPriceNew}>
+                        {(product.price * itemCount).toLocaleString()} &#8381;
+                    </div>}
+                    <div className={product.salePrice ? s.ProductPriceOld : ''}>
+                        {(product.price * itemCount).toLocaleString()} &#8381;
                     </div>
                 </div>
             </div>

@@ -1,0 +1,44 @@
+.baloon-content {
+    width: 300px;
+    height: 170px;
+    padding-left:20px;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.baloon-btn {
+    background: #243DA1;
+    border-radius: 3px;
+    color: white;
+    width: 150px;
+    height: 31px;
+    text-align: center;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+    align-items: center;
+    border: none;
+}
+
+.opacity-text {
+    color: #808AAE;
+}
+
+.bold-text {
+    font-weight: 600;
+}
+
+.custom-text {
+    line-height: 5px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 720px) {
+    .baloon-content {
+        width: 250px;
+    }
+}
