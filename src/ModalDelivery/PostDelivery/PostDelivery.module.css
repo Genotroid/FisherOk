@@ -502,7 +502,6 @@
         width: 270px;
         height: 46px;
         flex-wrap: wrap;
-        padding-bottom: 12px;
     }
 
     .ModalDeliveryName {
@@ -521,10 +520,11 @@
     }
 
     .ModalDeliveryRadio + label {
-        max-width: 270px;
+        max-width: 250px;
+        height: 40px;
         display: grid;
-        grid-template-columns: 30px 100px 140px;
-        grid-template-rows: 30px;
+        grid-template-columns: 30px 90px 140px;
+        grid-template-rows: 25px;
         flex-wrap: wrap;
     }
 
@@ -573,10 +573,10 @@
 
     .ModalDeliveryItem {
         width: 270px;
+        margin-left: 25px;
         border: 1px solid #FFFFFF;
         padding: 0;
         height: 61px;
-        margin-top: 12px;
     }
 
     .ModalPostShowList {

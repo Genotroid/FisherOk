@@ -11,6 +11,7 @@
 
 .custom-product-select {
     width: 183px;
+    position: relative;
 }
 
 .custom-product__trigger {

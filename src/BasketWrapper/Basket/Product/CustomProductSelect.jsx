@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import customProduct from './customProductSelect.css';
 
-const CustomProductSelect = ({items, selectType, height = undefined}) => {
+const CustomProductSelect = ({items, selectType, customStyle = undefined}) => {
     const buttonRef = useRef();
     const [isOpenSelect, setIsOpenSelect] = useState(false);
     const [selectedKey, setSelectedKey] = useState(0);
@@ -22,17 +22,17 @@ const CustomProductSelect = ({items, selectType, height = undefined}) => {
         }
     }, []);
 
-    return <div className='custom-product-wrapper' onClick={() => setIsOpenSelect(!isOpenSelect)}>
-        <div className={`custom-product-select ${isOpenSelect ? 'open' : ''}`}
-             style={height ? {width: '174px'} : {}}>
-            <div className={'custom-product__trigger'} style={height ? {height: height, margin: '0'} : {}}
+    return <div className={'custom-product-wrapper'} style={customStyle ? {position: 'initial', height: '40px'} : {}}
+                onClick={() => setIsOpenSelect(!isOpenSelect)}>
+        <div className={`custom-product-select ${isOpenSelect ? 'open' : ''}`}>
+            <div className={'custom-product__trigger'} style={customStyle ? {...customStyle, height: '40px'} : {}}
                  ref={buttonRef}>
                 <span>{selectedItem.name}</span>
             </div>
             <div className={'custom-product-options'}>
                 {items.map((item, key) =>
                     <span className={`custom-product-option ${selectedItem === item ? 'selected' : ''}`}
-                          key={key} onClick={() => setSelectedItem(item)}>
+                          key={key} onClick={() => setSelectedItem(item)} style={customStyle ? customStyle : {}}>
                         {`${item.name} ${item.max ? `(макс. ${item.max} шт.)` : ''}`}
                     </span>
                 )}

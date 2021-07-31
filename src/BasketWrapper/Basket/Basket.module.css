@@ -8,7 +8,7 @@
 }
 
 .BasketSticky {
-    height: 80px;
+    height: 75px;
     position: sticky;
     top: -16px;
     z-index: 6;
@@ -176,7 +176,7 @@
     .BasketDelivery {
         display: block;
         padding: 7px 0 8px 19px;
-        
+        margin-top: -10px;
     }
 
     .BasketContent {
@@ -225,11 +225,8 @@
         left: 225px;
     }
 
-    /*.BasketDeliveryInfo:hover {*/
-    /*    border: 1px solid #657EE2;*/
-    /*}*/
     BasketSticky {
-        height: 80px; /* 64 + 16 */
+        height: 75px;
         position: sticky;
         top: -16px;
         z-index: 2;
@@ -245,16 +242,14 @@
 
     .BasketSticky::before {
         top: 70px;
-        box-shadow: 0px 4px 20px -2px rgb(0 20 92 / 15%);
-        width: 99%;
-
+        box-shadow: 11px 14px 20px rgb(0 20 92 / 15%);
+        width: 93%;
     }
 
     .BasketSticky::after {
         background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);
         top: 0;
         z-index: 2;
-
     }
 
     .BasketDeliveryInfo:hover {

@@ -10,6 +10,15 @@ const ModalAddress = ({active, setActive}) => {
         {name: 'Санкт-Петербург'}
     ];
 
+    const customStyle = {
+        fontFamily: 'Open Sans, sans-serif',
+        fontStyle: 'normal',
+        fontWeight: 'normal',
+        fontSize: '14px',
+        lineHeight: '19px',
+        color: '#000000'
+    }
+
     return <div className={active ? s.ModalActive : s.Modal} onClick={() => setActive(false)}>
         <div className={active ? s.ModalContentActive : s.ModalContent} onClick={e => e.stopPropagation()}>
             <div className={s.ModalOff}>
@@ -22,7 +31,7 @@ const ModalAddress = ({active, setActive}) => {
                         <div className={s.ModalContentSity}>
                             <div className={s.ModalContentItem}>
                                 <span>{'Ваш город'}</span>
-                                <CustomProductSelect items={cityList} height={'40px'}/>
+                                <CustomProductSelect items={cityList} customStyle={customStyle}/>
                             </div>
                             <div className={s.ModalContentItem}>
                                 <span>{'Улица'}</span><input type={'text'}/>

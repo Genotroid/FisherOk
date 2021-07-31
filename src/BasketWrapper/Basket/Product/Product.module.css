@@ -5,7 +5,7 @@
     display: flex;
     background-color: #ffffff;
     margin: 0 40px 0 30px;
-    padding: 16px 0 0px 0;
+    padding: 0 0 16px 0;
 }
 
 .Product:nth-child(1) {

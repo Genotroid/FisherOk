@@ -425,15 +425,15 @@
     }
 
     .ModalDeliveryOne {
-        margin: 10px;
+        margin: 0 0 0 10px;
         width: 250px;
         height: 46px;
         flex-wrap: wrap;
-        padding-bottom: 5px;
+        padding-bottom: 0;
     }
 
     .ModalDeliveryName {
-        margin: 6px auto 10px auto;
+        margin: 6px auto -1px auto;
         padding: 0 0 12px 0;
         width: 253px;
         font-size: 15px;
@@ -450,9 +450,10 @@
 
     .ModalDeliveryRadio + label {
         max-width: 250px;
+        height: 40px;
         display: grid;
         grid-template-columns: 30px 90px 140px;
-        grid-template-rows: 30px;
+        grid-template-rows: 20px;
         flex-wrap: wrap;
     }
 
@@ -498,9 +499,9 @@
 
     .ModalDeliveryItem {
         width: 270px;
+        height: 45px;
         border: 1px solid #FFFFFF;
-        padding: 0;
-        height: 61px;
+        padding: 8px 0 0;
     }
 
     .ModalShowList {

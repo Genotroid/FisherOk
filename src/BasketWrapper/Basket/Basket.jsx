@@ -9,7 +9,7 @@ const Basket = ({city, tempKey}) => {
 
     return <div className={s.Basket}>
         <ModalDelivery active={ModalActive} setActive={setModalActive} modalType={tempKey}/>
-        <div className={s.BasketProduct} style={{paddingBottom: '25px'}}>
+        <div className={s.BasketProduct}>
             <div className={s.BasketSticky}>
                 <div className={s.BasketDelivery}>
                     <div className={s.BasketDeliveryCity}>{city.name}</div>

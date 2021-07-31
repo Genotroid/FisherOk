@@ -81,12 +81,12 @@ const  BasketWrapper = (props) => {
         },
         {
             id: 3,
-            name: 'из Санкт-Петербурга',
+            name: 'из Ярославля',
             products: products
         },
         {
             id: 4,
-            name: 'из Санкт-Петербурга',
+            name: 'из Москвы',
             products: products
         }
     ];
