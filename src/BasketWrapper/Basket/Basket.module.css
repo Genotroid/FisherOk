@@ -168,6 +168,11 @@
         margin: 10px auto 36px auto;
     }
 
+    .ProductСontainer {
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+
     .Basket:last-child {
         width: 290px;
         margin: 10px auto 10px auto;
