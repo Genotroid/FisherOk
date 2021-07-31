@@ -331,6 +331,15 @@
     margin-bottom: 12px;
 }
 
+.SearchAddress button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    border: none;
+    background: none;
+}
+
 .SearchAddress input {
     border: 1px solid #ADB6D8;
     box-sizing: border-box;
@@ -347,9 +356,6 @@
 }
 
 .SearchAddress svg {
-    position: absolute;
-    top: 50%;
-    right: 10px;
     transform: translateY(-50%);
     color: silver;
 }

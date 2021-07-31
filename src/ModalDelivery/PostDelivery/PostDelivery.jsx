@@ -9,17 +9,21 @@ import placemarkIcon from '../../BasketWrapper/img/placemark.png';
 import './placemark.css';
 
 const PostDelivery = ({active, setActive}) => {
+    const addressRef = useRef();
+    const modalRef = useRef();
     const [mobileModalState, setMobileModalState] = useState(window.innerWidth < 768 ? 1 : 0);
     const [activeDelivery, setActiveDelivery] = useState(undefined);
     const [activeAddress, setActiveAddress] = useState(geoData[0].address_geo);
-
     const [placemarkList, setPlacemarkList] = useState([]);
     const [center, setCenter] = useState(geoData[0].address_geo.split(','));
     const [zoom, setZoom] = useState(9);
     const mapState = useMemo(() => ({center, zoom: 12}), [center]);
 
-
-    const modalRef = useRef();
+    const enterKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            filterGeoDataHandler(e);
+        }
+    }
 
     const deliveryList = [
         {name: 'СДЭК', price: 1190, delivery: '1-2 дня (24-26 июля)', id: 1},
@@ -43,8 +47,8 @@ const PostDelivery = ({active, setActive}) => {
 
     }
 
-    useEffect(() => {
-        const placeMarks = geoData.map(geoPlace => {
+    const convertGeoDataToPlacemark = (geo) => {
+        const placeMarks = geo.map(geoPlace => {
             const placemarkContent = `
                 <div class="baloon-content">
                     <div class="opacity-text">Адрес:</div>
@@ -59,7 +63,7 @@ const PostDelivery = ({active, setActive}) => {
             return {
                 geometry: geoPlace.address_geo.split(','),
                 properties: {
-                    balloonContent : placemarkContent,
+                    balloonContent: placemarkContent,
                 },
                 options: {
                     iconLayout: 'default#image',
@@ -67,12 +71,29 @@ const PostDelivery = ({active, setActive}) => {
                     iconImageSize: [25, 25],
                     balloonCloseButton: false,
                 },
-                modules: ['geoObject.addon.balloon']
+                modules: ['geoObject.addon.balloon'],
+                address: geoPlace.address,
+                address_geo: geoPlace.address_geo
             }
         });
 
+        return placeMarks;
+    }
+
+    useEffect(() => {
+        const placeMarks = convertGeoDataToPlacemark(geoData);
+
         setPlacemarkList(placeMarks);
     }, []);
+
+    const filterGeoDataHandler = (e) => {
+        const tempGeoData = geoData.filter(geo =>
+            geo.address.toLowerCase().includes(addressRef.current.value.toLowerCase())
+        );
+        const tempPlacemarks = convertGeoDataToPlacemark(tempGeoData);
+        console.log('tempPlacemarks', tempPlacemarks);
+        setPlacemarkList(tempPlacemarks);
+    }
 
     return (
         <div className={(active ? s.ModalActive : s.Modal) + ' modal-active'} ref={modalRef}
@@ -125,8 +146,10 @@ const PostDelivery = ({active, setActive}) => {
                                                          alt=""/>
                                                 </div>
                                                 <div className={s.OneName}>{delivery.name}</div>
-                                                <div className={s.OneData} style={{whiteSpace: 'nowrap'}}>{'1 - 2 дня (24-26 июля)'}</div>
-                                                <div className={s.OnePrice} style={{fontWeight: 'bold'}}>{`${'190'.toLocaleString()} ₽`}</div>
+                                                <div className={s.OneData}
+                                                     style={{whiteSpace: 'nowrap'}}>{'1 - 2 дня (24-26 июля)'}</div>
+                                                <div className={s.OnePrice}
+                                                     style={{fontWeight: 'bold'}}>{`${'190'.toLocaleString()} ₽`}</div>
                                             </div>}
                                     </label>
 
@@ -147,18 +170,21 @@ const PostDelivery = ({active, setActive}) => {
                             }
                         </div>
                         <div className={s.SearchAddress}>
-                            <input placeholder={'поиск адреса'}/>
-                            <SearchIcon color={'#808AAE'} size={15}/>
+                            <input placeholder={'поиск адреса'} ref={addressRef} onKeyDown={enterKeyDown}/>
+                            <button onClick={filterGeoDataHandler}>
+                                <SearchIcon color={'#808AAE'} size={15}/>
+                            </button>
+
                         </div>
                         <div className={s.AddressBook}>
                             <ul>
-                                {geoData.map((geoPlace, key) =>
-                                    <li key={key} className={activeAddress === geoPlace.address_geo ? 'active' : ''}
+                                {placemarkList && placemarkList.map((placemark, key) =>
+                                    <li key={key} className={activeAddress === placemark.address_geo ? 'active' : ''}
                                         onClick={() => {
-                                            setCenter(geoPlace.address_geo.split(','));
-                                            setActiveAddress(geoPlace.address_geo);
+                                            setCenter(placemark.address_geo.split(','));
+                                            setActiveAddress(placemark.address_geo);
                                         }}>
-                                        {geoPlace.address}
+                                        {placemark.address}
                                     </li>
                                 )}
                             </ul>
@@ -169,7 +195,9 @@ const PostDelivery = ({active, setActive}) => {
                             <div>
                                 <Map width={mobileModalState ? '298px' : '550px'}
                                      height={mobileModalState ? '390px' : '550px'} state={mapState}>
-                                    {placemarkList.map((placemark, key) => <Placemark key={key} {...placemark}/>)}
+                                    {placemarkList && placemarkList.map((placemark, key) =>
+                                        <Placemark key={key} {...placemark}/>
+                                    )}
                                 </Map>
                             </div>
                         </YMaps>
