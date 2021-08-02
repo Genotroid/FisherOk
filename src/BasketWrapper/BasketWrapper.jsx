@@ -1,101 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
+import axios from 'axios';
 import s from './BasketWrapper.module.css'
 import Basket from './Basket/Basket';
 import Delivery from './Delivery/Delivery';
 import FullPrice from './FullPrice/FullPrice';
+import {useStore} from '../store/useStore';
+import tempBasket from '../jsons/basket.json';
 
-const  BasketWrapper = (props) => {
+const BasketWrapper = (props) => {
+    const {state, dispatch} = useStore();
     const [choosenProduct, setChoosenProduct] = useState([]);
+    const setBasket = useCallback((data) => dispatch({type: "setBasket", data: data}), [dispatch]);
 
-    const products = [
-        {
-            title: 'Костюм Onerus Фишер-45 (Таслан, Зел/жел) 52-54, рост 182-188',
-            price: 5290,
-            id: 1,
-            img: 'karasy.jpg',
-            deliverFrom: [
-                {name: 'Москве', max: 400},
-            ],
-            article: 62275,
-            count: 1,
-            maxCount: 4
-        },
-        {
-            title: 'Карабин с верт. и подш. Owner 5159-071 №8',
-            price: 5390,
-            id: 2,
-            img: 'karasy1.jpg',
-            deliverFrom: [
-                {name: 'из Москвы', max: 100},
-                {name: 'из Воронежа', max: 2},
-                {name: 'из Ярославля', max: 5},
-                {name: 'из Ростова-на-Дону', max: 2},
-            ],
-            salePrice: 4190,
-            article: 62276,
-            count: 1,
-            maxCount: 6
-        },
-        {
-            title: 'Карабин с верт. и подш. Owner 5159-071 №8',
-            price: 5390,
-            id: 3,
-            img: 'karasy1.jpg',
-            deliverFrom: [
-                {name: 'из Москвы', max: 100},
-                {name: 'из Воронежа', max: 2},
-                {name: 'из Ярославля', max: 5},
-                {name: 'из Ростова-на-Дону', max: 2},
-            ],
-            salePrice: 4190,
-            article: 62276,
-            count: 1,
-            maxCount: 6
-        }
-    ];
-    const cityList = [
-        {
-            id: 1,
-            name: 'из Санкт-Петербурга',
-            products: products
-        },
-        {
-            id: 2,
-            name: 'из Волгограда',
-            products: [{
-                title: 'Карабин с верт. и подш. Owner 5159-071 №8',
-                price: 5390,
-                id: 2,
-                img: 'karasy1.jpg',
-                deliverFrom: [
-                    {name: 'из Москвы', max: 100},
-                    {name: 'из Воронежа', max: 2},
-                    {name: 'из Ярославля', max: 5},
-                    {name: 'из Ростова-на-Дону', max: 2},
-                ],
-                salePrice: 4190,
-                article: 62276,
-                count: 1,
-                maxCount: 6
-            }]
-        },
-        {
-            id: 3,
-            name: 'из Ярославля',
-            products: products
-        },
-        {
-            id: 4,
-            name: 'из Москвы',
-            products: products
-        }
-    ];
-    const deliveryList = [
-        {title: 'Курьером', id: 1, modalType: 1},
-        {title: 'Пункт выдачи', id: 2, modalType: 2},
-        {title: 'Постамат', id: 3, modalType: 2}
-    ];
-    const deliveryaddress = 'г.Москва, ул. Генерала Белобородова, д. 46 кв. 67';
+    const getBasketData = () => {
+        // axios.get('https://lovisnami.ru/site2/api/jsons/basket.json', {
+        //     headers: {"Access-Control-Allow-Origin": "*"},
+        //     responseType: 'json'
+        // }).then(res => {
+        //     console.log('getJson from lovisname', res);
+        //     // dispatch({type: "setBasket", data: basketData});
+        // });
+
+        setBasket(tempBasket);
+    }
+
+    useEffect(() => {
+        getBasketData();
+    }, []);
 
     return <div className={s.BasketWrapper}>
         <div className={s.BasketWrapperItem}>
@@ -106,17 +37,21 @@ const  BasketWrapper = (props) => {
                 <label htmlFor={'check_all'}>{'Выбрать всё'}</label>
             </div>
         </div>
-        <div className={s.BasketContent} >
+        <div className={s.BasketContent}>
             <div className={s.BasketContentData}>
                 <div className={s.MobileBasketWrapperInput}>
                     <div className={s.MobileGoods}>{'Товары'}</div>
                     <input className={s.CheckboxMein} type={'checkbox'} id={'check_all'} name={'check_all'}/>
                     <label htmlFor={'check_all'}>{'Выбрать всё'}</label>
                 </div>
-                {cityList.length !== 0 && cityList.map((city, key) => <Basket city={city} tempKey={key+1}/>)}
+                {state.basket.grouped_items && Object.keys(state.basket.grouped_items).map((cityId, key) =>
+                    <Basket city={state.basket.grouped_items[cityId]} cityId={cityId    }/>
+                )}
             </div>
-            <Delivery deliveryList={deliveryList} deliveryaddress={deliveryaddress}/>
-            <FullPrice />
+            <div className={s.RightMenu}>
+                {/*<Delivery deliveryList={deliveryList}/>*/}
+                <FullPrice/>
+            </div>
         </div>
     </div>
 }

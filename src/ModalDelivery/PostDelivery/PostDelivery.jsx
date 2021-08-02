@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect, useMemo} from 'react';
-import geoData from '../../ymap.json';
+import geoData from '../../jsons/ymap.json';
 import s from './PostDelivery.module.css';
 import SearchIcon from '../../Icons/SearchIcon';
 import CustomSelect from '../../BasketWrapper/CustomSelect/CustomSelect';

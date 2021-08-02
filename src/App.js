@@ -1,10 +1,11 @@
 import BasketWrapper from './BasketWrapper/BasketWrapper';
+import { StoreProvider } from "./store/useStore";
 
 const App = () => {
 
-    return  <div>
+    return <StoreProvider>
         <BasketWrapper/>
-    </div>
+    </StoreProvider>
 
 }
 

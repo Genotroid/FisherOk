@@ -4,24 +4,26 @@ import Product from './Product/Product';
 import image1 from './../img/image38.png'
 import ModalDelivery from "./../../ModalDelivery/ModalDelivery";
 
-const Basket = ({city, tempKey}) => {
+const Basket = ({city, cityId}) => {
     const [ModalActive, setModalActive] = useState(false);
 
     return <div className={s.Basket}>
-        <ModalDelivery active={ModalActive} setActive={setModalActive} modalType={tempKey}/>
+        {/*<ModalDelivery active={ModalActive} setActive={setModalActive} />*/}
         <div className={s.BasketProduct}>
             <div className={s.BasketSticky}>
                 <div className={s.BasketDelivery}>
-                    <div className={s.BasketDeliveryCity}>{city.name}</div>
-                    <div className={s.BasketDeliveryInfo} onClick={() => setModalActive(true)}>
-                        <span className={s.BasketDeliveryDate}>{'Поступление 27-29 июля за 350 ₽'}</span>
-                        <div className={s.BasketDeliveryLogo}><img src={image1} alt={'item image'}/></div>
-                    </div>
+                    <div className={s.BasketDeliveryCity}>{city.city_name}</div>
+                    {city.selected_delivery &&
+                        <div className={s.BasketDeliveryInfo} onClick={() => setModalActive(true)}>
+                            <span className={s.BasketDeliveryDate}>{'Поступление 27-29 июля за 350 ₽'}</span>
+                            <div className={s.BasketDeliveryLogo}><img src={city.selected_delivery.logo_url}/></div>
+                        </div>
+                    }
                 </div>
             </div>
             <div className={s.ProductСontainer}>
-                {city.products && city.products.map((product, key) =>
-                    <Product product={product} cityId={city.id} key={key}/>
+                {city.items && city.items.map((item, key) =>
+                    <Product product={item} cityId={cityId} key={key}/>
                 )}
             </div>
         </div>

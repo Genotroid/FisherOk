@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ModalAddress.module.css';
 import CustomProductSelect from '../BasketWrapper/Basket/Product/CustomProductSelect';
 
-const ModalAddress = ({active, setActive}) => {
+const ModalAddress = ({active, setActive, changeAddressHook}) => {
     const cityList = [
         {name: 'Москва'},
         {name: 'Ярославль'},

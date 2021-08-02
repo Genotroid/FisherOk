@@ -117,6 +117,12 @@
     display: inline-block;
 }
 
+.BasketDeliveryLogo img {
+    height: 20px;
+    width: 40px;
+    object-fit: cover;
+}
+
 .MeinInfo {
     width: 268px;
 }

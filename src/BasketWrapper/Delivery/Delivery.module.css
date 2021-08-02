@@ -4,10 +4,10 @@
     font-weight: normal;
     width: 324px;
     grid-area: DP;
+    padding-bottom: 30px;
 }
 
 .Delivery {
-    height: 288px;
     background-color: #ffffff;
     border-radius: 6px;
     border: 1px solid #CED2E1;
@@ -126,6 +126,22 @@
     color: #657EE2;
 }
 
+.AddAddressButton {
+    border: 1px solid #ADB6D8;
+    box-sizing: border-box;
+    border-radius: 3px;
+    width: 200px;
+    background: white;
+    height: 30px;
+    color: #00145C;
+    margin: 20px 0 0 30px;
+    cursor: pointer;
+}
+
+.DeliveryMedia {
+    padding-bottom: 30px;
+}
+
 @media screen and (max-width: 720px) {
     .MeinInfo {
         order: 1;
@@ -145,7 +161,7 @@
     .DeliveryMedia {
         border-radius: 6px;
         border: 1px solid #CED2E1;
-
+        padding-bottom: 0;
     }
 
     .DeliveryTypeData {
@@ -226,5 +242,10 @@
         font-weight: 600;
         font-size: 16px;
         line-height: 22px;
+    }
+
+    .AddAddressButton {
+        width: 250px;
+        margin: 20px;
     }
 }
