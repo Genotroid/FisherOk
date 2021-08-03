@@ -127,6 +127,12 @@
     display: none;
 }
 
+.BasketRightMenu {
+    position: fixed;
+    right: 100px;
+    top: 14%;
+}
+
 @media screen and (max-width: 1420px) {
     .BasketWrapper {
         width: 1300px;
@@ -169,6 +175,12 @@
 @media screen and (max-width: 720px) {
     .BasketWrapper {
         width: 320px;
+    }
+
+    .BasketRightMenu {
+        position: initial;
+        right: auto;
+        top: auto;  
     }
 
     .BasketContent {

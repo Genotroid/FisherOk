@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import customProduct from './customProductSelect.css';
 
-const CustomProductSelect = ({items, selectedCityId, selectType, customStyle}) => {
+const CustomProductSelect = ({items, selectedCityId, selectType, customStyle, changeDepCityHandler}) => {
     const buttonRef = useRef();
     const [isOpenSelect, setIsOpenSelect] = useState(false);
     const [selectedKey, setSelectedKey] = useState(0);
@@ -31,8 +31,9 @@ const CustomProductSelect = ({items, selectedCityId, selectType, customStyle}) =
             </div>
             <div className={'custom-product-options'}>
                 {items.map((item, key) =>
-                    <span className={`custom-product-option ${selectedItem === item ? 'selected' : ''}`}
-                          key={key} onClick={() => setSelectedItem(item)} style={customStyle ? customStyle : {}}>
+                    <span className={`custom-product-option ${selectedCityId === item.departure_city ? 'selected' : ''}`}
+                          key={key} onClick={() => changeDepCityHandler(item.departure_city)}
+                          style={customStyle ? customStyle : {}}>
                         {`${item.city_name} ${item.in_stock ? `(макс. ${item.in_stock} шт.)` : ''}`}
                     </span>
                 )}

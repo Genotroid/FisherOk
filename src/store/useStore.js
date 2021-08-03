@@ -1,14 +1,20 @@
 import React, {createContext, useReducer, useContext} from 'react';
 import {basketActions, basketInitialState} from './basketActions';
+import {postModalActions, postModalInitialState} from './postModalActions';
+import {courierModalActions, courierModalInitialState} from './courierModalActions';
 
 const initialState = {
-    ...basketInitialState
+    ...basketInitialState,
+    ...postModalInitialState,
+    ...courierModalInitialState
 };
 
 const StoreContext = createContext(initialState);
 
 const Actions = {
-    ...basketActions
+    ...basketActions,
+    ...postModalActions,
+    ...courierModalActions
 };
 
 const reducer = (state, action) => {

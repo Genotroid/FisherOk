@@ -48,10 +48,10 @@ const BasketWrapper = (props) => {
                     <Basket city={city}/>
                 )}
             </div>
-            <div className={s.RightMenu}>
-                {/*<Delivery deliveryList={deliveryList}/>*/}
-                <FullPrice/>
-            </div>
+        </div>
+        <div className={s.BasketRightMenu}>
+            {/*<Delivery deliveryList={deliveryList}/>*/}
+            <FullPrice/>
         </div>
     </div>
 }

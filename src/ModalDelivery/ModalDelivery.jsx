@@ -4,7 +4,7 @@ import PostDelivery from './PostDelivery/PostDelivery';
 import CourierDelivery from './CourierDelivery/CourierDelivery';
 import availableDelivers from '../jsons/delivers.json';
 
-const ModalDelivery = ({active, setActive, departureCityId, selectedDelivery}) => {
+const ModalDelivery = ({active, setActive, departureCity}) => {
     const [delivers, setDelivers] = useState([]);
 
     useEffect(() => {
@@ -14,15 +14,13 @@ const ModalDelivery = ({active, setActive, departureCityId, selectedDelivery}) =
         setDelivers(availableDelivers);
     }, []);
 
-    return <PostDelivery active={active} setActive={setActive} delivers={delivers} selectedDelivery={selectedDelivery}/>
-
-    // if (modalType === 1) {
-    //     return <PostDelivery active={active} setActive={setActive}/>
-    // }
-    //
-    // if (modalType > 1) {
-    //     return <CourierDelivery active={active} setActive={setActive}/>
-    // }
+    if (departureCity.selected_delivery) {
+        return <PostDelivery active={active} setActive={setActive} departureCity={departureCity} deliveryList={delivers}
+                             selectedDelivery={departureCity.selected_delivery}/>
+    } else {
+        return <CourierDelivery active={active} setActive={setActive} departureCity={departureCity}
+                                deliveryList={delivers} selectedDelivery={departureCity.selected_delivery}/>
+    }
 
 }
 export default ModalDelivery;

@@ -11,6 +11,7 @@
 .Product:nth-child(1) {
     border: none;
     padding: 0;
+    margin-top: 35px;
 }
 
 .ProductImg {
@@ -514,6 +515,7 @@ SelectSelect:not(:checked) ~ .SelectItems {
 
     .Product:nth-child(1) {
         border-top: 1px solid rgba(173, 182, 216, 0.3);
+        margin-top: 50px;
     }
 
     .ProductInput {

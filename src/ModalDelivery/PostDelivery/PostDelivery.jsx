@@ -1,4 +1,5 @@
 import React, {useState, useRef, useEffect, useMemo} from 'react';
+import axios from 'axios';
 import geoData from '../../jsons/ymap.json';
 import s from './PostDelivery.module.css';
 import SearchIcon from '../../Icons/SearchIcon';
@@ -8,7 +9,7 @@ import {YMaps, Map, Placemark} from 'react-yandex-maps';
 import placemarkIcon from '../../BasketWrapper/img/placemark.png';
 import './placemark.css';
 
-const PostDelivery = ({active, setActive, delivers, selectedDelivery}) => {
+const PostDelivery = ({active, setActive, deliveryList, selectedDelivery, departureCity}) => {
     const addressRef = useRef();
     const modalRef = useRef();
     const [mobileModalState, setMobileModalState] = useState(window.innerWidth < 768 ? 1 : 0);
@@ -27,12 +28,25 @@ const PostDelivery = ({active, setActive, delivers, selectedDelivery}) => {
 
     }
 
+    const placemarkClickHandler = (placemark) => {
+        setCenter(placemark.address_geo.split(','));
+        setActiveAddress(placemark.address_geo);
+    }
+
     const changeCheckBoxHandler = (newMobileState) => {
+        axios.post(
+            'https://lovisnami.ru/site2/api/change-selected-delivery',
+            {body: []}
+            ).then(res => console.log('setBasket', res));
 
         if (mobileModalState) {
             setMobileModalState(newMobileState);
         }
 
+    }
+
+    const returnChooseDeliveryHandler = (e) => {
+        setActive(false);
     }
 
     const convertGeoDataToPlacemark = (geo) => {
@@ -70,7 +84,6 @@ const PostDelivery = ({active, setActive, delivers, selectedDelivery}) => {
 
     useEffect(() => {
         const placeMarks = convertGeoDataToPlacemark(geoData);
-
         setPlacemarkList(placeMarks);
     }, []);
 
@@ -79,7 +92,6 @@ const PostDelivery = ({active, setActive, delivers, selectedDelivery}) => {
             geo.address.toLowerCase().includes(addressRef.current.value.toLowerCase())
         );
         const tempPlacemarks = convertGeoDataToPlacemark(tempGeoData);
-        console.log('tempPlacemarks', tempPlacemarks);
         setPlacemarkList(tempPlacemarks);
     }
 
@@ -92,61 +104,17 @@ const PostDelivery = ({active, setActive, delivers, selectedDelivery}) => {
                     <a className={mobileModalState ? s.ModalOffLink : s.ModalPostOffLink}
                        onClick={() => setActive(false)}></a>
                 </div>
-                {(mobileModalState === 1 || !mobileModalState) &&
-                <div className={mobileModalState === 1 ? s.ModalDeliveryName : s.ModalPostDeliveryName}>
-                    {'Выбор транспортной компании из Санкт-Петербурга'}
-                </div>
-                }
-                {mobileModalState > 1 && <div className={s.ModalPostDeliveryName}>
-                    <button className={s.ModalPostChooseTKButton} onClick={() => setMobileModalState(1)}>
+                {(mobileModalState === 1 || !mobileModalState) && <>
+                    <button className={s.ModalPostChooseTKButton} onClick={returnChooseDeliveryHandler}>
                         {'Вернуться к выбору ТК'}
                     </button>
-                </div>
-                }
-                {(mobileModalState === 1 || !mobileModalState) &&
-                <div className={mobileModalState ? s.ModalDeliveryData : s.ModalPostDeliveryData}>
-                    {delivers.map((delivery, key) =>
-                        <div className={mobileModalState ? s.ModalDeliveryItem : s.ModalPostDeliveryItem}>
-                            <div className={mobileModalState ? s.ModalDeliveryOne : s.ModalPostDeliveryOne}>
-                                <div className={s.OneInput}>
-                                    <input className={s.ModalDeliveryRadio} name={"delivery"} value={key}
-                                           id={`delivery-radio-${key}`} type={"radio"}
-                                           checked={delivery.module_id === selectedDelivery.module_id}
-                                           onChange={() => changeCheckBoxHandler(2)}/>
-                                    <label htmlFor={`delivery-radio-${key}`}>
-                                        {mobileModalState
-                                            ? <>
-                                                <img style={imgStyle}
-                                                     src={delivery.logo_url} alt={""}/>
-                                                <div className={s.OneName}>{delivery.name}</div>
-                                                <div className={s.OneData}>
-                                                    {`${delivery.shipping_deliveries_days} (24-26 июля)`}
-                                                </div>
-                                                <div className={s.OnePrice}>
-                                                    `${delivery.shipping_cost.toLocaleString()} ₽`}
-                                                </div>
-                                            </>
-                                            : <div className={s.ModalPostDelivery}>
-                                                <div>
-                                                    <img style={imgStyle}
-                                                         src={delivery.logo_url} alt={""}/>
-                                                </div>
-                                                <div className={s.OneName}>{delivery.name}</div>
-                                                <div className={s.OneData} style={{whiteSpace: 'nowrap'}}>
-                                                    {`${delivery.shipping_deliveries_days} (24-26 июля)`}
-                                                </div>
-                                                <div className={s.OnePrice} style={{fontWeight: 'bold'}}>
-                                                    {`${delivery.shipping_cost.toLocaleString()} ₽`}
-                                                </div>
-                                            </div>}
-                                    </label>
-
-                                </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
-                }
+                    <div className={mobileModalState === 1 ? s.ModalDeliveryName : s.ModalPostDeliveryName}>
+                        {`Выбор адреса пункта выдачи ${selectedDelivery.name}`}
+                    </div>
+                    <div style={{marginLeft: '50px'}}>
+                        {`Стоимость доставки ${selectedDelivery.shipping_cost} `}&#8381;
+                    </div>
+                </>}
                 {(mobileModalState > 1 || !mobileModalState) &&
                 <div className={s.MainBox}>
                     {(mobileModalState === 3 || !mobileModalState) && <div className={s.AddressBox}>
@@ -162,16 +130,12 @@ const PostDelivery = ({active, setActive, delivers, selectedDelivery}) => {
                             <button onClick={filterGeoDataHandler}>
                                 <SearchIcon color={'#808AAE'} size={15}/>
                             </button>
-
                         </div>
                         <div className={s.AddressBook}>
                             <ul>
                                 {placemarkList && placemarkList.map((placemark, key) =>
                                     <li key={key} className={activeAddress === placemark.address_geo ? 'active' : ''}
-                                        onClick={() => {
-                                            setCenter(placemark.address_geo.split(','));
-                                            setActiveAddress(placemark.address_geo);
-                                        }}>
+                                        onClick={() => placemarkClickHandler(placemark)}>
                                         {placemark.address}
                                     </li>
                                 )}

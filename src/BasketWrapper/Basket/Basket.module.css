@@ -157,6 +157,16 @@
     color: #848DAF;
 }
 
+.BasketDeliverySubInfo {
+    margin-top: 5px;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 14px;
+    color: #848DAF;
+}
+
 @media screen and (max-width: 1280px) {
     .Basket {
         width: 686px;
@@ -177,6 +187,12 @@
     .ProductСontainer {
         margin-top: 20px;
         padding-bottom: 20px;
+    }
+
+    .BasketDeliverySubInfo{
+        font-size: 10px;
+        line-height: 12px;
+        width: 250px;
     }
 
     .Basket:last-child {

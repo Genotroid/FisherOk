@@ -9,9 +9,39 @@ export const Product = ({product, cityId}) => {
     const [itemCount, setItemCount] = useState(product.quantity);
 
     const changeCountHandler = (newCount) => {
-        axios.post('test.url', [newCount]).then(
-            // result => setBasket(result.data);
+        axios.post(
+            'https://lovisnami.ru/site2/api/change-item-amount',
+            {
+                "operation": "change_item_amount",
+                "data": {
+                    "item_id": product.id,
+                    "amount": newCount,
+                    "departure_city_id": cityId
+                }
+            }
+        ).then(
+            result => console.log('set basket', result)
         );
+    }
+
+    const changeDepCityHandler = (newDepCityId) => {
+
+        if (newDepCityId !== cityId) {
+            axios.post(
+                'https://lovisnami.ru/site2/api/change-dep-city',
+                {
+                    "operation": "change_item_dep_city",
+                    "data": {
+                        "item_id": product.id,
+                        "departure_city_id": cityId,
+                        "new_departure_city_id": newDepCityId
+                    }
+                }
+            ).then(
+                result => console.log('set basket', result)
+            );
+        }
+
     }
 
     return <div className={s.Product}>
@@ -31,9 +61,9 @@ export const Product = ({product, cityId}) => {
                     {`Есть только в ${Object.values(product.stocks_by_city)[0].city_name}`}
                 </div>}
                 {Object.values(product.stocks_by_city).length > 1 &&
-                    <CustomSelect items={Object.values(product.stocks_by_city)}
-                                  selectedCityId={product.departure_city_id}
-                    />
+                <CustomSelect items={Object.values(product.stocks_by_city)}
+                              selectedCityId={product.departure_city_id} changeDepCityHandler={changeDepCityHandler}
+                />
                 }
             </div>
         </div>
