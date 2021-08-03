@@ -11,6 +11,7 @@ const FullPrice = (props) => {
     const {state, dispatch} = useStore();
 
     const checkPromoCodeHandler = () => {
+        setPromoCodeError(false);
         axios.post(
             'https://lovisnami/site2/api/add-promo-code',
             {
@@ -18,11 +19,13 @@ const FullPrice = (props) => {
                 "data": {
                     "promo_code": promoCodeInput.current.value
                 }
-            }
-        ).then(result => console.log('add promo code', result))
+            })
+            .then(result => console.log('add promo code', result))
+            .catch(error => setPromoCodeError(true))
     }
 
     const mobileCheckPromoCodeHandler = () => {
+        setPromoCodeError(false);
         axios.post(
             'https://lovisnami/site2/api/add-promo-code',
             {
@@ -30,8 +33,9 @@ const FullPrice = (props) => {
                 "data": {
                     "promo_code": mobilePromoCodeInput.current.value
                 }
-            }
-        ).then(result => console.log('add promo code', result))
+            })
+            .then(result => console.log('add promo code', result))
+            .catch(error => setPromoCodeError(true))
     }
 
     return <>

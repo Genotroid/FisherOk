@@ -1,7 +1,9 @@
 export const postModalInitialState = {
-    postModalActive: false
+    postModalActive: false,
+    selectedDelivery: {},
 };
 
 export const postModalActions = {
-    setActive: (state, data) => ({postModalActive: data})
+    setPostModalActive: (state, data) => ({postModalActive: data}),
+    setSelectedDelivery: (state, data) => ({selectedDelivery: data}),
 };

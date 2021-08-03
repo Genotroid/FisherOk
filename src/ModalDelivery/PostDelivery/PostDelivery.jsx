@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, useMemo} from 'react';
+import React, {useState, useRef, useEffect, useMemo, useCallback} from 'react';
 import axios from 'axios';
 import geoData from '../../jsons/ymap.json';
 import s from './PostDelivery.module.css';
@@ -8,15 +8,17 @@ import MapImage from '../../BasketWrapper/img/map.png';
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
 import placemarkIcon from '../../BasketWrapper/img/placemark.png';
 import './placemark.css';
+import {useStore} from '../../store/useStore';
 
-const PostDelivery = ({active, setActive, deliveryList, selectedDelivery, departureCity}) => {
+const PostDelivery = () => {
     const addressRef = useRef();
     const modalRef = useRef();
+    const {state, dispatch} = useStore();
+    const changeModalStatus = useCallback((data) => dispatch({type: "setPostModalActive", data: data}), [dispatch]);
     const [mobileModalState, setMobileModalState] = useState(window.innerWidth < 768 ? 1 : 0);
     const [activeAddress, setActiveAddress] = useState(geoData[0].address_geo);
     const [placemarkList, setPlacemarkList] = useState([]);
     const [center, setCenter] = useState(geoData[0].address_geo.split(','));
-    const [zoom, setZoom] = useState(9);
     const mapState = useMemo(() => ({center, zoom: 12}), [center]);
     const imgStyle = {width: '61px', height: '27px', marginRight: '10px', objectFit: 'cover'};
 
@@ -26,6 +28,11 @@ const PostDelivery = ({active, setActive, deliveryList, selectedDelivery, depart
             filterGeoDataHandler(e);
         }
 
+    }
+
+    const returnToTKHandle = () => {
+        dispatch({type: "setCourierModalActive", data: true});
+        changeModalStatus(false);
     }
 
     const placemarkClickHandler = (placemark) => {
@@ -43,10 +50,6 @@ const PostDelivery = ({active, setActive, deliveryList, selectedDelivery, depart
             setMobileModalState(newMobileState);
         }
 
-    }
-
-    const returnChooseDeliveryHandler = (e) => {
-        setActive(false);
     }
 
     const convertGeoDataToPlacemark = (geo) => {
@@ -95,24 +98,28 @@ const PostDelivery = ({active, setActive, deliveryList, selectedDelivery, depart
         setPlacemarkList(tempPlacemarks);
     }
 
+    if (!state.selectedDelivery) {
+        return <></>
+    }
+
     return (
-        <div className={(active ? s.ModalActive : s.Modal) + ' modal-active'} ref={modalRef}
-             onClick={() => setActive(false)}>
+        <div className={(state.postModalActive ? s.ModalActive : s.Modal) + ' modal-active'} ref={modalRef}
+             onClick={() => changeModalStatus(false)}>
             <div className={mobileModalState === 1 ? s.ModalContentActive : s.ModalPostContentActive}
                  onClick={e => e.stopPropagation()}>
                 <div className={mobileModalState ? s.ModalOff : s.ModalPostOff}>
                     <a className={mobileModalState ? s.ModalOffLink : s.ModalPostOffLink}
-                       onClick={() => setActive(false)}></a>
+                       onClick={() => changeModalStatus(false)}></a>
                 </div>
                 {(mobileModalState === 1 || !mobileModalState) && <>
-                    <button className={s.ModalPostChooseTKButton} onClick={returnChooseDeliveryHandler}>
+                    <button className={s.ModalPostChooseTKButton} onClick={returnToTKHandle}>
                         {'Вернуться к выбору ТК'}
                     </button>
                     <div className={mobileModalState === 1 ? s.ModalDeliveryName : s.ModalPostDeliveryName}>
-                        {`Выбор адреса пункта выдачи ${selectedDelivery.name}`}
+                        {`Выбор адреса пункта выдачи ${state.selectedDelivery.name}`}
                     </div>
                     <div style={{marginLeft: '50px'}}>
-                        {`Стоимость доставки ${selectedDelivery.shipping_cost} `}&#8381;
+                        {`Стоимость доставки ${state.selectedDelivery.shipping_cost} `}&#8381;
                     </div>
                 </>}
                 {(mobileModalState > 1 || !mobileModalState) &&

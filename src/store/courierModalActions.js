@@ -1,7 +1,11 @@
 export const courierModalInitialState = {
-    courierModalActive: false
+    courierModalActive: false,
+    departureCity: {},
+    deliveryList: []
 };
 
 export const courierModalActions = {
-    setActive: (state, data) => ({courierModalActive: data})
+    setCourierModalActive: (state, data) => ({courierModalActive: data}),
+    setDepartureCity: (state, data) => ({departureCity: data}),
+    setDeliveryList: (state, data) => ({deliveryList: data}),
 };
