@@ -127,12 +127,6 @@
     display: none;
 }
 
-.BasketRightMenu {
-    position: fixed;
-    right: 100px;
-    top: 14%;
-}
-
 @media screen and (max-width: 1420px) {
     .BasketWrapper {
         width: 1300px;
@@ -177,12 +171,6 @@
         width: 320px;
     }
 
-    .BasketRightMenu {
-        position: initial;
-        right: auto;
-        top: auto;  
-    }
-
     .BasketContent {
         display: flex;
         flex-direction: column;
@@ -195,7 +183,6 @@
     }
 
     .BasketContentData {
-        order: 2;
         width: 320px;
     }
 
