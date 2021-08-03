@@ -44,8 +44,8 @@ const BasketWrapper = (props) => {
                     <input className={s.CheckboxMein} type={'checkbox'} id={'check_all'} name={'check_all'}/>
                     <label htmlFor={'check_all'}>{'Выбрать всё'}</label>
                 </div>
-                {state.basket.grouped_items && Object.keys(state.basket.grouped_items).map((cityId, key) =>
-                    <Basket city={state.basket.grouped_items[cityId]} cityId={cityId    }/>
+                {state.basket.grouped_items && state.basket.grouped_items.map((city, key) =>
+                    <Basket city={city}/>
                 )}
             </div>
             <div className={s.RightMenu}>

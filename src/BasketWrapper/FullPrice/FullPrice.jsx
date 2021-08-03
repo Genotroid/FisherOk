@@ -6,10 +6,6 @@ const FullPrice = (props) => {
     const [editMod, setEditMod] = useState(false);
     const {state, dispatch} = useStore();
 
-    const activEditMod = () => {
-        setEditMod(true)
-    }
-
     return <>
         <div className={s.FullPriceContainer}>
             <div className={s.FullPrice}>
@@ -58,27 +54,28 @@ const FullPrice = (props) => {
                             </button>
                         </div>
                         <div className={s.PromoCode}>
-                            {editMod
-                                ?
-                                <div>
-                                    <div className={s.PromoCodeForm}>
-                                        <input className={s.PromoCodeFormInput} autoFocus={true}
-                                               placeholder={'Введите промокод'}/>
-                                        <button className={s.PromoCodeFormButton} type="submit">{'ОК'}</button>
-                                        <div className={s.PromoCodeFormError}>
-                                            {'Ошибка! Промокод уже недействителен. Введите другой'}
+                            {state.basket.used_promo_code
+                                ? <div>
+                                    {state.basket.used_promo_code
+                                        ? <div style={{position: 'relative'}}>
+                                            <input className={s.PromoCodeFormInput} value={state.basket.used_promo_code}
+                                                   style={{width: '167px', paddingRight: '23px'}}/>
+                                            <a className={s.PromoCodeFormLink}/>
+                                            <div className={s.PromoCodeFormOk}>
+                                                {'Код применен. Скидка не распространяется на акционные товары'}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div style={{position: 'relative'}}>
-                                        <input className={s.PromoCodeFormInput} placeholder={'Промокод: F3FRL75R43'}
-                                               style={{width: '167px', paddingRight: '23px'}}/>
-                                        <a className={s.PromoCodeFormLink}/>
-                                        <div className={s.PromoCodeFormOk}>
-                                            {'Код применен. Скидка не распространяется на акционные товары'}
+                                        : <div className={s.PromoCodeForm}>
+                                            <input className={s.PromoCodeFormInput} autoFocus={true}
+                                                   placeholder={'Введите промокод'}/>
+                                            <button className={s.PromoCodeFormButton} type="submit">{'ОК'}</button>
+                                            <div className={s.PromoCodeFormError}>
+                                                {'Ошибка! Промокод уже недействителен. Введите другой'}
+                                            </div>
                                         </div>
-                                    </div>
+                                    }
                                 </div>
-                                : <a onClick={() => activEditMod()} className={s.PromoCodeItem}>{'Ввести промокод'}</a>
+                                : <a onClick={() => setEditMod(true)} className={s.PromoCodeItem}>{'Ввести промокод'}</a>
                             }
                         </div>
                     </div>
@@ -87,20 +84,20 @@ const FullPrice = (props) => {
         </div>
         <div className={s.MobilePromoCodeInput}>
             {!editMod
-            ? <div className={s.PromoCode}>
-                <a onClick={() => activEditMod()} className={s.PromoCodeItem}>{'Ввести промокод'}</a>
-            </div>
-            : <div className={s.PromoCodeForm}>
-                <input className={s.PromoCodeFormInput} autoFocus={true}
-                       placeholder={'Введите промокод'}/>
-                <button className={s.PromoCodeFormButton} type="submit">{'ОК'}</button>
-                <div className={s.PromoCodeFormError}>
-                    {'Ошибка! Промокод уже недействителен. Введите другой'}
+                ? <div className={s.PromoCode}>
+                    <a onClick={() => setEditMod(true)} className={s.PromoCodeItem}>{'Ввести промокод'}</a>
                 </div>
-                <div className={s.PromoCodeFormOk}>
-                    {'Код применен. Скидка не распространяется на акционные товары'}
-                </div>
-            </div>}
+                : <div className={s.PromoCodeForm}>
+                    <input className={s.PromoCodeFormInput} autoFocus={true}
+                           placeholder={'Введите промокод'}/>
+                    <button className={s.PromoCodeFormButton} type="submit">{'ОК'}</button>
+                    <div className={s.PromoCodeFormError}>
+                        {'Ошибка! Промокод уже недействителен. Введите другой'}
+                    </div>
+                    <div className={s.PromoCodeFormOk}>
+                        {'Код применен. Скидка не распространяется на акционные товары'}
+                    </div>
+                </div>}
         </div>
         <div className={s.MobileTotal}>
             <div className={s.MobileTotalPrice}>

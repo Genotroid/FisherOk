@@ -3,20 +3,15 @@ import axios from 'axios';
 import s from './Product.module.css';
 import CustomSelect from './CustomProductSelect';
 import image from './../../img/karasy1.jpg';
-import {useStore} from '../../../store/useStore';
 
 export const Product = ({product, cityId}) => {
     const [maxCount, setMaxCount] = useState(product.stock_level);
     const [itemCount, setItemCount] = useState(product.quantity);
 
     const changeCountHandler = (newCount) => {
-
-        if (newCount > 0 && newCount <= maxCount) {
-            axios.post('test.url', [newCount]).then(
-                // result => setBasket(result.data);
-            );
-        }
-
+        axios.post('test.url', [newCount]).then(
+            // result => setBasket(result.data);
+        );
     }
 
     return <div className={s.Product}>
@@ -26,16 +21,20 @@ export const Product = ({product, cityId}) => {
             <label htmlFor={`checkbox-${cityId}-item-${product.item_id}`}></label>
         </div>
         <div className={s.ProductImg}>
-            {product.is_sales && <div className={s.SaleLabel}><span>{'-15 %'}</span></div>}
+            {product.is_sales === "1" && <div className={s.SaleLabel}><span>{product.sales_discount}</span></div>}
             <img src={`https://lovisnami.ru/${product.small_image}`}/>
         </div>
         <div className={s.ProductName}>
             <div className={s.ProductNameItem}>{product.item_name}</div>
             <div className={s.ProductNameLoca}>
-                {product.stocks_by_city.length === 1 && <div className={s.ProductNameLocaItem}>
-                    {`Есть только в ${product.stocks_by_city[0].city_name}`}
+                {Object.values(product.stocks_by_city).length === 1 && <div className={s.ProductNameLocaItem}>
+                    {`Есть только в ${Object.values(product.stocks_by_city)[0].city_name}`}
                 </div>}
-                {product.stocks_by_city.length > 1 && <CustomSelect items={product.stocks_by_city}/>}
+                {Object.values(product.stocks_by_city).length > 1 &&
+                    <CustomSelect items={Object.values(product.stocks_by_city)}
+                                  selectedCityId={product.departure_city_id}
+                    />
+                }
             </div>
         </div>
         <div className={s.ProductRight}>
@@ -63,7 +62,10 @@ export const Product = ({product, cityId}) => {
             <div className={s.ProductArti}>{`Артикул: ${product.item_code}`}</div>
         </div>
         <div className={s.ProductDelete}>
-            <a className={s.ProductDeleteClose}></a>
+            <a className={s.ProductDeleteClose} onClick={e => {
+                e.preventDefault();
+                changeCountHandler(0);
+            }}/>
         </div>
     </div>
 }

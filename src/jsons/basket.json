@@ -4,9 +4,10 @@
   "discount_sum": 1231,
   "used_promo_code": "432SDASA23",
   "total_sum_text": "9 570",
-  "grouped_items": {
-    "2287": {
+  "grouped_items": [
+    {
       "city_name": "Санкт-Петербург",
+      "city_id": "2287",
       "selected_delivery": {
         "module_id": 11,
         "shipping_type_id": 3018,
@@ -43,6 +44,7 @@
           "price": "8160.00",
           "is_sales": "1",
           "sales_price": "7090.00",
+          "sales_discount": "-12%",
           "small_image": "images/items/small/130917-small_0.jpg",
           "promo_code_percent": 0,
           "price_total": 7090,
@@ -111,6 +113,7 @@
           "price": "1290.00",
           "is_sales": "0",
           "sales_price": "0.00",
+          "sales_discount": "",
           "small_image": "images/items/small/119424-small_4.jpg",
           "promo_code_percent": 0,
           "price_total": 1290,
@@ -118,8 +121,9 @@
         }
       ]
     },
-    "2902": {
+    {
       "city_name": "Череповец",
+      "city_id": "2902",
       "selected_delivery": {
         "module_id": 8,
         "shipping_type_id": 115,
@@ -191,11 +195,12 @@
               "in_stock": "1"
             }
           },
-          "stock_level": "475",
+          "stock_level": 1,
           "friendly_url": "udilishche-riverglass-spin-2-1-m-20-70-g",
           "price": "1190.00",
           "is_sales": "0",
           "sales_price": "0.00",
+          "sales_discount": "",
           "small_image": "images/items/small/119424-small_4.jpg",
           "promo_code_percent": 0,
           "price_total": 1190,
@@ -203,5 +208,5 @@
         }
       ]
     }
-  }
+  ]
 }

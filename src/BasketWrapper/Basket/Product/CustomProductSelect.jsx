@@ -1,11 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
 import customProduct from './customProductSelect.css';
 
-const CustomProductSelect = ({items, selectType, customStyle = undefined}) => {
+const CustomProductSelect = ({items, selectedCityId, selectType, customStyle}) => {
     const buttonRef = useRef();
     const [isOpenSelect, setIsOpenSelect] = useState(false);
     const [selectedKey, setSelectedKey] = useState(0);
-    const [selectedItem, setSelectedItem] = useState(items[0]);
+    const [selectedItem, setSelectedItem] = useState(items.find(item => item.departure_city === selectedCityId));
 
     const handleClick = event => {
 
@@ -27,13 +27,13 @@ const CustomProductSelect = ({items, selectType, customStyle = undefined}) => {
         <div className={`custom-product-select ${isOpenSelect ? 'open' : ''}`}>
             <div className={'custom-product__trigger'} style={customStyle ? {...customStyle, height: '40px'} : {}}
                  ref={buttonRef}>
-                <span>{selectedItem.name}</span>
+                <span>{selectedItem.city_name}</span>
             </div>
             <div className={'custom-product-options'}>
                 {items.map((item, key) =>
                     <span className={`custom-product-option ${selectedItem === item ? 'selected' : ''}`}
                           key={key} onClick={() => setSelectedItem(item)} style={customStyle ? customStyle : {}}>
-                        {`${item.name} ${item.max ? `(макс. ${item.max} шт.)` : ''}`}
+                        {`${item.city_name} ${item.in_stock ? `(макс. ${item.in_stock} шт.)` : ''}`}
                     </span>
                 )}
             </div>
