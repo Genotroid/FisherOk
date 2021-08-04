@@ -31,7 +31,6 @@
 .ModalContentActive {
     margin-top: -264px;
     width: 643px;
-    height: 507px;
     background: #FFFFFF;
     border-radius: 6px;
 }
@@ -389,6 +388,7 @@
     flex-wrap: nowrap;
     flex-direction: column;
     justify-content: flex-start;
+    padding-bottom: 60px;
 }
 
 .ModalPostDeliveryData {
@@ -417,11 +417,11 @@
     .ModalContentActive {
         margin-top: 20px;
         width: 300px;
-        height: 360px;
     }
 
     .ModalDeliveryData {
         flex-direction: column;
+        padding-bottom: 20px;
     }
 
     .ModalDeliveryOne {

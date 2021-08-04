@@ -1,6 +1,8 @@
 .FullPriceContainer {
     margin-bottom: 10px;
     grid-area: DP;
+    position: sticky;
+    top: 0;
 }
 
 .FullPrice {
@@ -109,6 +111,7 @@
     line-height: 19px;
     color: #848DAF;
     margin: 12px 0 0 0;
+    padding-bottom: 20px;
 }
 
 .PromoCode:hover {

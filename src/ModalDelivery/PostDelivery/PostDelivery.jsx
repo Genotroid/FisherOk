@@ -125,17 +125,19 @@ const PostDelivery = () => {
                     <button className={s.ModalPostChooseTKButton} onClick={returnToTKHandle}>
                         {'Вернуться к выбору ТК'}
                     </button>
-                    <div className={mobileModalState === 1 ? s.ModalDeliveryName : s.ModalPostDeliveryName}>
-                        {`Выбор адреса пункта выдачи ${state.selectedDelivery.name}`}
-                    </div>
-                    <div style={{marginLeft: '50px'}}>
-                        {`Стоимость доставки ${state.selectedDelivery.shipping_cost} `}&#8381;
-                    </div>
+                    {!mobileModalState && <>
+                        <div className={mobileModalState === 1 ? s.ModalDeliveryName : s.ModalPostDeliveryName}>
+                            {`Выбор адреса пункта выдачи ${state.selectedDelivery.name}`}
+                        </div>
+
+                        <div style={{marginLeft: '50px'}}>
+                            {`Стоимость доставки ${state.selectedDelivery.shipping_cost} `}&#8381;
+                        </div>
+                    </>}
                 </>}
-                {(mobileModalState > 1 || !mobileModalState) &&
                 <div className={s.MainBox}>
                     {(mobileModalState === 3 || !mobileModalState) && <div className={s.AddressBox}>
-                        <div className={s.SearchAddress}>
+                        <div>
                             {mobileModalState !== 0 &&
                             <button className={s.ModalPostHideList} onClick={() => setMobileModalState(2)}>
                                 <span>{'Свернуть список'}</span><span className={s.CloseSelector}/>
@@ -170,7 +172,7 @@ const PostDelivery = () => {
                                 </Map>
                             </div>
                         </YMaps>
-                        {mobileModalState === 2 &&
+                        {mobileModalState === 1 &&
                         <div style={{justifyContent: 'flex-end', display: 'flex'}}>
                             <button className={s.ModalPostShowList} onClick={() => setMobileModalState(3)}>
                                 <span>{'Показать списком'}</span><span className={s.OpenSelector}/>
@@ -178,7 +180,6 @@ const PostDelivery = () => {
                         </div>}
                     </div>
                 </div>
-                }
             </div>
         </div>
     )

@@ -121,6 +121,470 @@
         }
       ]
     },
+	{
+      "city_name": "Санкт-Петербург",
+      "city_id": "2287",
+      "selected_delivery": {
+        "module_id": 11,
+        "shipping_type_id": 3018,
+        "address": "Санкт-Петербург, Московский пр-т, д. 161, пом. 7Н",
+        "name":"СДЭК",
+        "logo_url":"https://toplogos.ru/images/thumbs/preview-logo-sdek.jpg",
+        "shipping_delivery_interval": [
+          "2021-08-05",
+          "2021-08-07"
+        ],
+        "shipping_cost": 350
+      },
+      "items": [
+        {
+          "item_id": "130920",
+          "item_code": "140036",
+          "item_name": "Спиннинг Daiwa Ballistic X Tele 2.40m 15-50g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "130920",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "5"
+            }
+          },
+          "stock_level": "5",
+          "friendly_url": "spinning-daiwa-ballistic-x-tele-2-40m-15-50g",
+          "price": "8160.00",
+          "is_sales": "1",
+          "sales_price": "7090.00",
+          "sales_discount": "-12%",
+          "small_image": "images/items/small/130917-small_0.jpg",
+          "promo_code_percent": 0,
+          "price_total": 7090,
+          "price_total_text": "7 090"
+        },
+        {
+          "item_id": "119425",
+          "item_code": "125568",
+          "item_name": "Спиннинг Riverglass Spin 2.4 m 20-70 g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "764": {
+              "city_name": "Архангельск",
+              "city_genitive": "Архангельска",
+              "city_prepositional": "Архангельске",
+              "item_id": "119425",
+              "departure_city": "764",
+              "main": "0",
+              "stock_id": "68",
+              "in_stock": "2"
+            },
+            "1069": {
+              "city_name": "Великий Новгород",
+              "city_genitive": "Великого Новгорода",
+              "city_prepositional": "Великом Новгороде",
+              "item_id": "119425",
+              "departure_city": "1069",
+              "main": "0",
+              "stock_id": "28",
+              "in_stock": "2"
+            },
+            "2097": {
+              "city_name": "Москва",
+              "city_genitive": "Москвы",
+              "city_prepositional": "Москве",
+              "item_id": "119425",
+              "departure_city": "2097",
+              "main": "1",
+              "stock_id": "55",
+              "in_stock": "2"
+            },
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "119425",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "20"
+            },
+            "2902": {
+              "city_name": "Череповец",
+              "city_genitive": "Череповца",
+              "city_prepositional": "Череповце",
+              "item_id": "119425",
+              "departure_city": "2902",
+              "main": "0",
+              "stock_id": "48",
+              "in_stock": "2"
+            }
+          },
+          "stock_level": "472",
+          "friendly_url": "udilishche-riverglass-spin-2-4-m-20-70-g",
+          "price": "1290.00",
+          "is_sales": "0",
+          "sales_price": "0.00",
+          "sales_discount": "",
+          "small_image": "images/items/small/119424-small_4.jpg",
+          "promo_code_percent": 0,
+          "price_total": 1290,
+          "price_total_text": "1 290"
+        }
+      ]
+    },
+	{
+      "city_name": "Санкт-Петербург",
+      "city_id": "2287",
+      "selected_delivery": {
+        "module_id": 11,
+        "shipping_type_id": 3018,
+        "address": "Санкт-Петербург, Московский пр-т, д. 161, пом. 7Н",
+        "name":"СДЭК",
+        "logo_url":"https://toplogos.ru/images/thumbs/preview-logo-sdek.jpg",
+        "shipping_delivery_interval": [
+          "2021-08-05",
+          "2021-08-07"
+        ],
+        "shipping_cost": 350
+      },
+      "items": [
+        {
+          "item_id": "130920",
+          "item_code": "140036",
+          "item_name": "Спиннинг Daiwa Ballistic X Tele 2.40m 15-50g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "130920",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "5"
+            }
+          },
+          "stock_level": "5",
+          "friendly_url": "spinning-daiwa-ballistic-x-tele-2-40m-15-50g",
+          "price": "8160.00",
+          "is_sales": "1",
+          "sales_price": "7090.00",
+          "sales_discount": "-12%",
+          "small_image": "images/items/small/130917-small_0.jpg",
+          "promo_code_percent": 0,
+          "price_total": 7090,
+          "price_total_text": "7 090"
+        },
+        {
+          "item_id": "119425",
+          "item_code": "125568",
+          "item_name": "Спиннинг Riverglass Spin 2.4 m 20-70 g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "764": {
+              "city_name": "Архангельск",
+              "city_genitive": "Архангельска",
+              "city_prepositional": "Архангельске",
+              "item_id": "119425",
+              "departure_city": "764",
+              "main": "0",
+              "stock_id": "68",
+              "in_stock": "2"
+            },
+            "1069": {
+              "city_name": "Великий Новгород",
+              "city_genitive": "Великого Новгорода",
+              "city_prepositional": "Великом Новгороде",
+              "item_id": "119425",
+              "departure_city": "1069",
+              "main": "0",
+              "stock_id": "28",
+              "in_stock": "2"
+            },
+            "2097": {
+              "city_name": "Москва",
+              "city_genitive": "Москвы",
+              "city_prepositional": "Москве",
+              "item_id": "119425",
+              "departure_city": "2097",
+              "main": "1",
+              "stock_id": "55",
+              "in_stock": "2"
+            },
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "119425",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "20"
+            },
+            "2902": {
+              "city_name": "Череповец",
+              "city_genitive": "Череповца",
+              "city_prepositional": "Череповце",
+              "item_id": "119425",
+              "departure_city": "2902",
+              "main": "0",
+              "stock_id": "48",
+              "in_stock": "2"
+            }
+          },
+          "stock_level": "472",
+          "friendly_url": "udilishche-riverglass-spin-2-4-m-20-70-g",
+          "price": "1290.00",
+          "is_sales": "0",
+          "sales_price": "0.00",
+          "sales_discount": "",
+          "small_image": "images/items/small/119424-small_4.jpg",
+          "promo_code_percent": 0,
+          "price_total": 1290,
+          "price_total_text": "1 290"
+        }
+      ]
+    },
+	{
+      "city_name": "Санкт-Петербург",
+      "city_id": "2287",
+      "selected_delivery": {
+        "module_id": 11,
+        "shipping_type_id": 3018,
+        "address": "Санкт-Петербург, Московский пр-т, д. 161, пом. 7Н",
+        "name":"СДЭК",
+        "logo_url":"https://toplogos.ru/images/thumbs/preview-logo-sdek.jpg",
+        "shipping_delivery_interval": [
+          "2021-08-05",
+          "2021-08-07"
+        ],
+        "shipping_cost": 350
+      },
+      "items": [
+        {
+          "item_id": "130920",
+          "item_code": "140036",
+          "item_name": "Спиннинг Daiwa Ballistic X Tele 2.40m 15-50g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "130920",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "5"
+            }
+          },
+          "stock_level": "5",
+          "friendly_url": "spinning-daiwa-ballistic-x-tele-2-40m-15-50g",
+          "price": "8160.00",
+          "is_sales": "1",
+          "sales_price": "7090.00",
+          "sales_discount": "-12%",
+          "small_image": "images/items/small/130917-small_0.jpg",
+          "promo_code_percent": 0,
+          "price_total": 7090,
+          "price_total_text": "7 090"
+        },
+        {
+          "item_id": "119425",
+          "item_code": "125568",
+          "item_name": "Спиннинг Riverglass Spin 2.4 m 20-70 g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "764": {
+              "city_name": "Архангельск",
+              "city_genitive": "Архангельска",
+              "city_prepositional": "Архангельске",
+              "item_id": "119425",
+              "departure_city": "764",
+              "main": "0",
+              "stock_id": "68",
+              "in_stock": "2"
+            },
+            "1069": {
+              "city_name": "Великий Новгород",
+              "city_genitive": "Великого Новгорода",
+              "city_prepositional": "Великом Новгороде",
+              "item_id": "119425",
+              "departure_city": "1069",
+              "main": "0",
+              "stock_id": "28",
+              "in_stock": "2"
+            },
+            "2097": {
+              "city_name": "Москва",
+              "city_genitive": "Москвы",
+              "city_prepositional": "Москве",
+              "item_id": "119425",
+              "departure_city": "2097",
+              "main": "1",
+              "stock_id": "55",
+              "in_stock": "2"
+            },
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "119425",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "20"
+            },
+            "2902": {
+              "city_name": "Череповец",
+              "city_genitive": "Череповца",
+              "city_prepositional": "Череповце",
+              "item_id": "119425",
+              "departure_city": "2902",
+              "main": "0",
+              "stock_id": "48",
+              "in_stock": "2"
+            }
+          },
+          "stock_level": "472",
+          "friendly_url": "udilishche-riverglass-spin-2-4-m-20-70-g",
+          "price": "1290.00",
+          "is_sales": "0",
+          "sales_price": "0.00",
+          "sales_discount": "",
+          "small_image": "images/items/small/119424-small_4.jpg",
+          "promo_code_percent": 0,
+          "price_total": 1290,
+          "price_total_text": "1 290"
+        }
+      ]
+    },
+	{
+      "city_name": "Санкт-Петербург",
+      "city_id": "2287",
+      "selected_delivery": {
+        "module_id": 11,
+        "shipping_type_id": 3018,
+        "address": "Санкт-Петербург, Московский пр-т, д. 161, пом. 7Н",
+        "name":"СДЭК",
+        "logo_url":"https://toplogos.ru/images/thumbs/preview-logo-sdek.jpg",
+        "shipping_delivery_interval": [
+          "2021-08-05",
+          "2021-08-07"
+        ],
+        "shipping_cost": 350
+      },
+      "items": [
+        {
+          "item_id": "130920",
+          "item_code": "140036",
+          "item_name": "Спиннинг Daiwa Ballistic X Tele 2.40m 15-50g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "130920",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "5"
+            }
+          },
+          "stock_level": "5",
+          "friendly_url": "spinning-daiwa-ballistic-x-tele-2-40m-15-50g",
+          "price": "8160.00",
+          "is_sales": "1",
+          "sales_price": "7090.00",
+          "sales_discount": "-12%",
+          "small_image": "images/items/small/130917-small_0.jpg",
+          "promo_code_percent": 0,
+          "price_total": 7090,
+          "price_total_text": "7 090"
+        },
+        {
+          "item_id": "119425",
+          "item_code": "125568",
+          "item_name": "Спиннинг Riverglass Spin 2.4 m 20-70 g",
+          "quantity": 1,
+          "departure_city_id": "2287",
+          "stocks_by_city": {
+            "764": {
+              "city_name": "Архангельск",
+              "city_genitive": "Архангельска",
+              "city_prepositional": "Архангельске",
+              "item_id": "119425",
+              "departure_city": "764",
+              "main": "0",
+              "stock_id": "68",
+              "in_stock": "2"
+            },
+            "1069": {
+              "city_name": "Великий Новгород",
+              "city_genitive": "Великого Новгорода",
+              "city_prepositional": "Великом Новгороде",
+              "item_id": "119425",
+              "departure_city": "1069",
+              "main": "0",
+              "stock_id": "28",
+              "in_stock": "2"
+            },
+            "2097": {
+              "city_name": "Москва",
+              "city_genitive": "Москвы",
+              "city_prepositional": "Москве",
+              "item_id": "119425",
+              "departure_city": "2097",
+              "main": "1",
+              "stock_id": "55",
+              "in_stock": "2"
+            },
+            "2287": {
+              "city_name": "Санкт-Петербург",
+              "city_genitive": "Санкт-Петербурга",
+              "city_prepositional": "Санкт-Петербурге",
+              "item_id": "119425",
+              "departure_city": "2287",
+              "main": "1",
+              "stock_id": "1",
+              "in_stock": "20"
+            },
+            "2902": {
+              "city_name": "Череповец",
+              "city_genitive": "Череповца",
+              "city_prepositional": "Череповце",
+              "item_id": "119425",
+              "departure_city": "2902",
+              "main": "0",
+              "stock_id": "48",
+              "in_stock": "2"
+            }
+          },
+          "stock_level": "472",
+          "friendly_url": "udilishche-riverglass-spin-2-4-m-20-70-g",
+          "price": "1290.00",
+          "is_sales": "0",
+          "sales_price": "0.00",
+          "sales_discount": "",
+          "small_image": "images/items/small/119424-small_4.jpg",
+          "promo_code_percent": 0,
+          "price_total": 1290,
+          "price_total_text": "1 290"
+        }
+      ]
+    },
     {
       "city_name": "Череповец",
       "city_id": "2902",

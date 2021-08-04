@@ -29,16 +29,13 @@
 }
 
 .ModalContentActive {
-    margin-top: -264px;
     width: 643px;
-    height: 507px;
     background: #FFFFFF;
     border-radius: 6px;
 }
 
 .ModalPostContentActive {
     width: 983px;
-    height: 802px;
     background: #FFFFFF;
     border-radius: 6px;
 }
@@ -512,14 +509,12 @@
     }
 
     .ModalContentActive {
-        margin-top: 20px;
         width: 300px;
-        height: 396px;
+
     }
 
     .ModalPostContentActive {
         width: 300px;
-        height: 465px;
     }
 
     .ModalPostDeliveryData {
@@ -683,19 +678,14 @@
         border: 1px solid #ADB6D8;
         box-sizing: border-box;
         border-radius: 3px;
-        background: none;
-        font-family: Open Sans, sans-serif;
-        font-style: normal;
-        font-weight: 600;
         font-size: 12px;
         line-height: 16px;
         text-align: center;
         color: #00145C;
-        background-image: url("../../BasketWrapper/img/Vector8.png");
-        background-color: white;
-        background-repeat: no-repeat, repeat;
-        background-position: left 10px top 50%, 0 0;
-        background-size: 5px auto, 100%;
+        margin: 25px 0 20px 25px;
+        /*margin-top: 25px;*/
+        /*margin-left: 20px;*/
+        /*margin-bottom: 20px;*/
     }
 
     .AddressBook {
@@ -718,7 +708,8 @@
         z-index: 3;
         background: white;
         bottom: 0;
-        margin-top: 65px;
+        margin-top: 115px;
+        height: 340px;
     }
 
     .SearchAddress input {
