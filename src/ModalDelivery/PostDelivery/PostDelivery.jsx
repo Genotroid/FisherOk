@@ -121,10 +121,10 @@ const PostDelivery = () => {
                     <a className={mobileModalState ? s.ModalOffLink : s.ModalPostOffLink}
                        onClick={() => changeModalStatus(false)}></a>
                 </div>
+                <button className={s.ModalPostChooseTKButton} onClick={returnToTKHandle}>
+                    {'Вернуться к выбору ТК'}
+                </button>
                 {(mobileModalState === 1 || !mobileModalState) && <>
-                    <button className={s.ModalPostChooseTKButton} onClick={returnToTKHandle}>
-                        {'Вернуться к выбору ТК'}
-                    </button>
                     {!mobileModalState && <>
                         <div className={mobileModalState === 1 ? s.ModalDeliveryName : s.ModalPostDeliveryName}>
                             {`Выбор адреса пункта выдачи ${state.selectedDelivery.name}`}
@@ -139,7 +139,7 @@ const PostDelivery = () => {
                     {(mobileModalState === 3 || !mobileModalState) && <div className={s.AddressBox}>
                         <div>
                             {mobileModalState !== 0 &&
-                            <button className={s.ModalPostHideList} onClick={() => setMobileModalState(2)}>
+                            <button className={s.ModalPostHideList} onClick={() => setMobileModalState(1)}>
                                 <span>{'Свернуть список'}</span><span className={s.CloseSelector}/>
                             </button>
                             }
@@ -173,7 +173,7 @@ const PostDelivery = () => {
                             </div>
                         </YMaps>
                         {mobileModalState === 1 &&
-                        <div style={{justifyContent: 'flex-end', display: 'flex'}}>
+                        <div style={{position: 'absolute', bottom: '0'}}>
                             <button className={s.ModalPostShowList} onClick={() => setMobileModalState(3)}>
                                 <span>{'Показать списком'}</span><span className={s.OpenSelector}/>
                             </button>

@@ -29,9 +29,7 @@
 }
 
 .ModalContentActive {
-    margin-top: -336px;
     width: 643px;
-    height: 397px;
     background: #FFFFFF;
     border-radius: 6px;
 }
@@ -84,10 +82,10 @@
     color: white;
     width: 205px;
     height: 40px;
-    margin: 19px 0 0 0;
     font-weight: bold;
     font-size: 14px;
     line-height: 19px;
+    margin: 19px 0 50px;
 }
 
 .ModalLink:hover {
@@ -218,11 +216,41 @@
     margin-bottom: 10px;
 }
 
+.AddressShippingCost{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #808AAE;
+}
+
+.ModalPostChooseTKButton {
+    height: 30px;
+    cursor: pointer;
+    width: 250px;
+    border: 1px solid #ADB6D8;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: none;
+    font-family: Open Sans, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #00145C;
+    background-image: url("../BasketWrapper/img/Vector8.png");
+    background-color: white;
+    background-repeat: no-repeat, repeat;
+    background-position: left 10px top 50%, 0 0;
+    background-size: 5px auto, 100%;
+    margin-top: 30px;
+}
+
 @media screen and (max-width: 720px) {
     .ModalContentActive {
-        margin-top: 0px;
         width: 300px;
-        height: 465px;
         background: #FFFFFF;
         border-radius: 6px;
     }
@@ -295,6 +323,19 @@
 
     .ModalLink {
         width: 100%;
-        margin: 15px 0 0 0;
+        margin: 15px 0 20px 0;
+    }
+
+    .ModalPostChooseTKButton {
+        height: 30px;
+        width: 250px;
+        border: 1px solid #ADB6D8;
+        box-sizing: border-box;
+        border-radius: 3px;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        color: #00145C;
+        margin: 15px 0 20px 0;
     }
 }

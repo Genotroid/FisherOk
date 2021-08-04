@@ -15,6 +15,12 @@ const ModalAddress = ({active, setActive, changeAddressHook}) => {
         color: '#000000'
     }
 
+    const returnToTKHandle = (e) => {
+        e.preventDefault();
+        dispatch({type: "setCourierModalActive", data: true});
+        dispatch({type: "setAddressModalActive", data: false});
+    }
+
     return <div className={state.addressModalActive ? s.ModalActive : s.Modal}
                 onClick={() => dispatch({type: "setAddressModalActive", data: false})}>
         <div className={state.addressModalActive ? s.ModalContentActive : s.ModalContent}
@@ -24,12 +30,19 @@ const ModalAddress = ({active, setActive, changeAddressHook}) => {
             </div>
             <form>
                 <div className={s.ModalContent}>
-                    <div className={s.ModalContentName}>{'Адрес доставки'}</div>
+                    <button className={s.ModalPostChooseTKButton} onClick={returnToTKHandle}>
+                        {'Вернуться к выбору ТК'}
+                    </button>
+                    <div className={s.ModalContentName}>{'Адрес курьерской доставки'}</div>
+                    <div className={s.AddressShippingCost}>
+                        <span>{'Стоимость доставки: '}</span>
+                        <span style={{fontWeight: 'bold'}}>{state.selectedDelivery.shipping_cost}&#8381;</span>
+                    </div>
                     <div className={s.ModalContentData}>
                         <div className={s.ModalContentSity}>
                             <div className={s.ModalContentItem}>
                                 <span>{'Ваш город'}</span>
-                                <input style={{height: '36px'}} type={'text'} readOnly={true}
+                                <input style={{height: '36px', width: '248px'}} type={'text'} readOnly={true}
                                        value={state.departureCity.city_name}/>
                                 {/*<CustomProductSelect items={cityList} customStyle={customStyle}/>*/}
                             </div>
