@@ -64,16 +64,6 @@ const PostDelivery = () => {
 
     const convertGeoDataToPlacemark = (geo) => {
         const placeMarks = geo.map(geoPlace => {
-            const placemarkBody = <div className="baloon-content">
-                <div className="opacity-text">Адрес:</div>
-                <div className="bold-text" style="line-height: 15px;">${geoPlace.address}</div>
-                <div className="opacity-text custom-text">Режим работы</div>
-                <div className="bold-text">Ежедневно 10:00-21:00</div>
-                <div>
-                    <button className="baloon-btn" onClick={() => changeCheckBoxHandler(geoPlace)}>Выбрать пункт</button>
-                </div>
-            </div>
-
             const placemarkContent = `
                 <div class="baloon-content">
                     <div class="opacity-text">Адрес:</div>
@@ -88,8 +78,7 @@ const PostDelivery = () => {
             return {
                 geometry: geoPlace.address_geo.split(','),
                 properties: {
-                    balloonContent: placemarkBody,
-                    // balloonContent: placemarkContent,
+                    balloonContent: placemarkContent,
                 },
                 options: {
                     iconLayout: 'default#image',
