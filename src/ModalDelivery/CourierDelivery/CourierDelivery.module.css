@@ -132,18 +132,14 @@
     cursor: pointer;
 }
 
-.ModalDeliveryItem div.OneName {
-    opacity: 0.5;
-}
-
-.ModalDeliveryRadio:checked + label div.OneName,
+.ModalDeliveryRadio:checked + label div.OneName span:first-child,
 .ModalDeliveryRadio:checked + label div.OneData,
 .ModalDeliveryRadio:checked + label div.OnePrice {
     color: black;
     opacity: 1;
 }
 
-.ModalDeliveryItem:hover div {
+.ModalDeliveryItem:hover div.OneName span:first-child {
     color: black;
     opacity: 1;
 }
@@ -248,6 +244,13 @@
     font-size: 14px;
     line-height: 19px;
     color: #000000;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.OneName span:first-child {
+    opacity: 0.5;
 }
 
 .OneData {

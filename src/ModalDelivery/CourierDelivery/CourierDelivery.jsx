@@ -53,7 +53,15 @@ const CourierDelivery = () => {
                                         <div className={s.OneImg}>
                                             <img src={delivery.logo_url} alt=""/>
                                         </div>
-                                        <div className={s.OneName}>{delivery.name}</div>
+                                        <div className={s.OneName}>
+                                            <span>{delivery.name}</span>
+                                            <span>
+                                                {delivery.delivery_info_type === 'points'
+                                                    ? 'Постамат'
+                                                    : 'Доставка курьером'
+                                                }
+                                            </span>
+                                        </div>
                                         <div className={s.OneData}>
                                             {`${delivery.shipping_deliveries_days} (24-26 июля)`}
                                         </div>
