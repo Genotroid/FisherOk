@@ -29,7 +29,6 @@
 }
 
 .ModalContentActive {
-    margin-top: -264px;
     width: 643px;
     background: #FFFFFF;
     border-radius: 6px;
@@ -418,7 +417,6 @@
     }
 
     .ModalContentActive {
-        margin-top: 20px;
         width: 300px;
     }
 
@@ -430,7 +428,7 @@
     .ModalDeliveryOne {
         margin: 0 0 0 10px;
         width: 250px;
-        height: 46px;
+        height: 65px;
         flex-wrap: wrap;
         padding-bottom: 0;
     }
@@ -456,7 +454,7 @@
         height: 40px;
         display: grid;
         grid-template-columns: 30px 90px 140px;
-        grid-template-rows: 20px;
+        grid-template-rows: 31px;
         flex-wrap: wrap;
     }
 
@@ -502,7 +500,7 @@
 
     .ModalDeliveryItem {
         width: 270px;
-        height: 45px;
+        height: 65px;
         border: 1px solid #FFFFFF;
         padding: 8px 0 0;
     }

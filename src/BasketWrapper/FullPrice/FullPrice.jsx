@@ -55,7 +55,10 @@ const FullPrice = (props) => {
                     </div>
                     <div className={s.FullPriceDeliveryData}>
                         <div className={s.FullPriceDeliveryTitle}>Доставка:</div>
-                        {state.basket.grouped_items && Object.values(state.basket.grouped_items).map((city, key) =>
+                        {state.basket.grouped_items && 
+                            Object.values(state.basket.grouped_items)
+                                .filter(city => city.selected_delivery.address)
+                                .map((city, key) =>
                             <div key={key} className={s.FullPriceFlex}>
                                 <div className={s.FullPriceCity}>{`из ${city.city_name}`}</div>
                                 <div className={s.FullPriceItem}>{`${city.selected_delivery.shipping_cost} ₽`}</div>
