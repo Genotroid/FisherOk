@@ -7,8 +7,8 @@ import CustomSelect from '../../BasketWrapper/CustomSelect/CustomSelect';
 import MapImage from '../../BasketWrapper/img/map.png';
 import {YMaps, Map, Placemark} from 'react-yandex-maps';
 import placemarkIcon from '../../BasketWrapper/img/placemark.png';
-import './placemark.css';
 import {useStore} from '../../store/useStore';
+import './placemark.css';
 
 const PostDelivery = () => {
     const addressRef = useRef();
@@ -41,19 +41,39 @@ const PostDelivery = () => {
     }
 
     const changeCheckBoxHandler = (newMobileState) => {
-        axios.post(
-            'https://lovisnami.ru/site2/api/change-selected-delivery',
-            {body: []}
-            ).then(res => console.log('setBasket', res));
 
-        if (mobileModalState) {
-            setMobileModalState(newMobileState);
-        }
+        console.log('newMobileState', newMobileState);
+
+        // axios.post(
+        //     'https://livosnami/site2/api/change-delivery-type',
+        //     {
+        //         "operation": "change_delivery_type",
+        //         "data": {
+        //             "departure_city_id": state.departureCity.city_id,
+        //             "shipping_type_id": newDelivery.delivery_info_type === 'points'
+        //                 ? newDelivery.module_id
+        //                 : newDelivery.default_shipping_type,
+        //             "module_id": newDelivery.module_id,
+        //             "client_address": null
+        //         }
+        //     })
+        //     .then(result => dispatch({type: 'setBaket', data: result.data}))
+        //     .catch(error => dispatch({type: 'setBaket', data: tempBasket}));
 
     }
 
     const convertGeoDataToPlacemark = (geo) => {
         const placeMarks = geo.map(geoPlace => {
+            const placemarkBody = <div className="baloon-content">
+                <div className="opacity-text">Адрес:</div>
+                <div className="bold-text" style="line-height: 15px;">${geoPlace.address}</div>
+                <div className="opacity-text custom-text">Режим работы</div>
+                <div className="bold-text">Ежедневно 10:00-21:00</div>
+                <div>
+                    <button className="baloon-btn" onClick={() => changeCheckBoxHandler(geoPlace)}>Выбрать пункт</button>
+                </div>
+            </div>
+
             const placemarkContent = `
                 <div class="baloon-content">
                     <div class="opacity-text">Адрес:</div>
@@ -68,7 +88,8 @@ const PostDelivery = () => {
             return {
                 geometry: geoPlace.address_geo.split(','),
                 properties: {
-                    balloonContent: placemarkContent,
+                    balloonContent: placemarkBody,
+                    // balloonContent: placemarkContent,
                 },
                 options: {
                     iconLayout: 'default#image',
@@ -155,7 +176,7 @@ const PostDelivery = () => {
                                 <Map width={mobileModalState ? '298px' : '550px'}
                                      height={mobileModalState ? '390px' : '550px'} state={mapState}>
                                     {placemarkList && placemarkList.map((placemark, key) =>
-                                        <Placemark key={key} {...placemark}/>
+                                        <Placemark key={key} {...placemark} />
                                     )}
                                 </Map>
                             </div>

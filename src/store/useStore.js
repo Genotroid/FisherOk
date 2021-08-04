@@ -2,11 +2,13 @@ import React, {createContext, useReducer, useContext} from 'react';
 import {basketActions, basketInitialState} from './basketActions';
 import {postModalActions, postModalInitialState} from './postModalActions';
 import {courierModalActions, courierModalInitialState} from './courierModalActions';
+import {addressModalActions, addressModalInitialState} from './addressModalActions';
 
 const initialState = {
     ...basketInitialState,
     ...postModalInitialState,
-    ...courierModalInitialState
+    ...courierModalInitialState,
+    ...addressModalInitialState
 };
 
 const StoreContext = createContext(initialState);
@@ -14,6 +16,7 @@ const StoreContext = createContext(initialState);
 const Actions = {
     ...basketActions,
     ...postModalActions,
+    ...addressModalActions,
     ...courierModalActions
 };
 

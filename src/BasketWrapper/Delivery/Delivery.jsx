@@ -8,7 +8,6 @@ const Delivery = ({deliveryList}) => {
     const [deliveryAddress, setDeliveryAddress] = useState({});
 
     return <div className={s.MeinInfo}>
-        <ModalAddress active={ModalActive} setActive={setModalActive} changeAddressHook={setDeliveryAddress}/>
         <div className={s.Delivery}>
             <div className={s.DeliveryType}>{'Тип доставки'}</div>
             <div className={s.DeliveryMedia}>

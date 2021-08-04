@@ -8,6 +8,7 @@ import {useStore} from '../store/useStore';
 import tempBasket from '../jsons/basket.json';
 import PostDelivery from '../ModalDelivery/PostDelivery/PostDelivery';
 import CourierDelivery from '../ModalDelivery/CourierDelivery/CourierDelivery';
+import ModalAddress from '../ModalAddress/ModalAddress';
 
 const BasketWrapper = (props) => {
     const {state, dispatch} = useStore();
@@ -52,12 +53,12 @@ const BasketWrapper = (props) => {
                 )}
             </div>
             <div className={s.BasketRightMenu}>
-                {/*<Delivery deliveryList={deliveryList}/>*/}
                 <FullPrice/>
             </div>
         </div>
         <CourierDelivery/>
         <PostDelivery/>
+        <ModalAddress/>
     </div>
 }
 export default BasketWrapper;

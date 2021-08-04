@@ -1,14 +1,10 @@
 import React from 'react';
 import s from './ModalAddress.module.css';
 import CustomProductSelect from '../BasketWrapper/Basket/Product/CustomProductSelect';
+import {useStore} from '../store/useStore';
 
 const ModalAddress = ({active, setActive, changeAddressHook}) => {
-    const cityList = [
-        {name: 'Москва'},
-        {name: 'Ярославль'},
-        {name: 'Волгоград'},
-        {name: 'Санкт-Петербург'}
-    ];
+    const {state, dispatch} = useStore();
 
     const customStyle = {
         fontFamily: 'Open Sans, sans-serif',
@@ -19,10 +15,12 @@ const ModalAddress = ({active, setActive, changeAddressHook}) => {
         color: '#000000'
     }
 
-    return <div className={active ? s.ModalActive : s.Modal} onClick={() => setActive(false)}>
-        <div className={active ? s.ModalContentActive : s.ModalContent} onClick={e => e.stopPropagation()}>
+    return <div className={state.addressModalActive ? s.ModalActive : s.Modal}
+                onClick={() => dispatch({type: "setAddressModalActive", data: false})}>
+        <div className={state.addressModalActive ? s.ModalContentActive : s.ModalContent}
+             onClick={e => e.stopPropagation()}>
             <div className={s.ModalOff}>
-                <a className={s.ModalOffLink} onClick={() => setActive(false)}></a>
+                <a className={s.ModalOffLink} onClick={() => dispatch({type: "setAddressModalActive", data: false})} />
             </div>
             <form>
                 <div className={s.ModalContent}>
@@ -31,7 +29,9 @@ const ModalAddress = ({active, setActive, changeAddressHook}) => {
                         <div className={s.ModalContentSity}>
                             <div className={s.ModalContentItem}>
                                 <span>{'Ваш город'}</span>
-                                <CustomProductSelect items={cityList} customStyle={customStyle}/>
+                                <input style={{height: '36px'}} type={'text'} readOnly={true}
+                                       value={state.departureCity.city_name}/>
+                                {/*<CustomProductSelect items={cityList} customStyle={customStyle}/>*/}
                             </div>
                             <div className={s.ModalContentItem}>
                                 <span>{'Улица'}</span><input type={'text'}/>

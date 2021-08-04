@@ -22,6 +22,7 @@
     line-height: 19px;
     align-items: center;
     border: none;
+    cursor: pointer;
 }
 
 .opacity-text {

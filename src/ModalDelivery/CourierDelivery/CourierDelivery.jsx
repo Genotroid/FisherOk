@@ -4,25 +4,24 @@ import s from './CourierDelivery.module.css';
 import SearchIcon from '../../Icons/SearchIcon';
 import CustomSelect from '../../BasketWrapper/CustomSelect/CustomSelect';
 import {useStore} from '../../store/useStore';
+import tempBasket from '../../jsons/basket.json'
 
 const CourierDelivery = () => {
     const modalRef = useRef();
     const {state, dispatch} = useStore();
     const changeModalStatus = useCallback((data) => dispatch({type: "setCourierModalActive", data: data}), [dispatch]);
 
-    const deliveryChangeHandler = (newDeliveryModuleId) => {
-        axios.post(
-            'https://livosnami/site2/api/changeDeliveryType',
-            {
-                "operation": "change_delivery_type",
-                "data": {
-                    "departure_city_id": state.departureCity.city_id,
-                    "shipping_type_id": 3018,
-                    "module_id": newDeliveryModuleId,
-                    "client_address": null
-                }
-            })
-            .then(res => console.log('changeDeliveryType', res));
+    const deliveryChangeHandler = (newDelivery) => {
+
+        if (newDelivery.module_id !== state.selectedDelivery.module_id) {
+
+            dispatch({
+                type: newDelivery.delivery_info_type === 'points' ? 'setPostModalActive' : 'setAddressModalActive',
+                data: true
+            });
+            changeModalStatus(false);
+        }
+
     }
 
     if (!state.departureCity) {
@@ -32,7 +31,8 @@ const CourierDelivery = () => {
     return (
         <div className={(state.courierModalActive ? s.ModalActive : s.Modal) + ' modal-active'} ref={modalRef}
              onClick={() => changeModalStatus(false)}>
-            <div className={state.courierModalActive ? s.ModalContentActive : s.ModalContent} onClick={e => e.stopPropagation()}>
+            <div className={state.courierModalActive ? s.ModalContentActive : s.ModalContent}
+                 onClick={e => e.stopPropagation()}>
                 <div className={s.ModalOff}>
                     <a className={s.ModalOffLink} onClick={() => changeModalStatus(false)}></a>
                 </div>
@@ -46,9 +46,9 @@ const CourierDelivery = () => {
                                 <div className={s.OneInput}>
                                     <input className={s.ModalDeliveryRadio} name={"delivery"}
                                            id={"input" + delivery.module_id} type={"radio"}
-                                           checked={delivery.module_id === state.selectedDelivery.codule_id}
-                                           onChange={() => deliveryChangeHandler(delivery.module_id)}/>
-                                    <label htmlFor={"input" + key}>
+                                           checked={delivery.module_id === state.selectedDelivery.module_id}
+                                           onChange={() => deliveryChangeHandler(delivery)}/>
+                                    <label htmlFor={"input" + delivery.module_id}>
                                         <div className={s.OneImg}>
                                             <img src={delivery.logo_url} alt=""/>
                                         </div>

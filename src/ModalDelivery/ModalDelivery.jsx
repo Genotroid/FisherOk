@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import PostDelivery from './PostDelivery/PostDelivery';
 import CourierDelivery from './CourierDelivery/CourierDelivery';
-import availableDelivers from '../jsons/delivers.json';
+import availableDelivers from '../jsons/deliveries_available.json';
 
 const ModalDelivery = ({departureCity}) => {
     const [delivers, setDelivers] = useState([]);

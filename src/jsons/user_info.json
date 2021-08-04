@@ -1,0 +1,10 @@
+{
+  "user_id": "1242",
+  "destination_city":{
+    "city_id":2287,
+    "city_name": "Санкт-Петербург",
+    "city_genitive": "Санкт-Петербурга",
+    "city_prepositional": "Санкт-Петербурге"
+  },
+  "user_delivery_address": "Санкт-Петербург, ул. Пограничника Гарькавого, 36 кв. 3"
+}

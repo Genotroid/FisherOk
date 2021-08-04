@@ -1,16 +1,31 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import s from './Basket.module.css'
 import Product from './Product/Product';
 import {useStore} from '../../store/useStore';
-import availableDelivers from '../../jsons/delivers.json';
+import availableDelivers from '../../jsons/deliveries_available.json';
 
 const Basket = ({city}) => {
     const {state, dispatch} = useStore();
     const setModalActiveHandler = () => {
 
-        dispatch({type: "setDepartureCity", data: city});
-        dispatch({type: "setDeliveryList", data: availableDelivers});
-        dispatch({type: "setSelectedDelivery", data: city.selected_delivery});
+        axios.post(
+            'https://lovisnami.ru/site2/api/get_deliveris',
+            {
+                "operation":"get_available_deliveries",
+                "data": {
+                    "departure_city_id": city.city_id
+                }
+            }
+        ).then(result => {
+            dispatch({type: "setDeliveryList", data: result.data});
+            dispatch({type: "setDepartureCity", data: city});
+            dispatch({type: "setSelectedDelivery", data: city.selected_delivery});
+        }).catch(error => {
+            dispatch({type: "setDeliveryList", data: availableDelivers});
+            dispatch({type: "setDepartureCity", data: city});
+            dispatch({type: "setSelectedDelivery", data: city.selected_delivery});
+        })
 
         if (city.selected_delivery) {
             dispatch({type: "setPostModalActive", data: true});
