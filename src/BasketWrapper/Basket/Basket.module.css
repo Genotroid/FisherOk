@@ -48,11 +48,11 @@
     background: white;
     z-index: 15;
     -webkit-backface-visibility: hidden;
-    z-index: 9999;
 }
 
 .BasketDeliveryInfo {
     position: relative;
+    cursor: pointer;
     padding: 3px 11px 0 0;
     background-image: repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
     repeating-linear-gradient(to right, #000000 0%, #000000 50%, transparent 50%, transparent 100%),
@@ -61,11 +61,23 @@
     background-position: left bottom, left bottom, left bottom, right bottom;
     background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
     background-size: 9px 1px, 20px 0px, 0px 20px, 0px 20px;
-    position: relative;
-
 }
 
-.BasketDeliveryInfo:hover {
+.BasketChooseDeliveryInfo {
+    position: relative;
+    padding: 3px 11px 0 0;
+    color: #243DA1;
+    cursor: pointer;
+    background-image: repeating-linear-gradient(to right, #243DA1 0%, #243DA1 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to right, #243DA1 0%, #243DA1 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to bottom, #243da1 0%, #243da1 50%, transparent 50%, transparent 100%),
+    repeating-linear-gradient(to bottom, #243da1 0%, #243da1 50%, transparent 50%, transparent 100%);
+    background-position: left bottom, left bottom, left bottom, right bottom;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 9px 1px, 20px 0px, 0px 20px, 0px 20px;
+}
+
+.BasketDeliveryInfo:hover,.BasketChooseDeliveryInfo:hover {
     color: #657EE2;
     cursor: pointer;
     background-image: repeating-linear-gradient(to right, #657EE2 0%, #657EE2 50%, transparent 50%, transparent 100%),
@@ -74,7 +86,7 @@
     repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
 }
 
-.BasketDeliveryInfo::after {
+.BasketDeliveryInfo::after,.BasketChooseDeliveryInfo::after {
     content: "";
     position: absolute;
     top: 9px;
@@ -86,7 +98,11 @@
     background-image: url('./../img/Vector2.png');
 }
 
-.BasketDeliveryInfo:hover::after {
+.BasketChooseDeliveryInfo::after {
+    top: 6px;
+}
+
+.BasketDeliveryInfo:hover::after,.BasketChooseDeliveryInfo:hover::after {
     content: "";
     position: absolute;
     background-image: url('./../img/Vector3.png');
@@ -189,7 +205,7 @@
         padding-bottom: 20px;
     }
 
-    .BasketDeliverySubInfo{
+    .BasketDeliverySubInfo {
         font-size: 10px;
         line-height: 12px;
         width: 250px;
@@ -230,6 +246,7 @@
         width: 118px;
         font-size: 12px;
         line-height: 13px;
+        vertical-align: sub;
         word-wrap: break-word;
     }
 
@@ -283,4 +300,38 @@
         background-image: none;
     }
 
+    .BasketChooseDeliveryInfo {
+        background: #243DA1;
+        height: 30px;
+        width: 250px;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .BasketChooseDeliveryInfo:after {
+        top: 9px;
+        right: 9px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .BasketChooseDeliveryInfo:before, .BasketChooseDeliveryInfo:after {
+        position: absolute;
+        content: ' ';
+        height: 9px;
+        width: 2px;
+        background-color: white;
+        right: 9px;
+        top: 12px;
+    }
+
+    .BasketChooseDeliveryInfo:before {
+        transform: rotate(-45deg);
+        right: 18px;
+    }
+
+    .BasketChooseDeliveryInfo:after {
+        transform: rotate(45deg);
+        right: 12px;
+    }
 }

@@ -240,18 +240,7 @@
 	{
       "city_name": "Санкт-Петербург",
       "city_id": "2287",
-      "selected_delivery": {
-        "module_id": 11,
-        "shipping_type_id": 3018,
-        "address": "Санкт-Петербург, Московский пр-т, д. 161, пом. 7Н",
-        "name":"СДЭК",
-        "logo_url":"https://toplogos.ru/images/thumbs/preview-logo-sdek.jpg",
-        "shipping_delivery_interval": [
-          "2021-08-05",
-          "2021-08-07"
-        ],
-        "shipping_cost": 350
-      },
+      "selected_delivery": {},
       "items": [
         {
           "item_id": "130920",

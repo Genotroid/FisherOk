@@ -204,7 +204,7 @@
     height: 75px;
     outline: none;
     text-align: start;
-    border-radius:3px;
+    border-radius: 3px;
 }
 
 .ModalContentComent:hover textarea {
@@ -216,7 +216,7 @@
     margin-bottom: 10px;
 }
 
-.AddressShippingCost{
+.AddressShippingCost {
     font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
@@ -297,8 +297,8 @@
         margin: 0;
     }
 
-    .ModalContentItem:first-child {
-        width: 100%;
+    .ModalContentItem:first-child > input {
+        width: 248px;
     }
 
     .ModalContentItem:nth-child(2) {

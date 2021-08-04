@@ -15,6 +15,7 @@ const CourierDelivery = () => {
 
         if (newDelivery.module_id !== state.selectedDelivery.module_id) {
 
+            dispatch({type: 'setSelectedDelivery', data: newDelivery});
             dispatch({
                 type: newDelivery.delivery_info_type === 'points' ? 'setPostModalActive' : 'setAddressModalActive',
                 data: true
