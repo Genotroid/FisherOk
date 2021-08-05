@@ -17,12 +17,8 @@ const BasketWrapper = (props) => {
 
     const getBasketData = () => {
         axios.get('http://devnew.lovisnami.ru:39878/api/v2/basket?dev_test_key=c048db8a21f93d3dc4e6')
-            .then(result => {
-                setBasket(result.data.data);
-            })
-            .catch(error => {
-                console.log('error message', error)
-            });
+            .then(result => setBasket(result.data.data))
+            .catch(error => console.log('error message', error));
     }
 
     useEffect(() => {
@@ -42,12 +38,10 @@ const BasketWrapper = (props) => {
     }, [])
 
     const isAllChecked = () => {
-        console.log('isAllChecked', state.basket.grouped_items);
+
         if(!state.basket.grouped_items) {
             return false;
         }
-
-        console.log('asdasdasd', state.basket.grouped_items.map(city => city.items.filter(item => item.cheched === '1')).length());
 
         return true;
     }

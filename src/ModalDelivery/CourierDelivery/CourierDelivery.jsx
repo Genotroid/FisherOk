@@ -13,12 +13,24 @@ const CourierDelivery = () => {
     const deliveryChangeHandler = (newDelivery) => {
 
         if (newDelivery.module_id !== state.selectedDelivery.module_id) {
-
             dispatch({type: 'setSelectedDelivery', data: newDelivery});
-            dispatch({  
-                type: newDelivery.delivery_info_type === 'points' ? 'setPostModalActive' : 'setAddressModalActive',
-                data: true
-            });
+
+            if (newDelivery.delivery_info_type === 'points') {
+                axios.post(
+                    'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
+                    {
+                        "operation": "get_points",
+                        "data": {
+                            "module": newDelivery.module_id
+                        }
+                    })
+                    .then(result => dispatch({type: "setGeoData", data: result.data.data}))
+                    .catch(error => console.log('GetPoints error', error));
+                dispatch({type: 'setPostModalActive', data: true});
+            } else {
+                dispatch({type: 'setAddressModalActive', data: true});
+            }
+
             changeModalStatus(false);
         }
 

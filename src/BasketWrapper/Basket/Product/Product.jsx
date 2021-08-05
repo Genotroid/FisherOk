@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import axios from 'axios';
 import s from './Product.module.css';
 import CustomSelect from './CustomProductSelect';
@@ -6,6 +6,7 @@ import {useStore} from '../../../store/useStore';
 
 export const Product = ({product, cityId}) => {
     const {dispatch} = useStore();
+    const setBasket = useCallback((data) => dispatch({type: "setBasket", data: data}), [dispatch]);
 
     const changeCountHandler = (newCount) => {
 
@@ -21,7 +22,7 @@ export const Product = ({product, cityId}) => {
                     }
                 })
                 .then(result => {
-                    dispatch({type: 'setBasket', data: result.data.data});
+                    setBasket(result.data.data)
                 })
                 .catch(error => {
                     console.log('error', error)
@@ -44,7 +45,7 @@ export const Product = ({product, cityId}) => {
                     }
                 })
                 .then(result => {
-                    dispatch({type: 'setBasket', data: result.data.data});
+                    setBasket(result.data.data)
                 })
                 .catch(error => {
                     console.log('error', error)
@@ -54,22 +55,22 @@ export const Product = ({product, cityId}) => {
     }
 
     const changeCheckboxHandler = (e) => {
-        // axios.post(
-        //     'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
-        //     {
-        //         "operation": "change_item_departure_city",
-        //         "data": {
-        //             "item_id": product.item_id,
-        //             "departure_city_id": product.departure_city_id,
-        //             "new_departure_city_id": newDepCityId
-        //         }
-        //     })
-        //     .then(result => {
-        //         dispatch({type: 'setBasket', data: result.data.data});
-        //     })
-        //     .catch(error => {
-        //         console.log('error', error)
-        //     });
+        axios.post(
+            'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
+            {
+                "operation": "change_item_checked",
+                "data": {
+                    "item_id": product.item_id,
+                    "departure_city_id": product.departure_city_id,
+                    "checked": e.target.checked ? '1' : '0'
+                }
+            })
+            .then(result => {
+                setBasket(result.data.data)
+            })
+            .catch(error => {
+                console.log('error', error)
+            });
     }
 
     return <div className={s.Product}>

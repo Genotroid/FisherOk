@@ -25,6 +25,17 @@ const Basket = ({city}) => {
         })
 
         if (city.selected_delivery.address) {
+            axios.post(
+                'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
+                {
+                    "operation": "get_points",
+                    "data": {
+                        "module": city.selected_delivery.module_id
+                    }
+                })
+                .then(result => dispatch({type: "setGeoData", data: result.data.data}))
+                .catch(error => console.log('GetPoints error', error));
+
             dispatch({type: "setPostModalActive", data: true});
         } else {
             dispatch({type: "setCourierModalActive", data: true});
@@ -49,7 +60,7 @@ const Basket = ({city}) => {
                             </div>
                             <div className={s.BasketDeliverySubInfo}>
                                 {`Доставка курьером ${city.selected_delivery.name}. 
-                                Адрес доставки: г. Москва, ул. Генерала Белобородова, д.65, кв.10`}
+                                Адрес доставки: ${city.selected_delivery.address}`}
                             </div>
                         </div>
                         : <div className={s.BasketChooseDeliveryInfo}
