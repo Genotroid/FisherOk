@@ -40,6 +40,11 @@ const FullPrice = () => {
 
     const getShippingCostTotal = () => {
         let total = 0;
+
+        if(!state.basket.grouped_items) {
+            return total;
+        }
+
         const deliveries = state.basket.grouped_items.map(city => total += city.selected_delivery.shipping_cost);
 
         return total;
