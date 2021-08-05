@@ -1,58 +1,88 @@
-import React, {useState} from 'react';
+import React from 'react';
 import axios from 'axios';
 import s from './Product.module.css';
 import CustomSelect from './CustomProductSelect';
-import image from './../../img/karasy1.jpg';
+import {useStore} from '../../../store/useStore';
 
 export const Product = ({product, cityId}) => {
-    const [maxCount, setMaxCount] = useState(product.stock_level);
-    const [itemCount, setItemCount] = useState(product.quantity);
+    const {dispatch} = useStore();
 
     const changeCountHandler = (newCount) => {
-        axios.post(
-            'https://lovisnami.ru/site2/api/change-item-amount',
-            {
-                "operation": "change_item_amount",
-                "data": {
-                    "item_id": product.id,
-                    "amount": newCount,
-                    "departure_city_id": cityId
-                }
-            }
-        ).then(
-            result => console.log('set basket', result)
-        );
+
+        if (newCount !== product.quantity) {
+            axios.post(
+                'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
+                {
+                    "operation": "change_item_amount",
+                    "data": {
+                        "item_id": product.item_id,
+                        "amount": newCount,
+                        "departure_city_id": product.departure_city_id
+                    }
+                })
+                .then(result => {
+                    dispatch({type: 'setBasket', data: result.data.data});
+                })
+                .catch(error => {
+                    console.log('error', error)
+                });
+        }
+
     }
 
     const changeDepCityHandler = (newDepCityId) => {
 
         if (newDepCityId !== cityId) {
             axios.post(
-                'https://lovisnami.ru/site2/api/change-dep-city',
+                'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
                 {
-                    "operation": "change_item_dep_city",
+                    "operation": "change_item_departure_city",
                     "data": {
-                        "item_id": product.id,
-                        "departure_city_id": cityId,
+                        "item_id": product.item_id,
+                        "departure_city_id": product.departure_city_id,
                         "new_departure_city_id": newDepCityId
                     }
-                }
-            ).then(
-                result => console.log('set basket', result)
-            );
+                })
+                .then(result => {
+                    dispatch({type: 'setBasket', data: result.data.data});
+                })
+                .catch(error => {
+                    console.log('error', error)
+                });
         }
 
+    }
+
+    const changeCheckboxHandler = (e) => {
+        // axios.post(
+        //     'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
+        //     {
+        //         "operation": "change_item_departure_city",
+        //         "data": {
+        //             "item_id": product.item_id,
+        //             "departure_city_id": product.departure_city_id,
+        //             "new_departure_city_id": newDepCityId
+        //         }
+        //     })
+        //     .then(result => {
+        //         dispatch({type: 'setBasket', data: result.data.data});
+        //     })
+        //     .catch(error => {
+        //         console.log('error', error)
+        //     });
     }
 
     return <div className={s.Product}>
         <div className={s.ProductInput}>
             <input className={s.CheckboxMein} type={'checkbox'} id={`checkbox-${cityId}-item-${product.item_id}`}
-                   name={`checkbox-${cityId}-item-${product.item_id}`}/>
+                   name={`checkbox-${cityId}-item-${product.item_id}`} checked={product.checked === '1'}
+                   onChange={changeCheckboxHandler}/>
             <label htmlFor={`checkbox-${cityId}-item-${product.item_id}`}></label>
         </div>
         <div className={s.ProductImg}>
-            {product.is_sales === "1" && <div className={s.SaleLabel}><span>{product.sales_discount}</span></div>}
-            <img src={`https://lovisnami.ru/${product.small_image}`}/>
+            {product.is_sales === "1" &&
+            <div className={s.SaleLabel}><span>{`${product.sales_discount} %`}</span></div>}
+            <img src={`https://lovisnami.ru/${product.small_image}`} alt={''}/>
         </div>
         <div className={s.ProductName}>
             <div className={s.ProductNameItem}>{product.item_name}</div>
@@ -72,20 +102,26 @@ export const Product = ({product, cityId}) => {
                 <div className={s.ProductCount}>
                     <div className={s.ProductButton}>
                         <button className={s.ProductButtonMinus}
-                                onClick={() => changeCountHandler(product.quantity - 1)}></button>
+                                onClick={() =>
+                                    changeCountHandler(product.quantity > 1 ? product.quantity - 1 : product.quantity)
+                                }/>
                         <div className={s.ProductButtonCount}>{product.quantity}</div>
                         <button className={s.ProductButtonPlus}
-                                onClick={() => changeCountHandler(product.quantity + 1)}></button>
+                                onClick={() =>
+                                    changeCountHandler(product.quantity < product.stock_level
+                                        ? product.quantity + 1
+                                        : product.quantity
+                                    )}/>
                     </div>
-                    <div className={s.ProductMaxCount}>{`макс: ${maxCount} шт.`}</div>
+                    <div className={s.ProductMaxCount}>{`макс: ${product.stock_level} шт.`}</div>
                 </div>
                 <div className={s.ProductPrice}>
                     {product.is_sales !== "0" &&
                     <div className={s.ProductPriceNew}>
-                        {parseInt(product.sales_price).toLocaleString()} &#8381;
+                        {parseInt(product.sales_price * product.quantity).toLocaleString()} &#8381;
                     </div>}
                     <div className={product.is_sales !== "0" ? s.ProductPriceOld : ''}>
-                        {parseInt(product.price).toLocaleString()} &#8381;
+                        {parseInt(product.price * product.quantity).toLocaleString()} &#8381;
                     </div>
                 </div>
             </div>

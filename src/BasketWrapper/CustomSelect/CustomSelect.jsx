@@ -1,19 +1,11 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import useOutsideClick from './useOutsideClick';
 import './customSelect.css';
 
 const CustomSelect = ({items, modalForm}) => {
     let buttonRef = useRef();
     const [isOpenSelect, setIsOpenSelect] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(items[0]);
-
-    const handleClick = event => {
-
-        if (event.target !== buttonRef.current) {
-            setIsOpenSelect(false);
-        }
-
-    };
+    const [selectedItem, setSelectedItem] = useState(items[0]); 
 
     useOutsideClick(buttonRef, () => {
         setIsOpenSelect(false);

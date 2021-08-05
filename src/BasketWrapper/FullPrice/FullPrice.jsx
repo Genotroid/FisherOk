@@ -3,7 +3,7 @@ import axios from 'axios';
 import s from './FullPrice.module.css';
 import {useStore} from '../../store/useStore';
 
-const FullPrice = (props) => {
+const FullPrice = () => {
     const promoCodeInput = useRef();
     const mobilePromoCodeInput = useRef();
     const [editMod, setEditMod] = useState(false);
@@ -38,6 +38,13 @@ const FullPrice = (props) => {
             .catch(error => setPromoCodeError(true))
     }
 
+    const getShippingCostTotal = () => {
+        let total = 0;
+        const deliveries = state.basket.grouped_items.map(city => total += city.selected_delivery.shipping_cost);
+
+        return total;
+    }
+
     return <>
         <div className={s.FullPriceContainer}>
             <div className={s.FullPrice}>
@@ -49,35 +56,35 @@ const FullPrice = (props) => {
                                 {`Товары, ${state.basket.item_count} шт.`}
                             </div>
                             <div className={s.FullPriceItem}>
-                                {(state.basket.total_sum + state.basket.discount_sum) + ' ₽'}
+                                {state.basket.total_sum + ' ₽'}
                             </div>
                         </div>
                     </div>
                     <div className={s.FullPriceDeliveryData}>
                         <div className={s.FullPriceDeliveryTitle}>Доставка:</div>
                         {state.basket.grouped_items &&
-                            Object.values(state.basket.grouped_items)
+                            state.basket.grouped_items
                                 .filter(city => city.selected_delivery.address)
                                 .map((city, key) =>
                             <div key={key} className={s.FullPriceFlex}>
-                                <div className={s.FullPriceCity}>{`из ${city.city_name}`}</div>
+                                <div className={s.FullPriceCity}>{`из ${city.departure_city_name}`}</div>
                                 <div className={s.FullPriceItem}>{`${city.selected_delivery.shipping_cost} ₽`}</div>
                             </div>
                         )}
                         <div className={s.FullPriceSum}>
                             <div className={s.FullPriceFlex}>
                                 <div className={s.FullPriceCity}>{'Сумма доставки'}</div>
-                                <div className={s.FullPriceItem}>{'500 ₽'}</div>
+                                <div className={s.FullPriceItem}>{`${getShippingCostTotal()} ₽`}</div>
                             </div>
                         </div>
 
                     </div>
-                    <div className={s.FullPriceDiscount}>
+                    {state.basket.discount_sum && <div className={s.FullPriceDiscount}>
                         <div className={s.FullPriceFlex}>
                             <div className={s.FullPriceCity}>{'Скидка'}</div>
                             <div className={s.FullPriceDiscountItem}>{`${state.basket.discount_sum} ₽`}</div>
                         </div>
-                    </div>
+                    </div>}
                     <div className={s.FullPriceTotal}>
                         <div className={s.FullPriceFlex}>
                             <div className={s.FullPriceTotalItem}>{'Итого'}</div>

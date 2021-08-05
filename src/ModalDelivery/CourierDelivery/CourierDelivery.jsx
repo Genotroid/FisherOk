@@ -4,7 +4,6 @@ import s from './CourierDelivery.module.css';
 import SearchIcon from '../../Icons/SearchIcon';
 import CustomSelect from '../../BasketWrapper/CustomSelect/CustomSelect';
 import {useStore} from '../../store/useStore';
-import tempBasket from '../../jsons/basket.json'
 
 const CourierDelivery = () => {
     const modalRef = useRef();
@@ -16,7 +15,7 @@ const CourierDelivery = () => {
         if (newDelivery.module_id !== state.selectedDelivery.module_id) {
 
             dispatch({type: 'setSelectedDelivery', data: newDelivery});
-            dispatch({
+            dispatch({  
                 type: newDelivery.delivery_info_type === 'points' ? 'setPostModalActive' : 'setAddressModalActive',
                 data: true
             });
@@ -38,7 +37,7 @@ const CourierDelivery = () => {
                     <a className={s.ModalOffLink} onClick={() => changeModalStatus(false)}></a>
                 </div>
                 <div className={s.ModalDeliveryName}>
-                    {`Выбор транспортной компании из ${state.departureCity.city_name}`}
+                    {`Выбор транспортной компании из ${state.departureCity.departure_city_name}`}
                 </div>
                 <div className={s.ModalDeliveryData}>
                     {state.deliveryList && state.deliveryList.map((delivery, key) =>

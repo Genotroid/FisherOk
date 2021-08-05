@@ -3,31 +3,26 @@ import axios from 'axios';
 import s from './Basket.module.css'
 import Product from './Product/Product';
 import {useStore} from '../../store/useStore';
-import availableDelivers from '../../jsons/deliveries_available.json';
 
 const Basket = ({city}) => {
     const {state, dispatch} = useStore();
     const setModalActiveHandler = () => {
 
         axios.post(
-            'https://lovisnami.ru/site2/api/get_deliveris',
+            'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
             {
                 "operation": "get_available_deliveries",
                 "data": {
-                    "departure_city_id": city.city_id
+                    "departure_city_id": city.departure_city_id
                 }
             }
         ).then(result => {
-            dispatch({type: "setDeliveryList", data: result.data});
+            dispatch({type: "setDeliveryList", data: result.data.data});
             dispatch({type: "setDepartureCity", data: city});
             dispatch({type: "setSelectedDelivery", data: city.selected_delivery});
         }).catch(error => {
-            dispatch({type: "setDeliveryList", data: availableDelivers});
-            dispatch({type: "setDepartureCity", data: city});
-            dispatch({type: "setSelectedDelivery", data: city.selected_delivery});
+            console.log('getDelivery error', error)
         })
-
-        console.log('ModalAddress city', city);
 
         if (city.selected_delivery.address) {
             dispatch({type: "setPostModalActive", data: true});
@@ -41,7 +36,7 @@ const Basket = ({city}) => {
         <div className={s.BasketProduct}>
             <div className={s.BasketSticky}>
                 <div className={s.BasketDelivery}>
-                    <div className={s.BasketDeliveryCity}>{city.city_name}</div>
+                    <div className={s.BasketDeliveryCity}>{city.departure_city_name}</div>
                     {city.selected_delivery.address
                         ? <div className={s.BasketChoosedDeliveryInfo}>
                             <div className={s.BasketDeliveryInfo} onClick={setModalActiveHandler}>
@@ -66,7 +61,7 @@ const Basket = ({city}) => {
             </div>
             <div className={s.ProductContainer}>
                 {city.items && city.items.map((item, key) =>
-                    <Product product={item} cityId={city.city_id} key={key}/>
+                    <Product product={item} cityId={city.departure_city_id} key={key}/>
                 )}
             </div>
         </div>
