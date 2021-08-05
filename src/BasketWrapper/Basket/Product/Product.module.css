@@ -11,7 +11,6 @@
 .Product:nth-child(1) {
     border: none;
     padding: 0;
-    margin-top: 35px;
 }
 
 .ProductImg {
@@ -507,15 +506,13 @@ SelectSelect:not(:checked) ~ .SelectItems {
     .Product {
         display: flex;
         flex-wrap: wrap;
-        margin: 14px 20px 0 20px;
+        margin: 0 20px 0 20px;
         position: relative;
         height: 163px;
-        position: relative;
     }
 
     .Product:nth-child(1) {
         border-top: 1px solid rgba(173, 182, 216, 0.3);
-        margin-top: 50px;
     }
 
     .ProductInput {
@@ -641,7 +638,7 @@ SelectSelect:not(:checked) ~ .SelectItems {
         background: #EFF5F8;
         border-radius: 3px;
         margin: 4px 0 0 -12px;
-        font-family: Open Sans;
+        font-family: Open Sans, sans-serif;
         font-style: normal;
         font-weight: bold;
         font-size: 14px;

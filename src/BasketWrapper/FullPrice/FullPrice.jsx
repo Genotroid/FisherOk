@@ -55,7 +55,7 @@ const FullPrice = (props) => {
                     </div>
                     <div className={s.FullPriceDeliveryData}>
                         <div className={s.FullPriceDeliveryTitle}>Доставка:</div>
-                        {state.basket.grouped_items && 
+                        {state.basket.grouped_items &&
                             Object.values(state.basket.grouped_items)
                                 .filter(city => city.selected_delivery.address)
                                 .map((city, key) =>

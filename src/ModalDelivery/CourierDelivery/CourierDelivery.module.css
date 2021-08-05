@@ -139,8 +139,13 @@
 }
 
 .ModalDeliveryItem:hover div.OneName span:first-child {
-    color: black;
+    color: #657EE2;
     opacity: 1;
+}
+
+.ModalDeliveryItem:hover div.OneName,
+.ModalDeliveryItem:hover div.OneData {
+    color: #657EE2 !important;
 }
 
 .ModalDeliveryItem:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
@@ -153,7 +158,7 @@
 
 .ModalDeliveryOne {
     margin: 0 0 -1px 20px;
-    width: 513px;
+    width: 545px;
     height: 70px;
     border-bottom: 1px solid rgba(174, 182, 211, 0.3);
     display: flex;
@@ -162,10 +167,6 @@
 .ModalPostDeliveryOne {
     display: flex;
 }
-
-/*.ModalPostDeliveryOne:hover div {*/
-/*    color: #657EE2;*/
-/*}*/
 
 .ModalPostDeliveryOne:hover .ModalDeliveryRadio:not(:disabled):not(:checked) + label:before {
     border-color: #657EE2;
@@ -196,11 +197,11 @@
     border-radius: 50%;
     width: 24px;
     height: 24px;
-    border: 1px solid #243DA1;
+    border: 1px solid #ADB6D8;
 }
 
 .ModalDeliveryRadio:not(:disabled):not(:checked) + label:hover::before {
-    border-color: #243DA1;
+    border-color: #ADB6D8;
 }
 
 .ModalDeliveryRadio:not(:disabled):active + label::before {
@@ -250,6 +251,10 @@
 
 .OneName span:first-child {
     opacity: 0.5;
+}
+
+.OneName span {
+    white-space: nowrap;
 }
 
 .OneData {
@@ -352,7 +357,7 @@
 }
 
 .SearchAddress input::placeholder {
-    font-family: Open Sans, sans-serif, sans-serif;
+    font-family: Open Sans, sans-serif;
     font-style: italic;
     font-weight: normal;
     font-size: 14px;

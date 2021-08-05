@@ -36,14 +36,13 @@ const ModalAddress = ({active, setActive, changeAddressHook}) => {
                     <div className={s.ModalContentName}>{'Адрес курьерской доставки'}</div>
                     <div className={s.AddressShippingCost}>
                         <span>{'Стоимость доставки: '}</span>
-                        <span style={{fontWeight: 'bold'}}>{state.selectedDelivery.shipping_cost}&#8381;</span>
+                        <span style={{fontWeight: 'bold'}}>{state.selectedDelivery.shipping_cost} &#8381;</span>
                     </div>
                     <div className={s.ModalContentData}>
                         <div className={s.ModalContentSity}>
                             <div className={s.ModalContentItem}>
                                 <span>{'Ваш город'}</span>
-                                <input style={{height: '36px'}} type={'text'} readOnly={true}
-                                       value={state.departureCity.city_name}/>
+                                <input type={'text'}/>
                                 {/*<CustomProductSelect items={cityList} customStyle={customStyle}/>*/}
                             </div>
                             <div className={s.ModalContentItem}>

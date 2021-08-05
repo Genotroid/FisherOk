@@ -43,7 +43,7 @@ const Basket = ({city}) => {
                 <div className={s.BasketDelivery}>
                     <div className={s.BasketDeliveryCity}>{city.city_name}</div>
                     {city.selected_delivery.address
-                        ? <div style={{width: '300px'}}>
+                        ? <div style={{width: '310px'}}>
                             <div className={s.BasketDeliveryInfo} onClick={setModalActiveHandler}>
                                 <span className={s.BasketDeliveryDate}>
                                     {`Поступление 27-29 июля за ${city.selected_delivery.shipping_cost} ₽`}
@@ -64,7 +64,7 @@ const Basket = ({city}) => {
                     }
                 </div>
             </div>
-            <div className={s.ProductСontainer}>
+            <div className={s.ProductContainer}>
                 {city.items && city.items.map((item, key) =>
                     <Product product={item} cityId={city.city_id} key={key}/>
                 )}

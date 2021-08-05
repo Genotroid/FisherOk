@@ -165,6 +165,12 @@
     width: 175px;
 }
 
+.ModalContentItem:first-child input {
+    padding-left: 15px;
+    width: 156px;
+    height: 36px;
+}
+
 .ModalContentItem:nth-child(2) input {
     width: 186px;
     height: 36px;
@@ -185,7 +191,7 @@
 }
 
 .ModalContentItem:nth-child(2) {
-    margin: 0 10px 0 20px;
+    margin: 0 10px 0 10px;
 }
 
 .ModalContentItem:nth-child(3) {
@@ -217,7 +223,7 @@
 }
 
 .AddressShippingCost {
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

@@ -104,14 +104,16 @@
 .BasketContent {
     margin: 19px auto 0 auto;
     width: 1236px;
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     grid-template-areas:"B DP";
 }
 
 .BasketContentData {
     background-color: #EFF5F8;
     grid-area: B;
-    margin-right: 36px;
+    margin-right: 30px;
 }
 
 .BasketEW {

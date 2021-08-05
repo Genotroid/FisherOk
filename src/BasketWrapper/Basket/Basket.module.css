@@ -2,13 +2,12 @@
 .Basket {
     width: 876px;
     border-radius: 6px;
-    font-family: 'Open Sans, sans-serif', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: white;
     margin-bottom: 36px;
 }
 
 .BasketSticky {
-    height: 75px;
     position: sticky;
     top: -16px;
     z-index: 6;
@@ -26,7 +25,7 @@
 
 .BasketSticky::before {
     top: 48px; /* shadow is at bottom of element, so at 48 + 16 = 64px */
-    box-shadow: 0 4px 20px -2px rgb(0 20 92 / 15%);
+    box-shadow: 0 35px 20px -2px rgb(0 20 92 / 15%);
 }
 
 .BasketSticky::after {
@@ -183,6 +182,10 @@
     color: #848DAF;
 }
 
+.ProductContainer {
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 1280px) {
     .Basket {
         width: 686px;
@@ -200,9 +203,9 @@
         margin: 10px auto 36px auto;
     }
 
-    .ProductСontainer {
-        margin-top: 20px;
+    .ProductContainer {
         padding-bottom: 20px;
+        margin-top: 10px;
     }
 
     .BasketDeliverySubInfo {
@@ -268,32 +271,32 @@
         left: 225px;
     }
 
-    BasketSticky {
-        height: 75px;
-        position: sticky;
+    .BasketSticky {
+        height: 130px;
+        position: static;
         top: -16px;
         z-index: 2;
     }
 
-    .BasketSticky::before, .BasketSticky::after {
-        content: '';
-        display: block;
-        height: 12px;
-        position: sticky;
-        -webkit-position: sticky;
-    }
+    /*.BasketSticky::before, .BasketSticky::after {*/
+    /*    content: '';*/
+    /*    display: block;*/
+    /*    height: 12px;*/
+    /*    position: sticky;*/
+    /*    -webkit-position: sticky;*/
+    /*}*/
 
-    .BasketSticky::before {
-        top: 70px;
-        box-shadow: 11px 14px 20px rgb(0 20 92 / 15%);
-        width: 93%;
-    }
+    /*.BasketSticky::before {*/
+    /*    top: 70px;*/
+    /*    box-shadow: 11px 35px 20px rgb(0 20 92 / 15%);*/
+    /*    width: 93%;*/
+    /*}*/
 
-    .BasketSticky::after {
-        background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);
-        top: 0;
-        z-index: 2;
-    }
+    /*.BasketSticky::after {*/
+    /*    background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);*/
+    /*    top: 0;*/
+    /*    z-index: 2;*/
+    /*}*/
 
     .BasketDeliveryInfo:hover {
         color: black;
@@ -306,6 +309,7 @@
         width: 250px;
         color: white;
         margin-top: 30px;
+        border-radius: 3px;
     }
 
     .BasketChooseDeliveryInfo:after {

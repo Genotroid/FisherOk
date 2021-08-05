@@ -497,7 +497,7 @@
     background-position: left 10px top 50%, 0 0;
     background-size: 5px auto, 100%;
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 720px) {
