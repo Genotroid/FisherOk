@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 import axios from 'axios';
 import s from './BasketWrapper.module.css'
 import Basket from './Basket/Basket';
@@ -11,6 +11,8 @@ import CourierDelivery from '../ModalDelivery/CourierDelivery/CourierDelivery';
 import ModalAddress from '../ModalAddress/ModalAddress';
 
 const BasketWrapper = (props) => {
+    const mobileStickyBlockRef = useRef();
+    const [isSticky, setIsSticky] = useState(false)
     const {state, dispatch} = useStore();
     const [choosenProduct, setChoosenProduct] = useState([]);
     const setBasket = useCallback((data) => dispatch({type: "setBasket", data: data}), [dispatch]);
@@ -32,6 +34,18 @@ const BasketWrapper = (props) => {
         getBasketData();
     }, []);
 
+    useEffect(()=>{
+        const cachedRef = mobileStickyBlockRef.current,
+            observer = new IntersectionObserver(
+                ([e]) => setIsSticky(e.intersectionRatio < 1),
+                {threshold: [1]}
+            )
+
+        observer.observe(cachedRef)
+
+        return () => observer.unobserve(cachedRef)
+    }, [])
+
     return <div className={s.BasketWrapper}>
         <div className={s.BasketWrapperItem}>
             <div className={s.BasketWrapperPath}>{'Главная / Корзина'}</div>
@@ -43,10 +57,12 @@ const BasketWrapper = (props) => {
         </div>
         <div className={s.BasketContent}>
             <div className={s.BasketContentData}>
-                <div className={s.MobileBasketWrapperInput}>
+                <div className={s.MobileBasketWrapperInput + (isSticky ? ` ${s.isSticky}` : '')} ref={mobileStickyBlockRef}>
                     <div className={s.MobileGoods}>{'Товары'}</div>
-                    <input className={s.CheckboxMein} type={'checkbox'} id={'check_all'} name={'check_all'}/>
-                    <label htmlFor={'check_all'}>{'Выбрать всё'}</label>
+                    <input className={s.CheckboxMein} type={'checkbox'} id={'check_all_mobile'} name={'check_all'}/>
+                    <label htmlFor={'check_all_mobile'}>
+                        {isSticky ? `Выбрать все товары (${state.basket.item_count} шт.)` : 'Выбрать всё'}
+                    </label>
                 </div>
                 {state.basket.grouped_items && state.basket.grouped_items.map((city, key) =>
                     <Basket city={city}/>

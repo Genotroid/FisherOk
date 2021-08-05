@@ -76,7 +76,7 @@
     background-size: 9px 1px, 20px 0px, 0px 20px, 0px 20px;
 }
 
-.BasketDeliveryInfo:hover,.BasketChooseDeliveryInfo:hover {
+.BasketDeliveryInfo:hover, .BasketChooseDeliveryInfo:hover {
     color: #657EE2;
     cursor: pointer;
     background-image: repeating-linear-gradient(to right, #657EE2 0%, #657EE2 50%, transparent 50%, transparent 100%),
@@ -85,7 +85,7 @@
     repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
 }
 
-.BasketDeliveryInfo::after,.BasketChooseDeliveryInfo::after {
+.BasketDeliveryInfo::after, .BasketChooseDeliveryInfo::after {
     content: "";
     position: absolute;
     top: 9px;
@@ -101,7 +101,7 @@
     top: 6px;
 }
 
-.BasketDeliveryInfo:hover::after,.BasketChooseDeliveryInfo:hover::after {
+.BasketDeliveryInfo:hover::after, .BasketChooseDeliveryInfo:hover::after {
     content: "";
     position: absolute;
     background-image: url('./../img/Vector3.png');
@@ -186,6 +186,10 @@
     margin-top: 10px;
 }
 
+.BasketChoosedDeliveryInfo {
+    width: 310px;
+}
+
 @media screen and (max-width: 1280px) {
     .Basket {
         width: 686px;
@@ -194,13 +198,16 @@
     .BasketDeliveryInfo {
         padding: 3px 2px 0 0;
     }
-
 }
 
 @media screen and (max-width: 720px) {
     .Basket {
         width: 290px;
         margin: 10px auto 36px auto;
+    }
+
+    .BasketChoosedDeliveryInfo {
+        width: unset;
     }
 
     .ProductContainer {
@@ -222,6 +229,7 @@
     .BasketDelivery {
         display: block;
         padding: 7px 0 8px 19px;
+        position: unset;
     }
 
     .BasketContent {
@@ -278,25 +286,21 @@
         z-index: 2;
     }
 
-    /*.BasketSticky::before, .BasketSticky::after {*/
-    /*    content: '';*/
-    /*    display: block;*/
-    /*    height: 12px;*/
-    /*    position: sticky;*/
-    /*    -webkit-position: sticky;*/
-    /*}*/
+    .BasketSticky::before, .BasketSticky::after {
+        all: initial;
+    }
 
-    /*.BasketSticky::before {*/
-    /*    top: 70px;*/
-    /*    box-shadow: 11px 35px 20px rgb(0 20 92 / 15%);*/
-    /*    width: 93%;*/
-    /*}*/
+    .BasketSticky::before {
+        top: 70px;
+        box-shadow: 11px 35px 20px rgb(0 20 92 / 15%);
+        width: 93%;
+    }
 
-    /*.BasketSticky::after {*/
-    /*    background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);*/
-    /*    top: 0;*/
-    /*    z-index: 2;*/
-    /*}*/
+    .BasketSticky::after {
+        background: linear-gradient(white 10%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 70%, transparent);
+        top: 0;
+        z-index: 2;
+    }
 
     .BasketDeliveryInfo:hover {
         color: black;

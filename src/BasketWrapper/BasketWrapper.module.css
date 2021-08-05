@@ -147,10 +147,6 @@
     .BasketWrapperItem {
         width: 980px;
     }
-
-    .BasketContentData {
-        margin-right: 27px;
-    }
 }
 
 @media screen and (max-width: 1180px) {
@@ -173,6 +169,10 @@
         width: 320px;
     }
 
+    #check-all-mobile {
+        position: sticky;
+    }
+
     .BasketContent {
         display: flex;
         flex-direction: column;
@@ -186,6 +186,7 @@
 
     .BasketContentData {
         width: 320px;
+        margin: 0;
     }
 
     .BasketWrapperInput {
@@ -208,7 +209,7 @@
         display: block;
         opacity: 1;
         color: black;
-        padding: 8px 0 8px 0px;
+        padding: 8px 0 8px 0;
         font-weight: 600;
         font-size: 16px;
         line-height: 22px;
@@ -216,7 +217,20 @@
 
     .MobileBasketWrapperInput {
         display: block;
-        margin-left: 15px;
+        position: sticky;
+        top: -2px;
+        z-index: 1000;
+    }
+
+    .MobileBasketWrapperInput.isSticky {
+        background-color: white;
+        height: 32px;
+        box-shadow: 0 4px 20px rgba(0, 20, 92, 0.15);
+        padding-left: 15px;
+    }
+
+    .MobileBasketWrapperInput.isSticky div {
+        display: none;
     }
 }
 
