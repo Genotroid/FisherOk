@@ -520,7 +520,6 @@ SelectSelect:not(:checked) ~ .SelectItems {
     .ProductInput {
         display: inline-block;
         width: 25px;
-        z-index: 2;
     }
 
     .ProductDelete {

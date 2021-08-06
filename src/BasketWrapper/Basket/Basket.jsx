@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import axios from 'axios';
 import s from './Basket.module.css'
 import Product from './Product/Product';
 import {useStore} from '../../store/useStore';
 
 const Basket = ({city}) => {
+    const [isSticky, setIsSticky] = useState(false);
+    const mobileStickyBlockRef = useRef();
     const {state, dispatch} = useStore();
     const setModalActiveHandler = () => {
 
@@ -48,9 +50,39 @@ const Basket = ({city}) => {
 
     }
 
+    //TODO finish as method
+    const isAllChecked = () => {
+
+        if(!state.basket.grouped_items) {
+            return false;
+        }
+
+        return true;
+    }
+
+    useEffect(() => {
+        const cachedRef = mobileStickyBlockRef.current,
+            observer = new IntersectionObserver(
+                ([e]) => setIsSticky(e.intersectionRatio < 1),
+                {threshold: [1]}
+            )
+
+        observer.observe(cachedRef)
+
+        return () => observer.unobserve(cachedRef)
+    }, [])
+
     return <div className={s.Basket}>
         <div className={s.BasketProduct}>
-            <div className={s.BasketSticky}>
+            <div className={s.BasketSticky} ref={mobileStickyBlockRef}>
+                <div className={s.MobileBasketInput + (isSticky ? ` ${s.isSticky}` : '')}>
+                    <div className={s.MobileGoods}>{'Товары'}</div>
+                    <input className={s.CheckboxMein} type={'checkbox'} id={'check_all_mobile'} name={'check_all'}
+                           checked={() => isAllChecked()}/>
+                    <label htmlFor={'check_all_mobile'}>
+                        {isSticky ? `Выбрать все товары (${state.basket.item_count} шт.)` : 'Выбрать всё'}
+                    </label>
+                </div>
                 <div className={s.BasketDelivery}>
                     <div className={s.BasketDeliveryCity}>{city.departure_city_name}</div>
                     {city.selected_delivery
