@@ -11,7 +11,7 @@ const Basket = ({city}) => {
     const setModalActiveHandler = () => {
 
         axios.post(
-            'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
+            ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
             {
                 "operation": "get_available_deliveries",
                 "data": {
@@ -33,7 +33,7 @@ const Basket = ({city}) => {
 
         if (city.selected_delivery.delivery_info_type === 'points') {
             axios.post(
-                'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
+                ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
                 {
                     "operation": "get_points",
                     "data": {

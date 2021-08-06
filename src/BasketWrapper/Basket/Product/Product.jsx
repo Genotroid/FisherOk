@@ -12,7 +12,7 @@ export const Product = ({product, cityId}) => {
 
         if (newCount !== product.quantity) {
             axios.post(
-                'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
+                ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
                 {
                     "operation": "change_item_amount",
                     "data": {
@@ -35,7 +35,7 @@ export const Product = ({product, cityId}) => {
 
         if (newDepCityId !== cityId) {
             axios.post(
-                'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
+                ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
                 {
                     "operation": "change_item_departure_city",
                     "data": {
@@ -56,7 +56,7 @@ export const Product = ({product, cityId}) => {
 
     const changeCheckboxHandler = (e) => {
         axios.post(
-            'http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
+            ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/item?dev_test_key=c048db8a21f93d3dc4e6',
             {
                 "operation": "change_item_checked",
                 "data": {

@@ -58,7 +58,7 @@ const ModalAddress = ({active, setActive, changeAddressHook}) => {
             }
 
             axios.post(
-                'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery/?dev_test_key=c048db8a21f93d3dc4e6',
+                ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/delivery/?dev_test_key=c048db8a21f93d3dc4e6',
                 {
                     "operation": "change_delivery_type",
                     data:{

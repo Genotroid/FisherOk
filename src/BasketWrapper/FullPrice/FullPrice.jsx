@@ -20,7 +20,7 @@ const FullPrice = () => {
     const checkPromoCodeHandler = () => {
         setPromoCodeError(false);
         axios.post(
-            'http://devnew.lovisnami.ru:39878/api/v2/basket/promo-code?dev_test_key=c048db8a21f93d3dc4e6',
+            ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/promo-code?dev_test_key=c048db8a21f93d3dc4e6',
             {
                 "operation": "add_promo_code",
                 "data": {
@@ -42,7 +42,7 @@ const FullPrice = () => {
     const mobileCheckPromoCodeHandler = () => {
         setPromoCodeError(false);
         axios.post(
-            'http://devnew.lovisnami.ru:39878/api/v2/basket/promo-code?dev_test_key=c048db8a21f93d3dc4e6',
+            ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/promo-code?dev_test_key=c048db8a21f93d3dc4e6',
             {
                 "operation": "add_promo_code",
                 "data": {
