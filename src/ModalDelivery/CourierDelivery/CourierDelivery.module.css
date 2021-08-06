@@ -482,7 +482,7 @@
     }
 
     .OneData {
-        text-align: left;
+        text-align: right;
         width: auto;
         height: 19px;
         font-size: 12px;
@@ -493,7 +493,6 @@
     }
 
     .OnePrice {
-        width: 52px;
         height: 19px;
         font-size: 14px;
         line-height: 19px;
@@ -501,6 +500,8 @@
         order: 5;
         grid-column-start: 3;
         grid-column-end: 3;
+        width: 100%;
+        text-align: right;
     }
 
     .ModalDeliveryItem {

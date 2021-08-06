@@ -306,7 +306,7 @@
     .BasketSticky {
         height: unset;
         position: sticky;
-        top: -16px;
+        top: -1px;
         z-index: 2;
         padding-bottom: 15px;
     }
@@ -368,24 +368,24 @@
         right: 12px;
     }
 
-    .MobileBasketInput.isSticky {
+    .BasketSticky.isSticky {
+        box-shadow: 0 2px 20px rgb(0 20 92 / 15%);
+    }
+
+    .BasketSticky.isSticky .MobileBasketInput {
         background-color: white;
-        height: 32px;
         padding-left: 15px;
         display: block;
-        position: sticky;
-        top: -2px;
         z-index: 1000;
         font-family: Open Sans, sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
         line-height: 16px;
-        margin-bottom: 5px;
         color: #768790;
     }
 
-    .MobileBasketInput.isSticky div {
+    .BasketSticky.isSticky .MobileBasketInput div {
         display: none;
     }
 
@@ -393,7 +393,7 @@
         display: none;
     }
 
-    .MobileBasketInput input + label::before {
+    .BasketSticky.isSticky .MobileBasketInput input + label::before {
         content: '';
         margin-top: 6px;
         display: inline-block;

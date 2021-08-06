@@ -97,8 +97,8 @@ const Basket = ({city}) => {
 
     return <div className={s.Basket}>
         <div className={s.BasketProduct}>
-            <div className={s.BasketSticky} ref={mobileStickyBlockRef}>
-                <div className={s.MobileBasketInput + (isSticky ? ` ${s.isSticky}` : '')}>
+            <div className={s.BasketSticky + (isSticky ? ` ${s.isSticky}` : '')} ref={mobileStickyBlockRef}>
+                <div className={s.MobileBasketInput}>
                     <div className={s.MobileGoods}>{'Товары'}</div>
                     <input className={s.CheckboxMein} type={'checkbox'} id={'check_all_mobile'} name={'check_all'}
                            checked={() => isAllChecked()}/>
