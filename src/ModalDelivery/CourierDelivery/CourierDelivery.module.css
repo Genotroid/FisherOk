@@ -228,13 +228,13 @@
 }
 
 .OneImg {
-    width: 63px;
+    width: 60px;
     height: 23px;
     margin: 0 16px 8px 6px;
 }
 
 .OneImg img {
-    width: 75px;
+    width: 60px;
     object-fit: cover;
     height: 25px;
 }
