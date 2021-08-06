@@ -11,7 +11,7 @@ const Basket = ({city}) => {
     const setModalActiveHandler = () => {
 
         axios.post(
-            ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
+            ' https://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
             {
                 "operation": "get_available_deliveries",
                 "data": {
@@ -26,14 +26,14 @@ const Basket = ({city}) => {
             console.log('getDelivery error', error)
         })
 
-        if(!city.selected_delivery) {
+        if (!city.selected_delivery) {
             dispatch({type: "setCourierModalActive", data: true});
             return;
         }
 
         if (city.selected_delivery.delivery_info_type === 'points') {
             axios.post(
-                ' https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
+                ' https://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
                 {
                     "operation": "get_points",
                     "data": {
@@ -53,7 +53,7 @@ const Basket = ({city}) => {
     //TODO finish as method
     const isAllChecked = () => {
 
-        if(!state.basket.grouped_items) {
+        if (!state.basket.grouped_items) {
             return false;
         }
 
@@ -70,7 +70,30 @@ const Basket = ({city}) => {
         observer.observe(cachedRef)
 
         return () => observer.unobserve(cachedRef)
-    }, [])
+    }, []);
+
+    const getDeliveryData = () => {
+        let string = '';
+        let startDate = new Date(city.selected_delivery.shipping_delivery_interval[0]);
+        let endDate = new Date(city.selected_delivery.shipping_delivery_interval[1]);
+
+        const months = ['января', 'февраля', 'марта', 'апреля',
+            'мая', 'июня', 'июля', 'августа',
+            'сентября', 'октября', 'ноября', 'декабря'];
+
+        console.log('city', city);
+        console.log('selectedDelivery', city.selected_delivery);
+        console.log('startDate', startDate.getMonth());
+        console.log('endDate', endDate);
+
+        if (startDate.getMonth() === endDate.getMonth()) {
+            string = `${startDate.getDay()} - ${endDate.getDay()} ${months[startDate.getMonth()]}`;
+        } else {
+            string = `${startDate.getDay()} ${months[startDate.getMonth()]} - ${endDate.getDay()} ${months[endDate.getMonth()]}`;
+        }
+
+        return string;
+    }
 
     return <div className={s.Basket}>
         <div className={s.BasketProduct}>
@@ -89,7 +112,7 @@ const Basket = ({city}) => {
                         ? <div className={s.BasketChoosedDeliveryInfo}>
                             <div className={s.BasketDeliveryInfo} onClick={setModalActiveHandler}>
                                 <span className={s.BasketDeliveryDate}>
-                                    {`Поступление 27-29 июля за ${city.selected_delivery.shipping_cost} ₽`}
+                                    {`Поступление ${getDeliveryData()} за ${city.selected_delivery.shipping_cost} ₽`}
                                 </span>
                                 <div className={s.BasketDeliveryLogo}>
                                     <img src={city.selected_delivery.logo_url}/>
@@ -98,9 +121,9 @@ const Basket = ({city}) => {
                             <div className={s.BasketDeliverySubInfo}>
                                 {`Доставка ${city.selected_delivery.delivery_info_type === 'points' ? '' : 'курьером'} 
                                 ${city.selected_delivery.name}. 
-                                Адрес доставки: ${city.selected_delivery.delivery_info_type === 'points' 
-                                    ? city.selected_delivery.address 
-                                    : city.selected_delivery.client_address }`}
+                                Адрес доставки: ${city.selected_delivery.delivery_info_type === 'points'
+                                    ? city.selected_delivery.address
+                                    : city.selected_delivery.client_address}`}
                             </div>
                         </div>
                         : <div className={s.BasketChooseDeliveryInfo}

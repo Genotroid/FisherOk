@@ -85,7 +85,7 @@
     repeating-linear-gradient(to bottom, blue 0%, blue 50%, transparent 50%, transparent 100%);
 }
 
-.BasketDeliveryInfo::after, .BasketChooseDeliveryInfo::after {
+.BasketDeliveryInfo::after {
     content: "";
     position: absolute;
     top: 9px;
@@ -97,11 +97,32 @@
     background-image: url('./../img/Vector2.png');
 }
 
-.BasketChooseDeliveryInfo::after {
-    top: 6px;
+.BasketChooseDeliveryInfo:before, .BasketChooseDeliveryInfo:after {
+    position: absolute;
+    content: ' ';
+    height: 9px;
+    width: 2px;
+    background-color: #243DA1;
+    right: 9px;
+    top: 12px;
 }
 
-.BasketDeliveryInfo:hover::after, .BasketChooseDeliveryInfo:hover::after {
+.BasketChooseDeliveryInfo:hover .BasketChooseDeliveryInfo:before,
+.BasketChooseDeliveryInfo:hover .BasketChooseDeliveryInfo:after {
+    background-color: #657EE2;
+}
+
+.BasketChooseDeliveryInfo:before {
+    transform: rotate(-45deg);
+    right: 6px;
+}
+
+.BasketChooseDeliveryInfo:after {
+    transform: rotate(45deg);
+    right: 0;
+}
+
+.BasketDeliveryInfo:hover::after {
     content: "";
     position: absolute;
     background-image: url('./../img/Vector3.png');

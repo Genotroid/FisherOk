@@ -14,15 +14,14 @@ const BasketWrapper = (props) => {
     const setBasket = useCallback((data) => dispatch({type: "setBasket", data: data}), [dispatch]);
 
     const getBasketData = () => {
-        axios.get('https://cors-anywhere.herokuapp.com/http://devnew.lovisnami.ru:39878/api/v2/basket?dev_test_key=c048db8a21f93d3dc4e6')
+        axios.get('https://devnew.lovisnami.ru:39878/api/v2/basket?dev_test_key=c048db8a21f93d3dc4e6')
             .then(result => setBasket(result.data.data))
-            .catch(error => console.log('error message', error));
+            .catch(error => console.log('error get basket', error));
     }
 
     useEffect(() => {
         getBasketData();
     }, []);
-
 
     //TODO finish as method
     const isAllChecked = () => {
