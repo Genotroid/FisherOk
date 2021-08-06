@@ -100,21 +100,21 @@
 .BasketChooseDeliveryInfo:before, .BasketChooseDeliveryInfo:after {
     position: absolute;
     content: ' ';
-    height: 9px;
+    height: 8px;
     width: 2px;
     background-color: #243DA1;
     right: 9px;
     top: 12px;
 }
 
-.BasketChooseDeliveryInfo:hover .BasketChooseDeliveryInfo:before,
-.BasketChooseDeliveryInfo:hover .BasketChooseDeliveryInfo:after {
+.BasketChooseDeliveryInfo:hover:before,
+.BasketChooseDeliveryInfo:hover:after {
     background-color: #657EE2;
 }
 
 .BasketChooseDeliveryInfo:before {
     transform: rotate(-45deg);
-    right: 6px;
+    right: 4px;
 }
 
 .BasketChooseDeliveryInfo:after {

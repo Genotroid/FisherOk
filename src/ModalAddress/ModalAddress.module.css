@@ -162,12 +162,12 @@
 }
 
 .ModalContentItem:first-child {
-    width: 175px;
+    width: 184px;
 }
 
 .ModalContentItem:first-child input {
     padding-left: 15px;
-    width: 156px;
+    width: 165px;
     height: 36px;
 }
 
@@ -233,6 +233,7 @@
 
 .ModalPostChooseTKButton {
     height: 30px;
+    position: relative;
     cursor: pointer;
     width: 250px;
     border: 1px solid #ADB6D8;
@@ -246,12 +247,37 @@
     line-height: 16px;
     text-align: center;
     color: #00145C;
-    background-image: url("../BasketWrapper/img/Vector8.png");
-    background-color: white;
-    background-repeat: no-repeat, repeat;
-    background-position: left 10px top 50%, 0 0;
-    background-size: 5px auto, 100%;
     margin-top: 30px;
+}
+
+.ModalPostChooseTKButton:hover:before,
+.ModalPostChooseTKButton:hover:after {
+    background-color: #657EE2;
+}
+
+.ModalPostChooseTKButton:before, .ModalPostChooseTKButton:after {
+    position: absolute;
+    content: ' ';
+    height: 7px;
+    width: 1px;
+    background-color: #00145C;
+}
+
+.ModalPostChooseTKButton:before {
+    transform: rotate(-45deg);
+    left: 10px;
+    top: 12px;
+}
+
+.ModalPostChooseTKButton:after {
+    transform: rotate(45deg);
+    left: 10px;
+    top: 8px;
+}
+
+.ModalPostChooseTKButton:hover {
+    border: 1px solid #657EE2;
+    color: #657EE2;
 }
 
 @media screen and (max-width: 720px) {
@@ -304,7 +330,7 @@
     }
 
     .ModalContentItem:first-child > input {
-        width: 248px;
+        width: 235px;
     }
 
     .ModalContentItem:nth-child(2) {

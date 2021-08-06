@@ -506,7 +506,7 @@ SelectSelect:not(:checked) ~ .SelectItems {
     .Product {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 20px 0 20px;
+        margin: 0 20px 20px 20px;
         position: relative;
         height: 163px;
         padding-top: 15px;
@@ -674,6 +674,10 @@ SelectSelect:not(:checked) ~ .SelectItems {
 
     .CheckboxMein + label {
         margin-top: 0;
+    }
+
+    .Product:last-child {
+        margin-bottom: 0;
     }
 }
 

@@ -119,11 +119,11 @@ const Basket = ({city}) => {
                                 </div>
                             </div>
                             <div className={s.BasketDeliverySubInfo}>
-                                {`Доставка ${city.selected_delivery.delivery_info_type === 'points' ? '' : 'курьером'} 
+                                {`${city.selected_delivery.delivery_info_type === 'points' ? 'Доставка курьером' : 'Пункт выдачи'} 
                                 ${city.selected_delivery.name}. 
-                                Адрес доставки: ${city.selected_delivery.delivery_info_type === 'points'
-                                    ? city.selected_delivery.address
-                                    : city.selected_delivery.client_address}`}
+                                Адрес ${city.selected_delivery.delivery_info_type === 'points'
+                                    ? 'доставки: ' + city.selected_delivery.address
+                                    : 'пункта: ' + city.selected_delivery.client_address}`}
                             </div>
                         </div>
                         : <div className={s.BasketChooseDeliveryInfo}
