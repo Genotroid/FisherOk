@@ -509,10 +509,12 @@ SelectSelect:not(:checked) ~ .SelectItems {
         margin: 0 20px 0 20px;
         position: relative;
         height: 163px;
+        padding-top: 15px;
     }
 
     .Product:nth-child(1) {
         border-top: 1px solid rgba(173, 182, 216, 0.3);
+        padding-top: 15px;
     }
 
     .ProductInput {

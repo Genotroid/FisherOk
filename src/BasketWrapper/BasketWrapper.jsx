@@ -37,6 +37,7 @@ const BasketWrapper = (props) => {
         return () => observer.unobserve(cachedRef)
     }, [])
 
+    //TODO finish as method 
     const isAllChecked = () => {
 
         if(!state.basket.grouped_items) {

@@ -12,7 +12,11 @@ const CourierDelivery = () => {
 
     const deliveryChangeHandler = (newDelivery) => {
 
-        if (newDelivery.module_id !== state.selectedDelivery.module_id) {
+        console.log('selectedDelivery', state.selectedDelivery);
+        console.log('deliveryList', state.deliveryList);
+        console.log('newDelivery', newDelivery);
+
+        if (!state.selectedDelivery || newDelivery.module_id !== state.selectedDelivery.module_id) {
             dispatch({type: 'setSelectedDelivery', data: newDelivery});
 
             if (newDelivery.delivery_info_type === 'points') {
@@ -58,7 +62,7 @@ const CourierDelivery = () => {
                                 <div className={s.OneInput}>
                                     <input className={s.ModalDeliveryRadio} name={"delivery"}
                                            id={"input" + delivery.module_id} type={"radio"}
-                                           checked={delivery.module_id === state.selectedDelivery.module_id}
+                                           checked={state.selectedDelivery && delivery.module_id == state.selectedDelivery.module_id}
                                            onChange={() => deliveryChangeHandler(delivery)}/>
                                     <label htmlFor={"input" + delivery.module_id}>
                                         <div className={s.OneImg}>
@@ -74,7 +78,7 @@ const CourierDelivery = () => {
                                             </span>
                                         </div>
                                         <div className={s.OneData}>
-                                            {`${delivery.shipping_deliveries_days} (24-26 июля)`}
+                                                {`${delivery.shipping_deliveries_days} (24-26 июля)`}
                                         </div>
                                         <div className={s.OnePrice}>
                                             {`${delivery.shipping_cost.toLocaleString()} ₽`}

@@ -280,10 +280,11 @@
     }
 
     .BasketSticky {
-        height: 130px;
-        position: static;
+        height: unset;
+        position: sticky;
         top: -16px;
         z-index: 2;
+        padding-bottom: 15px;
     }
 
     .BasketSticky::before, .BasketSticky::after {
@@ -312,7 +313,7 @@
         height: 30px;
         width: 250px;
         color: white;
-        margin-top: 30px;
+        margin-top: 15px;
         border-radius: 3px;
     }
 

@@ -125,10 +125,6 @@
     display: none;
 }
 
-.MobileBasketWrapperInput {
-    display: none;
-}
-
 @media screen and (max-width: 1420px) {
     .BasketWrapper {
         width: 1300px;
@@ -213,24 +209,6 @@
         font-weight: 600;
         font-size: 16px;
         line-height: 22px;
-    }
-
-    .MobileBasketWrapperInput {
-        display: block;
-        position: sticky;
-        top: -2px;
-        z-index: 1000;
-    }
-
-    .MobileBasketWrapperInput.isSticky {
-        background-color: white;
-        height: 32px;
-        box-shadow: 0 4px 20px rgba(0, 20, 92, 0.15);
-        padding-left: 15px;
-    }
-
-    .MobileBasketWrapperInput.isSticky div {
-        display: none;
     }
 }
 

@@ -24,7 +24,12 @@ const Basket = ({city}) => {
             console.log('getDelivery error', error)
         })
 
-        if (city.selected_delivery.address) {
+        if(!city.selected_delivery) {
+            dispatch({type: "setCourierModalActive", data: true});
+            return;
+        }
+
+        if (city.selected_delivery.delivery_info_type === 'points') {
             axios.post(
                 'http://devnew.lovisnami.ru:39878/api/v2/basket/delivery?dev_test_key=c048db8a21f93d3dc4e6',
                 {
@@ -38,7 +43,7 @@ const Basket = ({city}) => {
 
             dispatch({type: "setPostModalActive", data: true});
         } else {
-            dispatch({type: "setCourierModalActive", data: true});
+            dispatch({type: "setAddressModalActive", data: true});
         }
 
     }
@@ -48,7 +53,7 @@ const Basket = ({city}) => {
             <div className={s.BasketSticky}>
                 <div className={s.BasketDelivery}>
                     <div className={s.BasketDeliveryCity}>{city.departure_city_name}</div>
-                    {city.selected_delivery.address
+                    {city.selected_delivery
                         ? <div className={s.BasketChoosedDeliveryInfo}>
                             <div className={s.BasketDeliveryInfo} onClick={setModalActiveHandler}>
                                 <span className={s.BasketDeliveryDate}>
@@ -59,7 +64,8 @@ const Basket = ({city}) => {
                                 </div>
                             </div>
                             <div className={s.BasketDeliverySubInfo}>
-                                {`Доставка курьером ${city.selected_delivery.name}. 
+                                {`Доставка ${city.selected_delivery.delivery_info_type === 'points' ? '' : 'курьером'} 
+                                ${city.selected_delivery.name}. 
                                 Адрес доставки: ${city.selected_delivery.address}`}
                             </div>
                         </div>
