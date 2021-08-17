@@ -218,7 +218,7 @@ const FullPrice = () => {
         <div className={s.MobileTotal}>
             <div className={s.MobileTotalPrice}>
                 <div>{`Итого ${state.basket.total_sum} ₽`}</div>
-                <div>{state.basket.promo_code.text}</div>
+                <div dangerouslySetInnerHTML={{__html: state.basket.promo_code.text}}/>
             </div>
             <button className={s.MobileTotalButton}>{'Оформить покупку'}</button>
         </div>

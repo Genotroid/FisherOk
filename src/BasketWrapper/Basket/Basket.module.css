@@ -215,6 +215,20 @@
     display: none;
 }
 
+.BasketChooseDeliveryBorder {
+    border-radius: 3px;
+    border: solid 2px red;
+    padding: 5px 20px 10px 20px;
+}
+
+.BasketChooseDeliveryBorderText {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 14px;
+    color: #ED3135;
+}
+
 @media screen and (max-width: 1280px) {
     .Basket {
         width: 686px;
@@ -408,5 +422,13 @@
         background-size: 50% 50%;
         background-color: white;
         vertical-align: text-bottom;
+    }
+
+    .BasketChooseDeliveryBorder {
+        display: none;
+    }
+
+    .BasketChooseDeliveryBorderText {
+        display: none;
     }
 }

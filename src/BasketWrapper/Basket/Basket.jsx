@@ -81,15 +81,10 @@ const Basket = ({city}) => {
             'мая', 'июня', 'июля', 'августа',
             'сентября', 'октября', 'ноября', 'декабря'];
 
-        console.log('city', city);
-        console.log('selectedDelivery', city.selected_delivery);
-        console.log('startDate', startDate.getMonth());
-        console.log('endDate', endDate);
-
         if (startDate.getMonth() === endDate.getMonth()) {
-            string = `${startDate.getDay()} - ${endDate.getDay()} ${months[startDate.getMonth()]}`;
+            string = `${startDate.getDate()} - ${endDate.getDate()} ${months[startDate.getMonth()]}`;
         } else {
-            string = `${startDate.getDay()} ${months[startDate.getMonth()]} - ${endDate.getDay()} ${months[endDate.getMonth()]}`;
+            string = `${startDate.getDate()} ${months[startDate.getMonth()]} - ${endDate.getDate()} ${months[endDate.getMonth()]}`;
         }
 
         return string;
@@ -126,9 +121,14 @@ const Basket = ({city}) => {
                                     : 'пункта: ' + city.selected_delivery.client_address}`}
                             </div>
                         </div>
-                        : <div className={s.BasketChooseDeliveryInfo}
-                               onClick={setModalActiveHandler}>
-                            <span className={s.BasketDeliveryDate}>{'Выбрать тип доставки'}</span>
+                        : <div>
+                            <span className={s.BasketChooseDeliveryBorderText}>Выберите тип доставки</span>
+                            <div className={s.BasketChooseDeliveryBorder}>
+                                <div className={s.BasketChooseDeliveryInfo}
+                                     onClick={setModalActiveHandler}>
+                                    <span className={s.BasketDeliveryDate}>{'Выбрать тип доставки'}</span>
+                                </div>
+                            </div>
                         </div>
                     }
                 </div>
