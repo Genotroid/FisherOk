@@ -267,7 +267,7 @@
 
     .BasketDelivery {
         display: block;
-        padding: 9px 0 8px 19px;
+        padding: 9px 20px 8px 20px;
     }
 
     .BasketContent {
@@ -348,9 +348,7 @@
     .BasketChooseDeliveryInfo {
         background: #243DA1;
         height: 30px;
-        width: 250px;
         color: white;
-        margin-top: 15px;
         border-radius: 3px;
     }
 
@@ -425,11 +423,6 @@
     }
 
     .BasketChooseDeliveryBorder {
-        border: none;
-        padding: 0;
+        padding: 7px;
     }
-
-    .BasketChooseDeliveryBorderText {
-        display: none;
-    }   
 }
