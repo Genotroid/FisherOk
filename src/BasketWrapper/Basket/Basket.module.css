@@ -201,14 +201,11 @@
     font-size: 11px;
     line-height: 14px;
     color: #848DAF;
+    max-width: fit-content;
 }
 
 .ProductContainer {
     margin-top: 10px;
-}
-
-.BasketChoosedDeliveryInfo {
-    width: 310px;
 }
 
 .MobileBasketInput {
@@ -258,6 +255,7 @@
         font-size: 10px;
         line-height: 12px;
         width: 250px;
+        max-width: unset;
     }
 
     .Basket:last-child {
