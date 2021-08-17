@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/FisherOk/static/css/main.311a8bc9.chunk.css",
-    "main.js": "/FisherOk/static/js/main.ccd39aaa.chunk.js",
-    "main.js.map": "/FisherOk/static/js/main.ccd39aaa.chunk.js.map",
+    "main.css": "/FisherOk/static/css/main.5b517d28.chunk.css",
+    "main.js": "/FisherOk/static/js/main.1db361a6.chunk.js",
+    "main.js.map": "/FisherOk/static/js/main.1db361a6.chunk.js.map",
     "runtime-main.js": "/FisherOk/static/js/runtime-main.bad15eb9.js",
     "runtime-main.js.map": "/FisherOk/static/js/runtime-main.bad15eb9.js.map",
     "static/js/2.bf34a458.chunk.js": "/FisherOk/static/js/2.bf34a458.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.145597ef.chunk.js": "/FisherOk/static/js/3.145597ef.chunk.js",
     "static/js/3.145597ef.chunk.js.map": "/FisherOk/static/js/3.145597ef.chunk.js.map",
     "index.html": "/FisherOk/index.html",
-    "static/css/main.311a8bc9.chunk.css.map": "/FisherOk/static/css/main.311a8bc9.chunk.css.map",
+    "static/css/main.5b517d28.chunk.css.map": "/FisherOk/static/css/main.5b517d28.chunk.css.map",
     "static/js/2.bf34a458.chunk.js.LICENSE.txt": "/FisherOk/static/js/2.bf34a458.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bad15eb9.js",
     "static/js/2.bf34a458.chunk.js",
-    "static/css/main.311a8bc9.chunk.css",
-    "static/js/main.ccd39aaa.chunk.js"
+    "static/css/main.5b517d28.chunk.css",
+    "static/js/main.1db361a6.chunk.js"
   ]
 }
