@@ -425,10 +425,11 @@
     }
 
     .BasketChooseDeliveryBorder {
-        display: none;
+        border: none;
+        padding: 0;
     }
 
     .BasketChooseDeliveryBorderText {
         display: none;
-    }
+    }   
 }

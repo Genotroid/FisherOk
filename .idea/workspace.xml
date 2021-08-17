@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6fc05d6-677e-49aa-a5e1-d1253fea0269" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BasketWrapper/Basket/Basket.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/BasketWrapper/Basket/Basket.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BasketWrapper/Basket/Basket.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/BasketWrapper/Basket/Basket.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BasketWrapper/FullPrice/FullPrice.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/BasketWrapper/FullPrice/FullPrice.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="f6fc05d6-677e-49aa-a5e1-d1253fea0269" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +76,7 @@
       <workItem from="1628136336655" duration="10325000" />
       <workItem from="1628148303910" duration="19574000" />
       <workItem from="1628223076103" duration="21459000" />
-      <workItem from="1629178862586" duration="1286000" />
+      <workItem from="1629178862586" duration="2137000" />
     </task>
     <servers />
   </component>
